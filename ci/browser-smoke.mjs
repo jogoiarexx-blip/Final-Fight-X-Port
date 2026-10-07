@@ -28,20 +28,34 @@ try{
   if(boot.failedAssets?.length) throw new Error('Failed assets at boot: '+boot.failedAssets.join(', '));
   if(!boot.saveMounted) throw new Error('/save filesystem is not mounted');
 
-  // Navigate deterministically through intro/title/select using the default P1 START binding.
+  // Deterministic navigation using the actual core rules:
+  // ESC exits any intro Scene queue to Title; ENTER selects NEW GAME; ENTER confirms P1.
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(700);
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(700);
+  await page.keyboard.press('Enter');
+
   let reachedStage1=false;
-  for(let i=0;i<12&&!reachedStage1;i++){
-    await page.keyboard.press('Enter');
-    await page.waitForTimeout(650);
+  for(let i=0;i<30&&!reachedStage1;i++){
+    await page.waitForTimeout(250);
     reachedStage1=requested.some(u=>u.includes('/bgs/ff64th/64th.1/1')||u.includes('/music/otras/2.ogg'));
   }
-  await page.waitForTimeout(1500);
-  reachedStage1=reachedStage1||requested.some(u=>u.includes('/bgs/ff64th/64th.1/1')||u.includes('/music/otras/2.ogg'));
-  const stage=await snap(reachedStage1?'02-stage1':'02-after-navigation');
 
   if(!reachedStage1){
-    throw new Error('Stage 1 was not reached: no 64th.1 background/music request observed');
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(500);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(500);
+    await page.keyboard.press('Enter');
+    for(let i=0;i<20&&!reachedStage1;i++){
+      await page.waitForTimeout(250);
+      reachedStage1=requested.some(u=>u.includes('/bgs/ff64th/64th.1/1')||u.includes('/music/otras/2.ogg'));
+    }
   }
+
+  const stage=await snap(reachedStage1?'02-stage1':'02-after-navigation');
+  if(!reachedStage1) throw new Error('Stage 1 was not reached with deterministic ESC -> ENTER -> ENTER flow');
 
   // Measure the steady-state renderer after Stage 1 assets have had time to decode.
   const before=await page.evaluate(()=>({...FFXWeb.debugState().render}));
