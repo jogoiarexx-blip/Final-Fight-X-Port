@@ -56,6 +56,28 @@ try{
   if(afterState.runtimeErrors?.length) throw new Error('Runtime errors: '+afterState.runtimeErrors.join(' | '));
   if(afterState.failedAssets?.length) throw new Error('Failed assets: '+afterState.failedAssets.join(', '));
 
+  // Exercise real gameplay: walk right, attack repeatedly, trigger early Stage 1 spawns and camera movement.
+  const gameplayBefore=await page.evaluate(()=>FFXWeb.debugState());
+  await page.keyboard.down('ArrowRight');
+  for(let i=0;i<14;i++){
+    if(i%2===0) await page.keyboard.press('KeyJ');
+    if(i%5===0) await page.keyboard.press('KeyK');
+    await page.waitForTimeout(450);
+  }
+  await page.keyboard.up('ArrowRight');
+  await page.waitForTimeout(1200);
+  const gameplayAfter=await snap('04-stage1-gameplay');
+
+  const gpPresented=gameplayAfter.render.framesPresented-gameplayBefore.render.framesPresented;
+  const gpHeld=gameplayAfter.render.framesHeld-gameplayBefore.render.framesHeld;
+  const newImages=gameplayAfter.images.total-gameplayBefore.images.total;
+
+  if(gpPresented<250) throw new Error(`Gameplay renderer throughput too low: ${gpPresented} frames`);
+  if(gpHeld>Math.max(30,Math.floor(gpPresented*.20))) throw new Error(`Too many held frames during gameplay: held=${gpHeld} presented=${gpPresented}`);
+  if(newImages<1) throw new Error('Gameplay did not load any additional animation/spawn assets');
+  if(gameplayAfter.runtimeErrors?.length) throw new Error('Runtime errors during gameplay: '+gameplayAfter.runtimeErrors.join(' | '));
+  if(gameplayAfter.failedAssets?.length) throw new Error('Failed assets during gameplay: '+gameplayAfter.failedAssets.join(', '));
+
   const severeRequests=requestFailures.filter(x=>!x.failure.includes('ERR_ABORTED'));
   if(severeRequests.length) throw new Error('Network request failures: '+JSON.stringify(severeRequests.slice(0,10)));
   if(pageErrors.length) throw new Error('Page errors: '+pageErrors.join(' | '));
@@ -64,13 +86,15 @@ try{
     result:'PASS',
     boot,
     stage1:afterState,
+    gameplay:gameplayAfter,
+    gameplayDelta:{presented:gpPresented,held:gpHeld,newImages},
     stage1Observed:reachedStage1,
     stage1Requests:requested.filter(u=>u.includes('64th.1')||u.includes('/music/otras/2.ogg')).slice(-50),
     consoleErrors,
     requestFailures
   };
   fs.writeFileSync('browser-artifacts/report.json',JSON.stringify(report,null,2));
-  console.log(JSON.stringify({result:'PASS',presented,held,images:afterState.images,render:after},null,2));
+  console.log(JSON.stringify({result:'PASS',steady:{presented,held},gameplay:{presented:gpPresented,held:gpHeld,newImages},images:gameplayAfter.images,render:gameplayAfter.render},null,2));
 } catch(err){
   await snap('99-failure').catch(()=>{});
   fs.writeFileSync('browser-artifacts/failure.txt',String(err.stack||err)+'\n\nConsole:\n'+consoleErrors.join('\n')+'\n\nPageErrors:\n'+pageErrors.join('\n')+'\n\nRequestFailures:\n'+JSON.stringify(requestFailures,null,2));
