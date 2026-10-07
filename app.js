@@ -25,6 +25,8 @@
   const imageCache = new Map();
   const remapCache = new Map();
   const keys = new Uint8Array(256);
+  const keyLatchUntil = new Float64Array(256);
+  const KEY_LATCH_MS = 80;
   const keyQueue = [];
   let logicalW = 320, logicalH = 240, internalScale = 4;
   let muted = localStorage.getItem('ffx-web-muted')==='1', booted = false, pendingFullscreen = null;
@@ -129,7 +131,7 @@
   }
 
   const input = {
-    keyDown(code){ return code>=0&&code<256&&keys[code]!==0; },
+    keyDown(code){ return code>=0&&code<256&&(keys[code]!==0||performance.now()<keyLatchUntil[code]); },
     takeLastKey(){ return keyQueue.length?keyQueue.shift():-1; },
     padCodeDown(index,code){
       const gp=navigator.getGamepads?.()[index];if(!gp)return false;
@@ -184,6 +186,7 @@
       return {
         booted,logicalW,logicalH,internalScale,
         images:{total:imageCache.size,ready,pending,failed},
+        input:{latched:Array.from(keyLatchUntil).filter(t=>t>performance.now()).length,latchMs:KEY_LATCH_MS},
         failedAssets:[...failedAssets],
         runtimeErrors:[...runtimeErrors],
         saveMounted,
@@ -259,13 +262,13 @@
   };
 
   const blockKeys=new Set([37,38,39,40,32,13]);
-  addEventListener('keydown',e=>{const c=e.keyCode||e.which;if(c>=0&&c<256){if(!keys[c])keyQueue.push(c);keys[c]=1;}if(blockKeys.has(c))e.preventDefault();audio.unlock();if(pendingFullscreen!==null)FFXWeb.setFullscreen(pendingFullscreen);},{passive:false});
+  addEventListener('keydown',e=>{const c=e.keyCode||e.which;if(c>=0&&c<256){if(!keys[c])keyQueue.push(c);keys[c]=1;keyLatchUntil[c]=Math.max(keyLatchUntil[c],performance.now()+KEY_LATCH_MS);}if(blockKeys.has(c))e.preventDefault();audio.unlock();if(pendingFullscreen!==null)FFXWeb.setFullscreen(pendingFullscreen);},{passive:false});
   addEventListener('keyup',e=>{const c=e.keyCode||e.which;if(c>=0&&c<256)keys[c]=0;if(blockKeys.has(c))e.preventDefault();},{passive:false});
-  addEventListener('blur',()=>keys.fill(0));
+  addEventListener('blur',()=>{keys.fill(0);keyLatchUntil.fill(0);});
   addEventListener('pointerdown',()=>{audio.unlock();if(pendingFullscreen!==null)FFXWeb.setFullscreen(pendingFullscreen);},{once:false});
 
   document.querySelectorAll('#touch-controls [data-key]').forEach(btn=>{
-    const c=Number(btn.dataset.key);const down=e=>{e.preventDefault();try{btn.setPointerCapture(e.pointerId)}catch{}if(!keys[c])keyQueue.push(c);keys[c]=1;audio.unlock();};const up=e=>{e.preventDefault();keys[c]=0;try{btn.releasePointerCapture(e.pointerId)}catch{}};
+    const c=Number(btn.dataset.key);const down=e=>{e.preventDefault();try{btn.setPointerCapture(e.pointerId)}catch{}if(!keys[c])keyQueue.push(c);keys[c]=1;keyLatchUntil[c]=Math.max(keyLatchUntil[c],performance.now()+KEY_LATCH_MS);audio.unlock();};const up=e=>{e.preventDefault();keys[c]=0;try{btn.releasePointerCapture(e.pointerId)}catch{}};
     btn.addEventListener('pointerdown',down);btn.addEventListener('pointerup',up);btn.addEventListener('pointercancel',up);btn.addEventListener('lostpointercapture',up);
   });
 
