@@ -1,0 +1,30 @@
+name: Validate Final Fight X Web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app.js"
+      - "index.html"
+      - "style.css"
+      - "ffx.js"
+      - "ffx.wasm"
+      - ".github/workflows/validate-web.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: node --check app.js
+      - name: Check required runtime files
+        run: |
+          test -s index.html
+          test -s app.js
+          test -s style.css
+          test -s ffx.js
+          test -s ffx.wasm
+          test -s asset-meta.json
+          test -s webfs-config.json
