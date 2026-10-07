@@ -55,6 +55,12 @@ try{
   const reachedStage1=stage.lastPresentedPaths?.some(p=>p.includes('/bgs/ff64th/64th.1/'));
   if(!reachedStage1) throw new Error('Stage 1 background was not presented after Title -> Select flow');
 
+  await page.waitForFunction(()=>globalThis.FFXWeb?.debugState?.().engine?.modeName==='Playing',null,{timeout:10000});
+  const playingState=await snap('04b-stage1-playing');
+  if(playingState.engine.stage!==0) throw new Error(`Unexpected stage index: ${playingState.engine.stage}`);
+  if(playingState.engine.playerX<0||playingState.engine.playerHp<=0) throw new Error('Native player state not exposed correctly');
+  if(playingState.engine.actionCount<1||playingState.engine.spawnCount<1) throw new Error('Stage 1 authored action/spawn telemetry is empty');
+
   // Measure the steady-state renderer after Stage 1 assets have had time to decode.
   const before=await page.evaluate(()=>({...FFXWeb.debugState().render}));
   await page.waitForTimeout(4000);
@@ -87,6 +93,17 @@ try{
   if(gpPresented<250) throw new Error(`Gameplay renderer throughput too low: ${gpPresented} frames`);
   if(gpHeld>Math.max(30,Math.floor(gpPresented*.20))) throw new Error(`Too many held frames during gameplay: held=${gpHeld} presented=${gpPresented}`);
   if(newImages<1) throw new Error('Gameplay did not load any additional animation/spawn assets');
+
+  if(gameplayAfter.engine.modeName!=='Playing') throw new Error(`Engine left Playing mode unexpectedly: ${gameplayAfter.engine.modeName}`);
+  const playerDelta=gameplayAfter.engine.playerX-gameplayBefore.engine.playerX;
+  const cameraDelta=gameplayAfter.engine.camera-gameplayBefore.engine.camera;
+  const progressDelta=gameplayAfter.engine.progress-gameplayBefore.engine.progress;
+  const actionDelta=gameplayAfter.engine.nextAction-gameplayBefore.engine.nextAction;
+  if(playerDelta<8) throw new Error(`Player did not move enough: delta=${playerDelta}`);
+  if(gameplayAfter.engine.enemies<1) throw new Error('No active enemy observed during Stage 1 gameplay');
+  if(gameplayAfter.engine.nextAction<1) throw new Error('Stage 1 level action pipeline did not advance');
+  if(gameplayAfter.engine.actionCount<gameplayAfter.engine.nextAction) throw new Error('Level action telemetry became inconsistent');
+
   if(gameplayAfter.runtimeErrors?.length) throw new Error('Runtime errors during gameplay: '+gameplayAfter.runtimeErrors.join(' | '));
   if(gameplayAfter.failedAssets?.length) throw new Error('Failed assets during gameplay: '+gameplayAfter.failedAssets.join(', '));
 
@@ -99,14 +116,14 @@ try{
     boot,
     stage1:afterState,
     gameplay:gameplayAfter,
-    gameplayDelta:{presented:gpPresented,held:gpHeld,newImages},
+    gameplayDelta:{presented:gpPresented,held:gpHeld,newImages,playerDelta,cameraDelta,progressDelta,actionDelta},
     stage1Observed:reachedStage1,
     stage1Requests:requested.filter(u=>u.includes('64th.1')||u.includes('/music/otras/2.ogg')).slice(-50),
     consoleErrors,
     requestFailures
   };
   fs.writeFileSync('browser-artifacts/report.json',JSON.stringify(report,null,2));
-  console.log(JSON.stringify({result:'PASS',steady:{presented,held},gameplay:{presented:gpPresented,held:gpHeld,newImages},images:gameplayAfter.images,render:gameplayAfter.render},null,2));
+  console.log(JSON.stringify({result:'PASS',steady:{presented,held},gameplay:{presented:gpPresented,held:gpHeld,newImages,playerDelta,cameraDelta,progressDelta,actionDelta},engine:gameplayAfter.engine,images:gameplayAfter.images,render:gameplayAfter.render},null,2));
 } catch(err){
   await snap('99-failure').catch(()=>{});
   fs.writeFileSync('browser-artifacts/failure.txt',String(err.stack||err)+'\n\nConsole:\n'+consoleErrors.join('\n')+'\n\nPageErrors:\n'+pageErrors.join('\n')+'\n\nRequestFailures:\n'+JSON.stringify(requestFailures,null,2));
