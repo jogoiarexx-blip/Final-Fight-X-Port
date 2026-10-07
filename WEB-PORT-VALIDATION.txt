@@ -1,0 +1,29 @@
+Final Fight X Web v0.1 - Validation
+
+Native base:
+- Final Fight X Native v0.3.47 HiDPI UI
+- HD Scene Remaster 50 Final Audit
+
+WebAssembly:
+- Emscripten 6.0.11
+- C++ compile: PASS
+- WASM link: PASS
+- ffx.js generated: PASS
+- ffx.wasm generated: PASS
+- GitHub Actions run: 37528846803 (success)
+
+Static package:
+- JavaScript syntax (app.js): PASS
+- JavaScript syntax (ffx.js): PASS
+- JSON manifests: PASS
+- 1,519 original logical GIF assets: present
+- 1,519 HD assets: present
+- 41 OGG music files: present
+- 0 BOR music files left in web deployment: correct
+- referenced music paths checked after OpenBOR data/ normalization: PASS
+- application/wasm MIME under standard Python HTTP server: PASS
+- relative URL layout suitable for GitHub project Pages: PASS
+
+Browser automation note:
+- The execution container used for packaging has an enterprise Chromium URLBlocklist=["*"], so it cannot navigate even to localhost.
+- This is an environment policy, not a game/runtime failure. The actual C++/WASM build passed in GitHub Actions.

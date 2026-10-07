@@ -1,0 +1,32 @@
+Final Fight X Web v0.2 - Diagnostics / GitHub Pages
+
+Base:
+- Web v0.1
+- Core C++ v0.3.47 HiDPI UI
+- Scene Remaster 50
+- Emscripten/WebAssembly runtime preservado
+
+Implementado nesta etapa:
+- diagnóstico integrado na própria página;
+- verificação de WASM, Canvas, WebAudio, Gamepad, Fullscreen e IndexedDB;
+- validação de configs essenciais (levels/models/menu/64th.1);
+- validação de assets essenciais de menu e Stage 1;
+- validação de áudio OGG;
+- teste de leitura/escrita no filesystem /save;
+- captura de erros JS/WASM;
+- botão VOLTAR no touch;
+- pointer capture para multitouch;
+- persistência da preferência de mute;
+- sync adicional de save em pagehide;
+- service worker para o núcleo do app;
+- URL ?diagnostics=1 para teste automático após deploy.
+
+Esta etapa não altera:
+- lógica de combate;
+- campanha;
+- colisões;
+- câmera;
+- personagens;
+- 1.519 texturas HD;
+- Scene Remaster 50;
+- ffx.js / ffx.wasm.

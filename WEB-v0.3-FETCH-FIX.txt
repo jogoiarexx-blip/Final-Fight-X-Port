@@ -1,0 +1,23 @@
+Final Fight X Web v0.3 - HTTP / Fetch Fix
+
+Sintoma observado:
+- imagens: OK
+- asset-meta/webfs/WASM: Failed to fetch
+- OGG: Failed to fetch
+- core WASM: não iniciou
+- /save: não montou
+
+Diagnóstico:
+Esse conjunto é compatível com index.html aberto diretamente por file://.
+Imagens <img> podem abrir localmente, enquanto fetch(), WASM e Web Audio por arquivo são bloqueados/restritos.
+
+Correções:
+- detecção explícita de file://;
+- engine só é carregado em HTTP/HTTPS;
+- carregamento dinâmico de ffx.js;
+- locateFile() baseado em document.baseURI;
+- diagnóstico de cada recurso separadamente;
+- áudio diagnosticado sem Range;
+- limpeza/desregistro do service worker/cache da v0.2;
+- INICIAR-LOCAL.bat via Python http.server;
+- assets, core WASM, campanha e Scene Remaster 50 inalterados.

@@ -1,0 +1,9 @@
+{
+  "name": "Final Fight X Web v0.3",
+  "short_name": "Final Fight X",
+  "start_url": "./",
+  "display": "fullscreen",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "description": "Port WebAssembly do Final Fight X com correção HTTP/fetch e diagnóstico integrado."
+}

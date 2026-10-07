@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#09090b">
+  <title>Final Fight X — Web Port v0.3</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="game-shell" aria-label="Final Fight X">
+      <canvas id="game-canvas" width="1280" height="960" tabindex="0"></canvas>
+      <div id="scanlines" aria-hidden="true"></div>
+      <div id="boot" class="overlay">
+        <div class="boot-card">
+          <div class="brand">FINAL FIGHT X</div>
+          <div id="boot-status">Carregando WebAssembly…</div>
+          <div class="progress"><i id="boot-bar"></i></div>
+          <small>Web Port • Canvas + WebAssembly</small>
+        </div>
+      </div>
+      <div id="rotate" class="overlay rotate-message">Gire o celular para o modo paisagem.</div>
+
+
+      <div id="diag-panel" class="diag-panel" hidden>
+        <div class="diag-card">
+          <div class="diag-head">
+            <strong>Diagnóstico Final Fight X Web</strong>
+            <button id="diag-close" type="button" aria-label="Fechar">×</button>
+          </div>
+          <div id="diag-summary">Aguardando diagnóstico…</div>
+          <pre id="diag-output"></pre>
+          <button id="diag-run" type="button">Executar novamente</button>
+        </div>
+      </div>
+
+      <div id="touch-controls" aria-hidden="true">
+        <div class="dpad">
+          <button data-key="38">▲</button>
+          <button data-key="37">◀</button>
+          <button data-key="40">▼</button>
+          <button data-key="39">▶</button>
+        </div>
+        <div class="actions">
+          <button data-key="74">A</button>
+          <button data-key="73">A2</button>
+          <button data-key="75">PULO</button>
+          <button data-key="76">ESP</button>
+          <button data-key="13">START</button>
+          <button data-key="27">VOLTAR</button>
+        </div>
+      </div>
+    </section>
+    <nav class="toolbar">
+      <button id="fullscreen-btn" type="button">Tela cheia</button>
+      <button id="mute-btn" type="button">Som</button>
+      <button id="diag-btn" type="button">Diagnóstico</button>
+      <span id="runtime-state">Inicializando…</span>
+    </nav>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
