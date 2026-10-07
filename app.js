@@ -24,13 +24,19 @@
 
   const imageCache = new Map();
   const remapCache = new Map();
+  const prefetchQueue = [];
+  const prefetchQueued = new Set();
+  const prefetchedPaths = new Set();
+  const assetDirIndex = new Map();
+  let prefetchActive = 0, prefetchIndexedCount = 0, hdTexturesEnabled = true;
+  const PREFETCH_CONCURRENCY = 4, PREFETCH_NEIGHBORS = 20, PREFETCH_BUDGET = 160;
   const keys = new Uint8Array(256);
   const keyLatchUntil = new Float64Array(256);
   const KEY_LATCH_MS = 80;
   const keyQueue = [];
   let logicalW = 320, logicalH = 240, internalScale = 4;
   let muted = localStorage.getItem('ffx-web-muted')==='1', booted = false, pendingFullscreen = null;
-  const renderMetrics={framesBegun:0,framesPresented:0,framesHeld:0,pendingDraws:0,lastFramePending:0,maxFramePending:0,lastPresentAt:0};
+  const renderMetrics={framesBegun:0,framesPresented:0,framesHeld:0,pendingDraws:0,lastFramePending:0,maxFramePending:0,lastPresentAt:0,prefetchBatches:0};
   let framePendingDraws=0;
   const runtimeErrors=[];
   const failedAssets=new Set();
@@ -78,7 +84,72 @@
     return true;
   }
 
-  function ensureImage(path){
+  function logicalAssetPath(path){
+    if(path.startsWith('assets/data_hd/')&&path.endsWith('.png'))return path.slice('assets/data_hd/'.length,-4)+'.gif';
+    if(path.startsWith('assets/data/'))return path.slice('assets/data/'.length);
+    return null;
+  }
+
+  function physicalAssetPath(logical,useHd){
+    if(useHd&&logical.endsWith('.gif'))return 'assets/data_hd/'+logical.slice(0,-4)+'.png';
+    return 'assets/data/'+logical;
+  }
+
+  function refreshAssetDirIndex(){
+    const meta=window.FFXWeb?.assetMeta;
+    if(!meta)return;
+    const count=Object.keys(meta).length;
+    if(count===prefetchIndexedCount)return;
+    assetDirIndex.clear();
+    for(const p of Object.keys(meta)){
+      const cut=p.lastIndexOf('/');
+      if(cut<0)continue;
+      const dir=p.slice(0,cut);
+      let arr=assetDirIndex.get(dir);
+      if(!arr){arr=[];assetDirIndex.set(dir,arr);}
+      arr.push(p);
+    }
+    for(const arr of assetDirIndex.values())arr.sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+    prefetchIndexedCount=count;
+  }
+
+  function pumpPrefetch(){
+    while(prefetchActive<PREFETCH_CONCURRENCY&&prefetchQueue.length){
+      const p=prefetchQueue.shift();
+      prefetchQueued.delete(p);
+      if(imageCache.has(p))continue;
+      prefetchActive++;
+      const rec=ensureImage(p,false);
+      Promise.resolve(rec?.promise).finally(()=>{prefetchActive--;pumpPrefetch();});
+    }
+  }
+
+  function scheduleNeighborPrefetch(path){
+    if(prefetchedPaths.size>=PREFETCH_BUDGET)return;
+    refreshAssetDirIndex();
+    const logical=logicalAssetPath(path);
+    if(!logical)return;
+    const cut=logical.lastIndexOf('/');
+    if(cut<0)return;
+    const dir=logical.slice(0,cut),arr=assetDirIndex.get(dir);
+    if(!arr||arr.length<2)return;
+    const idx=Math.max(0,arr.indexOf(logical));
+    const half=Math.floor(PREFETCH_NEIGHBORS/2);
+    const start=Math.max(0,Math.min(idx-half,Math.max(0,arr.length-PREFETCH_NEIGHBORS)));
+    for(const logicalNeighbor of arr.slice(start,start+PREFETCH_NEIGHBORS)){
+      if(prefetchedPaths.size>=PREFETCH_BUDGET)break;
+      const p=physicalAssetPath(logicalNeighbor,path.startsWith('assets/data_hd/'));
+      if(p===path||imageCache.has(p)||prefetchQueued.has(p))continue;
+      prefetchQueued.add(p);prefetchedPaths.add(p);prefetchQueue.push(p);
+    }
+    if(prefetchQueue.length){
+      renderMetrics.prefetchBatches++;
+      if('requestIdleCallback' in window)requestIdleCallback(()=>pumpPrefetch(),{timeout:120});
+      else setTimeout(pumpPrefetch,0);
+    }
+  }
+
+  function ensureImage(path,prefetchNeighbors=true){
     if(!path) return null;
     let rec=imageCache.get(path);
     if(rec) return rec;
@@ -98,6 +169,7 @@
     img.decoding='async';
     img.src=path;
     imageCache.set(path,rec);
+    if(prefetchNeighbors)scheduleNeighborPrefetch(path);
     return rec;
   }
 
@@ -185,7 +257,7 @@
       try{saveMounted=!!(window.FS&&FS.analyzePath('/save').exists);}catch{}
       return {
         booted,logicalW,logicalH,internalScale,
-        images:{total:imageCache.size,ready,pending,failed},
+        images:{total:imageCache.size,ready,pending,failed,prefetched:prefetchedPaths.size,prefetchQueued:prefetchQueue.length,prefetchActive},
         input:{latched:Array.from(keyLatchUntil).filter(t=>t>performance.now()).length,latchMs:KEY_LATCH_MS},
         failedAssets:[...failedAssets],
         runtimeErrors:[...runtimeErrors],
@@ -244,7 +316,7 @@
       frameCtx.restore();
     },
     text(s,x,y,size,r,g,b,a,center,centerX,width){frameCtx.save();frameCtx.globalAlpha=a;frameCtx.fillStyle=rgba(r,g,b,1);frameCtx.font=`600 ${Math.max(4,size)}px "Arial Narrow","Roboto Condensed",Arial,sans-serif`;frameCtx.textBaseline='top';frameCtx.textAlign=center?'center':'left';let tx=x;if(center)tx=width>0?centerX:logicalW/2;frameCtx.fillText(s,tx,y,width>0?width:undefined);frameCtx.restore();},
-    configure(wide,hd){resizeCanvas(wide?426:320,240);},
+    configure(wide,hd){hdTexturesEnabled=!!hd;resizeCanvas(wide?426:320,240);},
     onNativeResize(){},
     async setFullscreen(enabled){
       pendingFullscreen=!!enabled;
