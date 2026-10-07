@@ -1,0 +1,171 @@
+name: Import Final Fight X Web Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/import-final-fight-x-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-assets:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_REPO: "https://github.com/jogoiarexx-blip/Ports-para-pc.git"
+      SOURCE_FOLDER: "Final-Fight-X-Native-Portable-Windows-x64-v0.3.47-HD-Scene-Remaster-50-Final-Audit-HiDPI-UI"
+      ARCHIVE_BASE: "Final-Fight-X-Native-Portable-Windows-x64-v0.3.47-HD-Scene-Remaster-50-Final-Audit-HiDPI-UI"
+    steps:
+      - name: Checkout Final-Fight-X-Port
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Install extraction and audio tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full ffmpeg rsync
+
+      - name: Sparse-clone Scene Remaster 50 source archive
+        run: |
+          set -euxo pipefail
+          SRC="$RUNNER_TEMP/ports-source"
+          git clone --depth 1 --filter=blob:none --sparse "$SOURCE_REPO" "$SRC"
+          git -C "$SRC" sparse-checkout set "$SOURCE_FOLDER"
+          ls -lh "$SRC/$SOURCE_FOLDER"
+
+          for n in 01 02 03 04 05 06; do
+            test -s "$SRC/$SOURCE_FOLDER/$ARCHIVE_BASE.z$n"
+          done
+          test -s "$SRC/$SOURCE_FOLDER/$ARCHIVE_BASE.zip"
+
+          echo "SOURCE_ARCHIVE_DIR=$SRC/$SOURCE_FOLDER" >> "$GITHUB_ENV"
+
+      - name: Extract native Remaster 50 package
+        run: |
+          set -euxo pipefail
+          DEST="$RUNNER_TEMP/remaster50"
+          mkdir -p "$DEST"
+          7z x "$SOURCE_ARCHIVE_DIR/$ARCHIVE_BASE.zip" -o"$DEST" -y
+
+          DATA_DIR="$(find "$DEST" -type d -path '*/assets/data' -print -quit)"
+          test -n "$DATA_DIR"
+          ASSETS_DIR="$(dirname "$DATA_DIR")"
+          test -d "$ASSETS_DIR/data"
+          test -d "$ASSETS_DIR/data_hd"
+
+          echo "NATIVE_ASSETS=$ASSETS_DIR" >> "$GITHUB_ENV"
+          echo "Native assets: $ASSETS_DIR"
+          find "$ASSETS_DIR/data" -type f | wc -l
+          find "$ASSETS_DIR/data_hd" -type f | wc -l
+
+      - name: Replace incomplete web assets with complete set
+        run: |
+          set -euxo pipefail
+          rm -rf assets
+          mkdir -p assets
+          rsync -a "$NATIVE_ASSETS/data/" assets/data/
+          rsync -a "$NATIVE_ASSETS/data_hd/" assets/data_hd/
+
+      - name: Convert OpenBOR music to browser OGG
+        shell: bash
+        run: |
+          set -euo pipefail
+          before="$(find assets/data/music -type f -iname '*.bor' | wc -l)"
+          echo "BOR tracks found: $before"
+          test "$before" -ge 40
+
+          converted=0
+          while IFS= read -r -d '' src; do
+            dst="${src%.*}.ogg"
+            ffmpeg -nostdin -hide_banner -loglevel error -y -i "$src" -vn -c:a libvorbis -q:a 5 "$dst"
+            test -s "$dst"
+            rm -f "$src"
+            converted=$((converted+1))
+          done < <(find assets/data/music -type f -iname '*.bor' -print0)
+
+          echo "Converted: $converted"
+          test "$converted" -eq "$before"
+          test "$(find assets/data/music -type f -iname '*.bor' | wc -l)" -eq 0
+          test "$(find assets/data/music -type f -iname '*.ogg' | wc -l)" -ge 40
+
+      - name: Validate every image required by the web manifest
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, sys, hashlib
+          root = pathlib.Path('.')
+          manifest = json.loads((root/'assets-manifest.json').read_text(encoding='utf-8'))
+          required = []
+          for im in manifest.get('images', []):
+              required.extend([im['base'], im['hd']])
+          required = sorted(set(required))
+          missing = [p for p in required if not (root/p).is_file()]
+          empty = [p for p in required if (root/p).is_file() and (root/p).stat().st_size == 0]
+          base = [p for p in required if p.startswith('assets/data/')]
+          hd = [p for p in required if p.startswith('assets/data_hd/')]
+          ogg = list((root/'assets/data/music').rglob('*.ogg'))
+          wav = list((root/'assets/data').rglob('*.wav'))
+
+          print('manifest image entries:', manifest.get('count'))
+          print('required unique files:', len(required))
+          print('base images:', len(base))
+          print('HD images:', len(hd))
+          print('OGG tracks:', len(ogg))
+          print('WAV/SFX:', len(wav))
+          print('missing:', len(missing))
+          print('empty:', len(empty))
+
+          if missing:
+              print('First missing files:')
+              print('\n'.join(missing[:50]))
+              sys.exit(2)
+          if empty:
+              print('Empty files:')
+              print('\n'.join(empty[:50]))
+              sys.exit(3)
+          if manifest.get('count') != 1519:
+              raise SystemExit('Unexpected manifest image count')
+          if len(required) < 3000:
+              raise SystemExit('Required image set is unexpectedly small')
+          if len(ogg) < 40:
+              raise SystemExit('Browser music conversion incomplete')
+
+          status = f"""Final Fight X Port - Asset Publication Status
+
+          Source: Ports-para-pc / Scene Remaster 50 Final Audit
+          Manifest images: {manifest.get('count')}
+          Required base+HD image files: {len(required)}
+          Missing required images: 0
+          Empty required images: 0
+          Browser OGG tracks: {len(ogg)}
+          WAV/SFX files: {len(wav)}
+          Original BOR tracks left: 0
+
+          Result: COMPLETE
+          """
+          (root/'ASSET-PUBLISH-STATUS.txt').write_text(status, encoding='utf-8')
+          PY
+
+      - name: Commit complete assets to main
+        run: |
+          set -euxo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A assets ASSET-PUBLISH-STATUS.txt
+          if git diff --cached --quiet; then
+            echo "Assets already complete; nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "Publish complete Final Fight X Web assets"
+          git push origin main
+
+      - name: Final repository summary
+        run: |
+          echo "Assets published successfully."
+          echo "Files under assets/: $(find assets -type f | wc -l)"
+          du -sh assets
