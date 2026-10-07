@@ -40,7 +40,7 @@
   let framePendingDraws=0;
   let framePaths=new Set(),lastPresentedPaths=[];
   const engineModeNames=['Scene','StageComplete','Title','Options','Graphics','Controls','Pause','Select','Loading','Playing','Continue','GameOver','Finished'];
-  let engineDebug={mode:-1,modeName:'Unknown',stage:-1,camera:0,progress:0,actors:0,enemies:0,playerX:-1,playerHp:-1,nextSpawn:0,spawnCount:0};
+  let engineDebug={mode:-1,modeName:'Unknown',stage:-1,camera:0,progress:0,actors:0,enemies:0,playerX:-1,playerHp:-1,nextAction:0,actionCount:0,spawnCount:0,waiting:false};
   const runtimeErrors=[];
   const failedAssets=new Set();
   const requiredConfigFiles=['levels.txt','models.txt','menu.txt','levels/ff64th/64th.1.txt'];
