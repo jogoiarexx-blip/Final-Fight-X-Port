@@ -28,39 +28,34 @@ try{
   if(boot.failedAssets?.length) throw new Error('Failed assets at boot: '+boot.failedAssets.join(', '));
   if(!boot.saveMounted) throw new Error('/save filesystem is not mounted');
 
-  // Deterministic navigation using the actual core rules:
-  // ESC exits any intro Scene queue to Title; ENTER selects NEW GAME; ENTER confirms P1.
+  const waitForPresentedPath=async(fragment,timeout=10000)=>{
+    await page.waitForFunction(
+      f=>globalThis.FFXWeb?.debugState?.().lastPresentedPaths?.some(p=>p.includes(f)),
+      fragment,{timeout}
+    );
+    return page.evaluate(()=>FFXWeb.debugState());
+  };
+
+  // Navigate by what was ACTUALLY presented, not by fixed sleeps.
+  // ESC exits intro scenes -> Title. ENTER on Title -> Select. ENTER on Select -> Stage 1.
   await page.keyboard.press('Escape');
-  await page.waitForTimeout(700);
+  await waitForPresentedPath('/bgs/title',10000);
+  await snap('02-title');
+
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(700);
+  await waitForPresentedPath('/bgs/select',10000);
+  await snap('03-select');
+
   await page.keyboard.press('Enter');
-
-  let reachedStage1=false;
-  for(let i=0;i<30&&!reachedStage1;i++){
-    await page.waitForTimeout(250);
-    reachedStage1=requested.some(u=>u.includes('/bgs/ff64th/64th.1/1')||u.includes('/music/otras/2.ogg'));
-  }
-
-  if(!reachedStage1){
-    await page.keyboard.press('Escape');
-    await page.waitForTimeout(500);
-    await page.keyboard.press('Enter');
-    await page.waitForTimeout(500);
-    await page.keyboard.press('Enter');
-    for(let i=0;i<20&&!reachedStage1;i++){
-      await page.waitForTimeout(250);
-      reachedStage1=requested.some(u=>u.includes('/bgs/ff64th/64th.1/1')||u.includes('/music/otras/2.ogg'));
-    }
-  }
-
-  const stage=await snap(reachedStage1?'02-stage1':'02-after-navigation');
-  if(!reachedStage1) throw new Error('Stage 1 was not reached with deterministic ESC -> ENTER -> ENTER flow');
+  await waitForPresentedPath('/bgs/ff64th/64th.1/',15000);
+  const stage=await snap('04-stage1');
+  const reachedStage1=stage.lastPresentedPaths?.some(p=>p.includes('/bgs/ff64th/64th.1/'));
+  if(!reachedStage1) throw new Error('Stage 1 background was not presented after Title -> Select flow');
 
   // Measure the steady-state renderer after Stage 1 assets have had time to decode.
   const before=await page.evaluate(()=>({...FFXWeb.debugState().render}));
   await page.waitForTimeout(4000);
-  const afterState=await snap('03-stage1-steady');
+  const afterState=await snap('05-stage1-steady');
   const after=afterState.render;
   const presented=after.framesPresented-before.framesPresented;
   const held=after.framesHeld-before.framesHeld;
@@ -80,7 +75,7 @@ try{
   }
   await page.keyboard.up('ArrowRight');
   await page.waitForTimeout(1200);
-  const gameplayAfter=await snap('04-stage1-gameplay');
+  const gameplayAfter=await snap('06-stage1-gameplay');
 
   const gpPresented=gameplayAfter.render.framesPresented-gameplayBefore.render.framesPresented;
   const gpHeld=gameplayAfter.render.framesHeld-gameplayBefore.render.framesHeld;
