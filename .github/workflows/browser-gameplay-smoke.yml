@@ -1,0 +1,51 @@
+name: Browser Gameplay Smoke Test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app.js"
+      - "ffx.js"
+      - "ffx.wasm"
+      - "webfs-config.json"
+      - "asset-meta.json"
+      - "assets/**"
+      - "ci/browser-smoke.mjs"
+      - ".github/workflows/browser-gameplay-smoke.yml"
+  workflow_dispatch:
+
+jobs:
+  gameplay-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare browser test
+        run: |
+          mkdir -p browser-artifacts
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Start local GitHub Pages equivalent
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >browser-artifacts/http-server.log 2>&1 &
+          echo $! > browser-artifacts/http-server.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8765/index.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+
+      - name: Run boot to Stage 1 regression
+        run: node ci/browser-smoke.mjs
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-fight-x-browser-smoke
+          path: browser-artifacts
+          if-no-files-found: warn
+          retention-days: 14
