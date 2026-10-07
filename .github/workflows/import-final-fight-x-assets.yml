@@ -70,6 +70,27 @@ jobs:
           rsync -a "$NATIVE_ASSETS/data/" assets/data/
           rsync -a "$NATIVE_ASSETS/data_hd/" assets/data_hd/
 
+      - name: Build legacy OpenBOR bor2wav converter
+        shell: bash
+        run: |
+          set -euxo pipefail
+          TOOL_SRC="$RUNNER_TEMP/openbor-bor2wav"
+          mkdir -p "$TOOL_SRC"
+          git -C "$TOOL_SRC" init
+          git -C "$TOOL_SRC" remote add origin https://github.com/sega-dreamcast/openbor.git
+          git -C "$TOOL_SRC" fetch --depth 1 origin fe8882216f9ce6b552223ddb8c8005334cb663f8
+          git -C "$TOOL_SRC" checkout --detach FETCH_HEAD
+
+          SRC="$TOOL_SRC/tools/openwav2bor/source"
+          test -s "$SRC/bor2wav.c"
+          test -s "$SRC/adpcm.c"
+          test -s "$SRC/adpcm.h"
+          test -s "$SRC/common.h"
+
+          gcc -O2 -std=c11 -I"$SRC" -o "$RUNNER_TEMP/bor2wav" "$SRC/bor2wav.c" "$SRC/adpcm.c"
+          test -x "$RUNNER_TEMP/bor2wav"
+          echo "BOR2WAV=$RUNNER_TEMP/bor2wav" >> "$GITHUB_ENV"
+
       - name: Convert OpenBOR music to browser OGG
         shell: bash
         run: |
@@ -78,12 +99,19 @@ jobs:
           echo "BOR tracks found: $before"
           test "$before" -ge 40
 
+          TMP_WAV="$RUNNER_TEMP/bor-wav"
+          mkdir -p "$TMP_WAV"
           converted=0
           while IFS= read -r -d '' src; do
+            wav="$TMP_WAV/$(printf '%04d' "$converted").wav"
             dst="${src%.*}.ogg"
-            ffmpeg -nostdin -hide_banner -loglevel error -y -i "$src" -vn -c:a libvorbis -q:a 5 "$dst"
+
+            "$BOR2WAV" "$src" "$wav" >/dev/null
+            test -s "$wav"
+            ffmpeg -nostdin -hide_banner -loglevel error -y -i "$wav" -vn -c:a libvorbis -q:a 5 "$dst"
             test -s "$dst"
-            rm -f "$src"
+
+            rm -f "$src" "$wav"
             converted=$((converted+1))
           done < <(find assets/data/music -type f -iname '*.bor' -print0)
 
