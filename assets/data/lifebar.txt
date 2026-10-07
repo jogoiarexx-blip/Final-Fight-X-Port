@@ -1,0 +1,18 @@
+blackbox 0 0 0        
+whitebox 238 238 238  
+
+color25 255 0 0
+
+color50 255 0 0
+
+color100 255 255 0
+
+color200 187 255 0
+
+color300 119 255 119
+
+color400 0 255 187
+
+color500 255 255 255
+
+#shadowcolor	0  0 0

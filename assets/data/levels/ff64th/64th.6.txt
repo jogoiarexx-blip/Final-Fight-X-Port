@@ -1,0 +1,101 @@
+#64th.6
+
+music		data/music/otras/2.bor
+background	data/bgs/ff64th/64th.6/1b.gif
+panel	        data/bgs/ff64th/64th.6/1.gif
+#frontpanel     data/bgs/ff64th/64th.6/1f.gif
+direction       right
+order           a
+
+Wall  1032  272  -145  0  40  40  144  1000
+
+spawn  barrel
+coords  925  183  
+item  curri
+at  0
+
+spawn  barrel
+coords  620  242  
+item  sushi
+at  0
+
+spawn  barrel
+coords  619  183  
+item  dollar
+at  0
+
+spawn  barrel
+coords  684  242  
+item  soft_drink_
+at  0
+
+spawn  barrel
+coords  681  183  
+item  diamond
+at  0
+
+Wait
+at  10
+
+spawn  Poison
+coords  377  229
+at  10
+
+spawn  simons
+coords  435  223
+at  10
+
+spawn  holly_wood
+coords  456  186 
+item  Knife 
+at  10
+
+spawn  el_gado
+coords  -95  229
+flip  1
+item  Knife
+at  10
+
+spawn  g.oriber
+coords  -100  184  
+flip  1
+at  10
+
+Wait
+at  330
+
+spawn  bred
+coords  512  186
+at  330
+
+spawn  simons
+coords  423  241
+at  330
+
+spawn  jake
+coords  -217  233
+flip  1
+at  330
+
+spawn  Poison
+coords  -236  189
+flip  1
+at  330
+
+Wait
+at  760
+
+spawn  andore
+coords  -250  238
+flip  1
+at  760
+
+spawn  simons
+coords  -230  183
+flip  1
+at  760
+
+spawn  g.oriber
+coords  -241  213
+flip  1
+at  760

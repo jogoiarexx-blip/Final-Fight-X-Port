@@ -1,0 +1,52 @@
+name	drumcan_
+health	1
+type	enemy
+subtype arrow
+noatflash 1
+speed   10
+noquake 1
+offscreenkill 200
+candamage  player npc enemy
+
+icon	 data/chars/misc/drumcan/icon.gif
+diesound  data/sounds/klunk.wav
+
+anim	fall
+	loop	0
+	delay	10
+	offset	32 101
+	sound	data/sounds/klunk.wav
+	frame	data/chars/misc/drumcan_/fall1.gif
+        frame	data/chars/misc/drumcan_/fall2.gif
+	frame	data/chars/misc/drumcan_/vacio.gif
+        frame	data/chars/misc/drumcan_/fall2.gif
+	frame	data/chars/misc/drumcan_/vacio.gif
+        frame	data/chars/misc/drumcan_/fall2.gif
+	frame	data/chars/misc/drumcan_/vacio.gif
+
+anim	idle
+	loop	1
+	delay	10
+	offset	31 65
+	fastattack	1
+	bbox	8 -30 46 84
+	attack	11 7 40 52 13 1 0 0 15 0
+	hitfx	data/sounds/klunk.wav
+	frame	data/chars/misc/drumcan_/1.gif
+	attack	0 0 0 0 0 0 0
+	frame	data/chars/misc/drumcan_/2.gif
+	attack	11 7 40 52 13 1 0 0 15 0
+	frame	data/chars/misc/drumcan_/3.gif
+	attack	0 0 0 0 0 0 0
+	frame	data/chars/misc/drumcan_/4.gif
+	attack	11 7 40 52 13 1 0 0 15 0
+	frame	data/chars/misc/drumcan_/5.gif
+	attack	0 0 0 0 0 0 0
+	frame	data/chars/misc/drumcan_/6.gif
+	attack	11 7 40 52 13 1 0 0 15 0
+	frame	data/chars/misc/drumcan_/7.gif
+	attack	0 0 0 0 0 0 0
+	frame	data/chars/misc/drumcan_/8.gif
+		
+#|edited by openBor Stats v 0.66
+		

@@ -1,0 +1,144 @@
+#64th.1
+
+music		data/music/otras/2.bor
+background	data/bgs/ff64th/64th.1/1b.gif
+panel	        data/bgs/ff64th/64th.1/1.gif
+#frontpanel     data/bgs/ff64th/64th.1/1f.gif
+direction       right
+#direction       both
+order           a
+
+Wall  1613  238  -85  0  60  60  85  1000
+Wall  1536  198  -50  0  76  76  50  1000
+
+######objetos con at 0
+spawn  dustbin
+coords  462  183  0
+flip  1
+at  0
+
+spawn  tel.booth
+coords  586  187
+flip  1
+at  0
+
+spawn  dustbin
+coords  418  184
+flip  1
+at  0
+
+spawn  whisky
+coords  466  182
+at  0
+
+spawn  dustbin
+coords  1088  185
+flip  1
+at  0
+
+#######################
+
+at	10
+
+spawn	j
+coords	408 200
+at	10
+
+spawn	two.p
+coords	367 182
+at	5
+
+blockade 280
+at	280
+
+spawn	j
+coords	397 190
+at	260
+
+
+spawn	dug
+coords	448 188
+at	280
+
+wait
+at 480
+
+Group	2 3
+at	480
+
+blockade 480
+at	480
+
+spawn	j
+coords	406 223
+at	480
+
+spawn	bred
+coords	404 190
+at	480
+
+spawn	axl
+flip 1
+coords	-144 187
+at	480
+
+spawn	two.p
+coords	407 188
+at	790
+
+Group	100 100
+at	790
+
+blockade 790
+at	790
+
+spawn	simons
+coords	381 199
+at	825
+
+spawn	j
+coords	-126 193
+flip  1
+at	1150
+
+#wait
+#at 1150
+
+spawn	bred
+coords	449 242
+at	1150
+
+blockade 1150
+at	1150
+
+spawn	dug
+coords	360 249
+at 1240
+
+spawn	bred
+flip 1
+coords	-82 186
+at	1240
+
+Group	2 4
+at	1240
+blockade 1240
+at	1240
+
+spawn	axl
+flip 1
+coords	-100 230
+at	1240
+
+spawn	two.p
+coords	-73 183
+at	1240
+
+spawn	simons
+coords	357 240
+at 1240
+
+spawn	j
+coords	361 249
+at	1240
+

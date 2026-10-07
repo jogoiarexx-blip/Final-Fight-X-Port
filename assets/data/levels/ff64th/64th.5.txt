@@ -1,0 +1,72 @@
+#64th.5
+
+music		data/music/otras/2.bor
+background	data/bgs/ff64th/64th.5/1b.gif
+panel	        data/bgs/ff64th/64th.5/1.gif
+frontpanel      data/bgs/ff64th/64th.5/1f.gif
+direction       right
+order           a
+
+Wall  773  271  -135  0  111  111  135  1000
+
+spawn  barrel
+coords  560  186
+at  0
+
+spawn  barrel
+coords  620  186  0
+item  pizza
+at  0
+
+Group  5  5
+at  10
+
+spawn  simons
+coords  386  226
+at  10
+
+spawn  Poison
+coords  -100  234
+flip  1
+at  10
+
+spawn  dug
+coords  -110  202
+flip  1
+at  10
+
+spawn  bred
+coords  364  184
+at  10
+
+spawn  andore
+coords  433  204
+at  10
+
+Group  5  5
+at  465
+
+spawn  dug
+coords  -280  233
+flip  1
+at  465
+
+spawn  abigail
+coords  -379  202
+flip  1
+at  465
+
+spawn  two.p
+coords  -332  240
+flip  1
+at  465
+
+spawn  Poison
+coords  -393  228
+flip  1
+at  465
+
+spawn  wong_who
+coords  -279  186
+flip  1
+at  465

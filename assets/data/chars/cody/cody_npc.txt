@@ -1,0 +1,463 @@
+name	    cody_npc
+health	    124
+speed	    10
+type	    npc
+shadow	    0
+#dust    dust
+noquake     1
+makeinv     0#el parpadeo
+playshotno  sp
+atchain     1 1 2 3 0 
+antigrab 2
+grabfinish 1
+grabback	1
+weapons     cody_pipe cody_muramasa! cody_knife cody
+icon	data/chars/cody/icon.gif
+diesound    data/sounds/cody_muerte.wav
+nolife  1
+candamage  enemy obstacle player npc 
+defense all
+aggression 100
+aimove chase
+
+animationscript data/scripts/cody_npc.c
+
+com s	freespecial
+
+palette data/chars/cody/wk1.gif
+
+#####################################################especial 
+
+anim    spawn  
+	loop	0
+	delay	13
+	offset	81 176
+	bbox	58 97 41 79
+        @cmd setglobalvar "cody_npc" getlocalvar("self")
+        @cmd suicide
+	frame	data/chars/cody/idle.gif
+
+anim	death
+	loop	0
+	offset	81 176
+	delay	60
+        landframe 2  dust
+        @cmd setglobalvar "cody_npc" NULL()
+        frame	data/chars/cody/fall1.gif
+	delay	20
+	frame	data/chars/cody/fall2.gif
+
+#####################################################
+
+
+anim	attack
+	loop	0
+	delay	4
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/a101.gif
+	delay	5
+	attack	99 96 49 24 9 0 0 0 12 0
+	frame	data/chars/cody/a102.gif
+	attack	0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/a101.gif
+		
+anim	attack2
+	loop	0
+	delay	6
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/a201.gif
+	attack2	109 109 50 29 14 0 0 0 15
+	delay	16
+	frame	data/chars/cody/a202.gif
+	delay	7
+	attack2	0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/a201.gif
+		
+anim	attack3
+	loop	0
+	delay	7
+	offset	81 176
+	bbox	58 97 41 79
+	hitfx	data/sounds/beat6.wav
+	frame	data/chars/cody/a301.gif
+	frame	data/chars/cody/a302.gif
+########hitflash flash2
+        attack	92 85 37 38 19 1 1 0 18 0
+	frame	data/chars/cody/a303.gif
+########attack	88 64 23 62 19 1 1 0 18 0
+	delay	20
+	frame	data/chars/cody/a304.gif
+	delay	8
+	attack	0 0 0 0 0 0
+	frame	data/chars/cody/a303.gif
+	frame	data/chars/cody/a302.gif
+	frame	data/chars/cody/a301.gif
+		
+anim	burn
+	loop	0
+	offset	81 176
+	delay	10
+        landframe 5  dust2
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/cody/fall2.gif
+		
+anim	fall
+        landframe 2  dust
+	loop	0
+	offset	81 176
+	delay	60
+	frame	data/chars/cody/fall1.gif
+	delay	20
+	frame	data/chars/cody/fall2.gif
+		
+anim	fall3
+        landframe 2  dust
+	loop	0
+	offset	95 176
+	delay	60
+	frame	data/chars/cody/pd02.gif
+	delay	5
+	frame	data/chars/cody/fallcontrario.gif
+		
+anim	fall4
+        landframe 2  dust
+	loop	0
+	offset	81 230
+	delay	99
+        attack	45 143 45 4 20 1 1 0 25 0
+        frame	data/chars/cody/fall1.gif
+	delay	20
+	offset	81 176
+	frame	data/chars/cody/fall2.gif
+		
+anim	freespecial
+	loop	0
+	delay	7
+	offset	81 176
+	jumpframe	1 3
+	energycost 5
+	sound	data/sounds/cody_patada_giro.wav
+	frame	data/chars/cody/ju0.gif
+	frame	data/chars/cody/ju1.gif
+	delay	8
+	frame	data/chars/cody/sp01.gif
+	frame	data/chars/cody/sp02.gif
+        hitfx	data/sounds/beat7.wav
+	attack	91 114 70 37 20 1 1 0 25 0
+	frame	data/chars/cody/sp03.gif
+	attack	0 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/sp04.gif
+        hitfx	data/sounds/beat7.wav
+	attack	15 116 69 39 20 1 1 0 25 0
+	frame	data/chars/cody/sp05.gif
+	attack	0 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/sp06.gif
+	delay	15
+	frame	data/chars/cody/ju1.gif
+	delay	9
+	frame	data/chars/cody/ju0.gif
+		
+anim	get
+	loop	0
+	offset	81 176
+	delay	20
+	frame	data/chars/cody/get.gif
+	
+anim	grab
+	loop	0
+	delay	1
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/grab.gif
+		
+anim	grabattack
+	loop	0
+	delay	25
+	offset	81 176
+	bbox	58 97 41 79
+	hitfx	data/sounds/beat3.wav
+	shock	90 111 24 40 9 0 0 0 10 0
+	frame	data/chars/cody/hold.gif
+	delay	3
+	shock	0 0 0 0 0
+	frame	data/chars/cody/grab.gif
+		
+anim	grabattack2
+	delay	25
+	offset	81 176
+	bbox	58 97 41 79
+	hitfx	data/sounds/beat3.wav
+	attack	90 111 24 40 13 1 0 0 10 0
+	frame	data/chars/cody/hold.gif
+	attack	0 0 0 0 0 0 0 0 0 0 0
+		
+anim	grabbackward
+	flipframe	0
+	offset	119 176
+	loop	0
+	bbox	0 0 0 0
+	delay	20
+	hitfx	data/sounds/silencio.wav
+	attack5	0 -200 200 400 0 0 1 1 0 0
+	frame	data/chars/cody/th1.gif
+	attack5	0 0 0 0 0 0 0 0 0 0
+	delay	1
+	frame	data/chars/cody/th1.gif
+	sound	data/sounds/guy_lanzamiento.wav
+	delay	15
+	damageonlanding	0 1
+	attack15	0 -200 200 400 20 1 1 1 0 0
+	frame	data/chars/cody/th2.gif
+	attack5	0 0 0 0 0 0 0 	0 0 0
+	frame	data/chars/cody/th2.gif
+		
+anim	grabforward
+	offset	119 176
+	loop	0
+	bbox	0 0 0 0
+	delay	20
+	hitfx	data/sounds/silencio.wav
+	attack8	0 -200 200 400 0 0 1 1 0 0
+	frame	data/chars/cody/th1.gif
+	attack8	0 0 0 0 0 0 0 0 0 0
+	delay	1
+	frame	data/chars/cody/th1.gif
+	sound	data/sounds/guy_lanzamiento.wav
+	delay	15
+	damageonlanding	0 1
+	attack18	0 -200 200 400 20 1 1 1 0 0
+	frame	data/chars/cody/th2.gif
+	attack8	0 0 0 0 0 0 0 	0 0 0
+	frame	data/chars/cody/th2.gif
+		
+anim	idle
+	loop	1
+	delay	13
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/idle.gif
+
+anim    jumpland		
+	loop	0
+	delay	3
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/ju0.gif
+
+anim    jump
+	loop	0
+	delay	1
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/ju0.gif
+	delay	18
+	frame	data/chars/cody/ju1.gif
+        delay	25
+        frame	data/chars/cody/ju7.gif
+        delay	18
+        frame	data/chars/cody/ju1.gif
+
+anim    forwardjump
+	loop	0
+	delay	1
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/ju0.gif
+	delay	18
+	frame	data/chars/cody/ju1.gif
+	offset	82 156
+	delay	10
+	frame	data/chars/cody/ju2.gif
+	frame	data/chars/cody/ju3.gif
+	frame	data/chars/cody/ju4.gif
+	frame	data/chars/cody/ju5.gif
+	frame	data/chars/cody/ju6.gif
+	offset	81 176
+	frame	data/chars/cody/ju1.gif
+		
+anim	jumpattack
+	loop	0
+	delay	7
+	offset	82 171
+	bbox	58 92 41 79
+	sound	data/sounds/cody_patada_salto.wav
+	frame	data/chars/cody/avk1.gif
+	delay	35
+        hitfx	data/sounds/beat7.wav
+	attack	87 79 35 89 10 1 0 0 25 0
+	frame	data/chars/cody/avk2.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	frame	data/chars/cody/avk1.gif
+	offset	81 176
+	bbox	61 95 41 79
+	frame	data/chars/cody/ju1.gif
+		
+anim	jumpattack2
+	loop	0
+	delay	20
+	offset	81 157
+	bbox	58 78 41 79
+	attack	77 88 30 71 9 0 0 0 0 0
+	frame	data/chars/cody/ap.gif
+		
+anim	jumpforward
+	loop	0
+	delay	7
+	offset	73 142
+	bbox	58 63 41 79
+	sound	data/sounds/cody_patada_salto.wav
+	frame	data/chars/cody/ak1.gif
+	frame	data/chars/cody/ak2.gif
+        hitfx	data/sounds/beat7.wav
+	attack	89 96 69 36 12 1 0 0 25 0
+	delay	35
+	frame	data/chars/cody/ak3.gif
+	delay	7
+	offset	82 156
+	attack	0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/ju2.gif
+	offset	81 176
+	frame	data/chars/cody/ju1.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	81 177
+	bbox	58 97 41 79
+	frame	data/chars/cody/pain1.gif
+	offset	84 177
+	frame	data/chars/cody/pain1.gif
+	offset	82 177
+	delay	30
+	frame	data/chars/cody/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	81 177
+	bbox	58 97 41 79
+	frame	data/chars/cody/pain2.gif
+	offset	84 177
+	frame	data/chars/cody/pain2.gif
+	offset	82 177
+	delay	30
+	frame	data/chars/cody/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	75 177
+	bbox	74 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/cody/pain1.gif
+	delay	15
+	offset	100 205
+	frame	data/chars/cody/paincontrario.gif
+	offset	90 210
+	frame	data/chars/cody/pd01.gif
+	delay	15
+	offset	78 182
+	frame	data/chars/cody/pd02.gif
+	bbox	74 -190 1 1
+	offset	78 177
+	frame	data/chars/cody/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	5
+	offset	110 205
+	bbox	76 -170 1 1
+	frame	data/chars/cody/pain4.gif
+	frame	data/chars/cody/pain4.gif
+	delay	30
+	frame	data/chars/cody/pain4_2.gif
+
+anim	pain5
+	loop	0
+	delay	5
+	offset	81 177
+	bbox	78 -170 1 1
+	frame	data/chars/cody/pain1.gif
+	offset	84 177
+	frame	data/chars/cody/pain1.gif
+	offset	82 177
+	delay	30
+	frame	data/chars/cody/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	20
+	offset	81 177
+	bbox	78 -170 1 1
+	frame	data/chars/cody/pain2.gif
+	delay	20
+	frame	data/chars/cody/pain1.gif
+		
+anim	rise
+	loop	0
+	offset	81 176
+	delay	20
+	frame	data/chars/cody/fall2.gif
+	delay	12
+	frame	data/chars/cody/rise.gif
+	frame	data/chars/cody/fall2.gif
+	frame	data/chars/cody/rise.gif
+	frame	data/chars/cody/get.gif
+		
+anim	rise3
+	loop	0
+	offset	81 176
+	delay	20
+	flipframe	
+	frame	data/chars/cody/fall2.gif
+	delay	12
+	frame	data/chars/cody/rise.gif
+	frame	data/chars/cody/fall2.gif
+	frame	data/chars/cody/rise.gif
+	frame	data/chars/cody/get.gif
+			
+anim	walk
+	loop	1
+	delay	6
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/wk1.gif
+	offset	81 175
+	frame	data/chars/cody/wk2.gif
+	offset	81 174
+	frame	data/chars/cody/wk3.gif
+	offset	81 174
+	frame	data/chars/cody/wk4.gif
+	offset	81 174
+	frame	data/chars/cody/wk5.gif
+	offset	81 175
+	frame	data/chars/cody/wk6.gif
+	offset	81 176
+	frame	data/chars/cody/wk7.gif
+	offset	81 175
+	frame	data/chars/cody/wk8.gif
+	offset	81 174
+	frame	data/chars/cody/wk9.gif
+	offset	81 174
+	frame	data/chars/cody/wk10.gif
+	offset	81 175
+	frame	data/chars/cody/wk11.gif
+	offset	81 175
+	frame	data/chars/cody/wk12.gif
+		
+anim	walkoff
+	loop	0
+	offset	81 176
+	bbox	58 97 41 79
+	delay	10
+	frame	data/chars/cody/ju1.gif
+	frame	data/chars/cody/ju1.gif
+		
+#|edited by openBor Stats v 0.60
+		

@@ -1,0 +1,190 @@
+name	    cody_pipe
+type	    none
+shadow	    0
+noquake     1
+makeinv     1
+playshotno  sp
+atchain     1 1 1 1 1
+antigrab 2
+grabback	1
+icon	    data/chars/cody/icon.gif
+diesound    data/sounds/cody_muerte.wav
+
+com s	freespecial
+
+anim	freespecial
+	loop	0
+	delay	7
+	offset	81 176
+	jumpframe	1 3
+	energycost 5
+	sound	data/sounds/cody_patada_giro.wav
+	frame	data/chars/cody/ju0.gif
+	frame	data/chars/cody/ju1.gif
+	delay	8
+	frame	data/chars/cody/sp01.gif
+	frame	data/chars/cody/sp02.gif
+        hitfx	data/sounds/beat7.wav
+	attack	91 114 70 37 20 1 1 0 25 0
+	frame	data/chars/cody/sp03.gif
+	attack	0 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/sp04.gif
+        hitfx	data/sounds/beat7.wav
+	attack	15 116 69 39 20 1 1 0 25 0
+	frame	data/chars/cody/sp05.gif
+	attack	0 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/sp06.gif
+	delay	15
+	frame	data/chars/cody/ju1.gif
+	delay	9
+	frame	data/chars/cody/ju0.gif
+
+anim	attack
+	loop	0
+	delay	13
+	offset	81 176
+	bbox	58 97 41 79
+sound	data/sounds/knife.wav
+	frame	data/chars/cody/cody_pipe/a201.gif
+	offset	63 176
+	delay	26
+hitfx	data/sounds/pipe.wav
+	attack	95 113 105 44 24 1 0 0 25 0
+	frame	data/chars/cody/cody_pipe/a202.gif
+	attack	0 0 0 0
+		
+anim	get
+	loop	0
+	offset	81 176
+	delay	20
+	frame	data/chars/cody/cody_pipe/get.gif
+		
+anim	idle
+	loop	1
+	delay	13
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/cody_pipe/idle.gif
+
+anim    jumpland		
+	loop	0
+	delay	3
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/cody_pipe/ju0.gif
+
+anim    jump
+	loop	0
+	delay	1
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/cody_pipe/ju0.gif
+	delay	18
+	frame	data/chars/cody/cody_pipe/ju1.gif
+        delay	25
+        frame	data/chars/cody/cody_pipe/ju7.gif
+        delay	18
+        frame	data/chars/cody/cody_pipe/ju1.gif
+		
+anim	forwardjump
+	loop	0
+	delay	1
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/cody_pipe/ju0.gif
+	delay	18
+	frame	data/chars/cody/cody_pipe/ju1.gif
+	offset	82 156
+	delay	10
+	frame	data/chars/cody/cody_pipe/ju2.gif
+	frame	data/chars/cody/cody_pipe/ju3.gif
+	frame	data/chars/cody/cody_pipe/ju4.gif
+	frame	data/chars/cody/cody_pipe/ju5.gif
+	frame	data/chars/cody/cody_pipe/ju6.gif
+	offset	81 176
+	frame	data/chars/cody/cody_pipe/ju1.gif
+		
+anim	jumpattack
+	loop	0
+	delay	7
+	offset	82 171
+	bbox	58 92 41 79
+	sound	data/sounds/cody_patada_salto.wav
+	frame	data/chars/cody/cody_pipe/avk1.gif
+	delay	35
+hitfx	data/sounds/beat7.wav
+	attack	87 79 35 89 10 1 0 0 25 0
+	frame	data/chars/cody/cody_pipe/avk2.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	frame	data/chars/cody/cody_pipe/avk1.gif
+	offset	81 176
+	bbox	61 95 41 79
+	frame	data/chars/cody/cody_pipe/ju1.gif
+		
+anim	jumpattack2
+	loop	0
+	delay	20
+	offset	81 157
+	bbox	58 78 41 79
+	attack	77 88 30 71 9 0 0 0 0 0
+	frame	data/chars/cody/cody_pipe/ap.gif
+		
+anim	jumpforward
+	loop	0
+	delay	7
+	offset	73 142
+	bbox	58 63 41 79
+	sound	data/sounds/cody_patada_salto.wav
+	frame	data/chars/cody/cody_pipe/ak1.gif
+	frame	data/chars/cody/cody_pipe/ak2.gif
+        hitfx	data/sounds/beat7.wav
+	attack	89 96 69 36 12 1 0 0 25 0
+	delay	35
+	frame	data/chars/cody/cody_pipe/ak3.gif
+	delay	7
+	offset	82 156
+	attack	0 0 0 0 0 0 0 0 0
+	frame	data/chars/cody/cody_pipe/ju2.gif
+	offset	81 176
+	frame	data/chars/cody/cody_pipe/ju1.gif
+		
+anim	walk
+	loop	1
+	delay	6
+	offset	81 176
+	bbox	58 97 41 79
+	frame	data/chars/cody/cody_pipe/wk1.gif
+	offset	81 175
+	frame	data/chars/cody/cody_pipe/wk2.gif
+	offset	81 174
+	frame	data/chars/cody/cody_pipe/wk3.gif
+	offset	81 174
+	frame	data/chars/cody/cody_pipe/wk4.gif
+	offset	81 174
+	frame	data/chars/cody/cody_pipe/wk5.gif
+	offset	81 175
+	frame	data/chars/cody/cody_pipe/wk6.gif
+	offset	81 176
+	frame	data/chars/cody/cody_pipe/wk7.gif
+	offset	81 175
+	frame	data/chars/cody/cody_pipe/wk8.gif
+	offset	81 174
+	frame	data/chars/cody/cody_pipe/wk9.gif
+	offset	81 174
+	frame	data/chars/cody/cody_pipe/wk10.gif
+	offset	81 175
+	frame	data/chars/cody/cody_pipe/wk11.gif
+	offset	81 175
+	frame	data/chars/cody/cody_pipe/wk12.gif
+
+anim	walkoff
+	loop	0
+	offset	81 176
+	bbox	58 97 41 79
+	delay	10
+        frame	data/chars/cody/cody_pipe/ju1.gif
+        frame	data/chars/cody/cody_pipe/ju1.gif
+		
+#|edited by openBor Stats v 0.60
+		

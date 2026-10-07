@@ -1,0 +1,86 @@
+#64th.8
+
+music		data/music/otras/8.bor
+background	data/bgs/ff64th/64th.8/1b.gif
+panel	        data/bgs/ff64th/64th.8/1.gif
+frontpanel     data/bgs/ff64th/64th.8/1f.gif
+direction       right
+order           a
+
+Wall  -65  267  -1  0  161  30  131  1000
+
+spawn  drumcan
+coords  114  178  0
+item  Pipe
+at  0
+spawn  drumcan
+coords  930  178  0
+item  barbecue
+at  0
+
+spawn  dollar
+coords  554  217
+at  0
+spawn  emerald
+coords  835  217
+at  0
+
+spawn  simons
+coords  175  167
+flip  1
+at  0
+
+spawn  dug
+coords  217  167
+at  0
+
+spawn  slash
+coords  403  183
+at  0
+
+spawn  two.p
+coords  296  167
+at  0
+
+Wait
+at  350
+
+spawn  el_gado
+coords  396  210
+item  Knife
+at  350
+
+spawn  andore
+coords  381  167
+at  350
+
+Wait
+at  890
+
+spawn  two.p
+coords  -467  214
+flip  1
+at  890
+
+spawn  wong_who
+coords  -394  170
+flip  1
+at  890
+
+spawn  bred
+coords  408  192
+at  890
+
+spawn  holly_wood__
+coords  376  201
+at  890
+
+spawn  holly_wood__
+coords  -606  209
+flip  1
+at  890
+
+spawn  g.oriber
+coords  480  203
+at  890
+

@@ -1,0 +1,20 @@
+name	emerald
+health	0
+type	item
+score	4000
+shadow	0
+
+
+icon	 data/chars/misc/point/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	8 6
+	bbox	0 0 18 11
+	frame	data/chars/misc/point/emerald1.gif
+	delay	4
+	frame	data/chars/misc/point/emerald2.gif
+		
+#|edited by openBor Stats v 0.60
+		

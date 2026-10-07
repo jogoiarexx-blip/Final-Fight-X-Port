@@ -1,0 +1,18 @@
+name	whisky
+health	10
+type	item
+shadow	0
+
+icon	 data/chars/misc/food/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	16 8
+	bbox	0 0 33 15
+	frame	data/chars/misc/food/whisky1.gif
+	delay	4
+	frame	data/chars/misc/food/whisky2.gif
+		
+#|edited by openBor Stats v 0.60
+		

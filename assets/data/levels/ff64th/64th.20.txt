@@ -1,0 +1,131 @@
+#64th.20
+
+music		data/music/otras/3.bor
+background	data/bgs/ff64th/64th.20/1b.gif
+panel	        data/bgs/ff64th/64th.20/1.gif
+#frontpanel     data/bgs/ff64th/64th.20/1f.gif
+direction       right
+bgspeed         10
+order           a
+
+Wall  1069  299  -162  0  30  30  162  1000
+
+spawn  barrel
+coords  381  170
+item  radio
+at  0
+
+spawn  barrel
+coords  442  170
+item  ruby
+at  0
+
+spawn  drumcan
+coords  710  246
+item  curri
+at  0
+
+spawn  drumcan
+coords  710  174
+	item  Pipe
+at  0
+spawn  barrel
+coords  341  192
+item   apple
+at  0
+
+spawn  barrel
+coords  421  195
+item  pearl
+at  0
+
+spawn	two.p
+coords	490 219
+at	100
+
+spawn	j
+map     5
+coords	410 181
+at	100
+
+spawn g.oriber
+coords  399  212
+at  100
+
+Wait
+at  140
+
+spawn   j
+coords  383  239
+at  140
+
+spawn   axl
+coords  383  192
+at  140
+
+spawn	bred
+coords	-45 208
+flip    1
+at	300
+
+spawn	simons
+coords	-45 241
+flip    1
+at	300
+
+wait
+at       500
+
+blockade 500
+at	 500
+
+spawn	bill_bull
+coords	412 233
+at	500
+
+spawn	holly_wood
+item    Knife
+coords	399 243
+at	500
+
+spawn	jake
+coords	409 187
+at	500
+
+group   100 100
+at      600
+
+spawn	two.p
+coords	-41 193
+at	700
+
+spawn	j
+coords	-47 235
+at	700
+
+spawn	axl
+coords	-87 209  0
+	flip  1
+at	900
+
+spawn	slash
+coords	-61 196  15
+flip  1
+at	900
+
+spawn  rolento
+coords  -243  208  5
+flip  1
+at  900
+
+wait
+at      1000
+
+blockade 1000
+at	1000
+
+spawn	el_gado
+flip    1
+coords	-157 242
+at	1000
+

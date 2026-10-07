@@ -1,0 +1,22 @@
+name	dust
+type	none
+toflip  1
+
+palette data/chars/misc/dust/1.gif
+
+anim	idle
+	loop	0
+	delay	4
+	offset	0 15
+	frame	data/chars/misc/dust/1.gif
+	offset	54 23
+	frame	data/chars/misc/dust/2.gif
+	offset	22 15
+	frame	data/chars/misc/dust/3.gif
+	offset	38 23
+	frame	data/chars/misc/dust/4.gif
+	offset	4 28
+	frame	data/chars/misc/dust/5.gif
+		
+#|edited by openBor Stats v 0.60
+		

@@ -1,0 +1,18 @@
+name	hamburger
+health	70
+type	item
+shadow	0
+
+icon	 data/chars/misc/food/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	14 11
+	bbox	0 0 33 17
+	frame	data/chars/misc/food/hamburger1.gif
+	delay	4
+	frame	data/chars/misc/food/hamburger2.gif
+		
+#|edited by openBor Stats v 0.60
+		

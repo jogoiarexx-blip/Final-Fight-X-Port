@@ -1,0 +1,20 @@
+name	ruby
+health	0
+type	item
+score	4000
+shadow	0
+
+
+icon	 data/chars/misc/point/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	8 1
+	bbox	0 0 18 13
+	frame	data/chars/misc/point/ruby1.gif
+	delay	4
+	frame	data/chars/misc/point/ruby2.gif
+		
+#|edited by openBor Stats v 0.60
+		

@@ -1,0 +1,20 @@
+name	pearl
+health	0
+type	item
+score	2000
+shadow	0
+
+
+icon	 data/chars/misc/point/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	15 0
+	bbox	0 0 30 11
+	frame	data/chars/misc/point/pearl1.gif
+	delay	4
+	frame	data/chars/misc/point/pearl2.gif
+		
+#|edited by openBor Stats v 0.60
+		

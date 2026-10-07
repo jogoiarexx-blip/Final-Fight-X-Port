@@ -1,0 +1,399 @@
+name	Poison
+health	100
+speed	18
+type	enemy
+shadow	0
+noquake 1
+icon	data/chars/poison/icon_poison.gif 
+diesound data/sounds/poison_muerte.wav
+candamage  player npc obstacle
+hostile player npc
+
+palette data/chars/poison/wk1.gif
+
+remap   data/chars/poison/wk1.gif   data/chars/poison/alter_roxy.gif 
+
+anim	attack1
+	range	0 60
+	loop	0
+	delay	8
+	offset	82 176
+	bbox	63 95 37 80
+	frame	data/chars/poison/a101.gif
+	attack	98 101 42 23 10 0 0 0 0 0
+	frame	data/chars/poison/a102.gif
+	delay	18
+	attack	0 0 0 0 0 0
+	frame	data/chars/poison/a103.gif
+	attack	100 100 41 28 10 1 0 0 0 0
+	delay	8
+	frame	data/chars/poison/a102.gif
+	frame	data/chars/poison/a101.gif
+		
+anim	attack2
+	range	0 60
+	loop	0
+	delay	8
+	offset	82 176
+	bbox	63 95 37 80
+	hitfx	data/sounds/beat7.wav
+	frame	data/chars/poison/a201.gif
+	attack2	97 106 54 40 13 0 0 0 15 0
+	delay	18
+	frame	data/chars/poison/a202.gif
+	delay	10
+	attack	0 0 0 0 0 0
+	frame	data/chars/poison/a201.gif
+		
+anim	attack3
+	range	0 60
+	loop	0
+	delay	8
+	offset	82 176
+	attack2	97 106 54 40 13 0 0 0 15 0
+	frame	data/chars/poison/th1.gif
+	attack	0 0 0 0
+	frame	data/chars/poison/th1.gif
+	attack	97 106 54 40 13 1 0 0 15 0
+	frame	data/chars/poison/th2.gif
+	frame	data/chars/poison/th3.gif
+	frame	data/chars/poison/th4.gif
+	frame	data/chars/poison/th5.gif
+	delay	15
+	frame	data/chars/poison/rise.gif
+		
+anim	attack4
+	range	0 60
+	loop	0
+	delay	8
+	offset	82 176
+	bbox	63 95 37 80
+	hitfx	data/sounds/beat7.wav
+	frame	data/chars/poison/a201.gif
+	attack2	97 106 54 40 13 1 0 0 15 0
+	delay	18
+	frame	data/chars/poison/a202.gif
+	delay	10
+	attack	0 0 0 0 0 0
+	frame	data/chars/poison/a201.gif
+		
+anim	burn
+	loop	0
+	offset	82 176
+	delay	10
+	landframe	5 dust2
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/poison/fall2.gif
+		
+anim	fall
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	82 176
+	frame	data/chars/poison/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	frame	data/chars/poison/fall2.gif
+		
+anim	fall15
+	attack	67 117 46 44 5 1 1 0 0 0
+	jumpframe	0 3 2
+	landframe	3 dust
+	loop	0
+	move	30
+	offset	60 220
+	delay	20
+	frame	data/chars/poison/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/poison/fall1.gif
+	offset	82 176
+	frame	data/chars/poison/fall2.gif
+		
+anim	fall16
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	20 160
+	delay	30
+	attack	70 98 41 70 5 1 1 0 0 0
+	frame	data/chars/poison/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	82 176
+	frame	data/chars/poison/fallcontrario.gif
+		
+anim	fall18
+	flipframe	0
+	attack	67 117 46 44 5 1 1 0 0 0
+	jumpframe	0 3 2
+	landframe	3 dust
+	loop	0
+	move	30
+	offset	60 220
+	delay	20
+	frame	data/chars/poison/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/poison/fall1.gif
+	offset	82 176
+	frame	data/chars/poison/fall2.gif
+		
+anim	fall19
+	flipframe	0
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	20 160
+	delay	30
+	attack	70 98 41 70 5 1 1 0 0 0
+	frame	data/chars/poison/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	82 176
+	frame	data/chars/poison/fallcontrario.gif
+		
+anim	fall2
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	82 176
+	frame	data/chars/poison/pain2.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	frame	data/chars/poison/fall2.gif
+		
+anim	fall3
+	landframe	2 dust
+	attack	63 115 40 46 5 1 0 0 0 0
+	loop	0
+	delay	60
+	offset	82 160
+	frame	data/chars/poison/pd02.gif
+	offset	82 176
+	delay	5
+	frame	data/chars/poison/fallcontrario.gif
+		
+anim	grabbed
+	loop	0
+	delay	50
+	offset	82 176
+	bbox	63 95 37 80
+	frame	data/chars/poison/wk1.gif
+		
+anim	grabbedwalk
+	loop	0
+	delay	50
+	offset	96 208
+	bbox	70 100 40 78
+	frame	data/chars/poison/painwalk.gif
+		
+anim	idle
+	loop	1
+	offset	82 176
+	bbox	63 95 37 80
+	delay	10
+	frame	data/chars/poison/wk1.gif
+		
+anim	jumpattack
+	range	0 100
+	loop	0
+	delay	1
+	offset	82 176
+	bbox	63 95 37 80
+	jumpframe	1 4
+	hitfx	data/sounds/beat7.wav
+	frame	data/chars/poison/ju1.gif
+	offset	82 180
+	delay	10
+	frame	data/chars/poison/ju2.gif
+	frame	data/chars/poison/ju3.gif
+	frame	data/chars/poison/ju4.gif
+	frame	data/chars/poison/ju5.gif
+	attack	81 111 59 38 15 1 0 0 25
+	delay	35
+	frame	data/chars/poison/ju6.gif
+		
+anim	pain1
+	loop	0
+	delay	6
+	offset	82 176
+	bbox	63 95 37 80
+	frame	data/chars/poison/pain1.gif
+	offset	85 176
+	frame	data/chars/poison/pain1.gif
+	offset	83 176
+	delay	35
+	frame	data/chars/poison/pain1.gif
+		
+anim	pain10
+	flipframe	0
+	loop	0
+	delay	30
+	offset	118 230
+	frame	data/chars/poison/hslam.gif
+	attack	63 114 40 48 5 1 1 0 0 0
+	offset	52 160
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/poison/pd02.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	82 176
+	bbox	63 95 37 80
+	frame	data/chars/poison/pain2.gif
+	offset	85 176
+	frame	data/chars/poison/pain2.gif
+	offset	83 176
+	delay	35
+	frame	data/chars/poison/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	89 178
+	bbox	75 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/poison/pain1.gif
+	delay	15
+	offset	108 205
+	frame	data/chars/poison/paincontrario.gif
+	offset	105 210
+	frame	data/chars/poison/pd01.gif
+	delay	15
+	offset	78 182
+	frame	data/chars/poison/pd02.gif
+	attack	68 108 39 66 5 1 1 0 0 0
+	bbox	75 -190 1 1
+	offset	78 160
+	frame	data/chars/poison/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	6
+	offset	82 210
+	bbox	70 100 40 78
+	frame	data/chars/poison/pain4.gif
+		
+anim	pain5
+	loop	0
+	delay	10
+	offset	45 190
+	bbox	75 -185 1 1
+	frame	data/chars/poison/pain_cody.gif
+		
+anim	pain6
+	loop	0
+	delay	30
+	offset	46 230
+	frame	data/chars/poison/hslam.gif
+	attack	63 114 40 48 5 1 1 0 0 0
+	offset	-10 160
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/poison/pd02.gif
+		
+anim	pain7
+	loop	0
+	delay	10
+	offset	35 185
+	bbox	75 -190 1 1
+	frame	data/chars/poison/pain_guy.gif
+		
+anim	pain8
+	flipframe	0
+	loop	0
+	delay	10
+	offset	117 190
+	bbox	75 -185 1 1
+	frame	data/chars/poison/pain_cody.gif
+		
+anim	pain9
+	flipframe	0
+	loop	0
+	delay	10
+	offset	107 185
+	bbox	75 -190 1 1
+	frame	data/chars/poison/pain_guy.gif
+		
+anim	rise
+	loop	0
+	offset	82 176
+	delay	30
+	frame	data/chars/poison/rise.gif
+		
+anim	rise16
+	loop	0
+	offset	82 176
+	delay	30
+	flipframe	
+	frame	data/chars/poison/rise.gif
+		
+anim	rise19
+	loop	0
+	offset	82 176
+	delay	30
+	flipframe	
+	frame	data/chars/poison/rise.gif
+		
+anim	rise3
+	loop	0
+	offset	82 176
+	delay	30
+	flipframe	
+	frame	data/chars/poison/rise.gif
+		
+anim	spain
+	loop	0
+	delay	3
+	offset	87 176
+	bbox	63 95 37 80
+	frame	data/chars/poison/pain2.gif
+	offset	82 176
+	frame	data/chars/poison/pain2.gif
+	offset	87 176
+	frame	data/chars/poison/pain2.gif
+	delay	15
+	offset	82 176
+	frame	data/chars/poison/pain2.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	82 176
+	frame	data/chars/poison/wk1.gif
+		
+anim	walk
+	loop	1
+	offset	82 176
+	bbox	63 95 37 80
+	delay	13
+	frame	data/chars/poison/wk1.gif
+	offset	82 177
+	frame	data/chars/poison/wk2.gif
+	offset	82 177
+	frame	data/chars/poison/wk3.gif
+	offset	82 176
+	frame	data/chars/poison/wk4.gif
+	offset	82 177
+	frame	data/chars/poison/wk5.gif
+	offset	82 177
+	frame	data/chars/poison/wk6.gif
+		
+anim	walkoff
+	loop	0
+	offset	82 139
+	bbox	63 95 37 44
+	delay	10
+	frame	data/chars/poison/ju5.gif
+	frame	data/chars/poison/ju5.gif
+		
+#|edited by openBor Stats v 0.60
+		

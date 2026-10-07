@@ -1,0 +1,46 @@
+name	granade
+speed	8
+type	none
+shadow	0
+shootnum  1
+candamage player npc enemy obstacle
+
+anim	attack
+	loop	0
+	delay	5
+	offset	-12 34
+        sound	data/sounds/granade.wav
+	burn	0 0 33 34 0 28 1 0 0 0
+	frame	data/chars/misc/granade/ex1.gif
+	offset	0 61
+	burn	7 30 51 31 28 1 0 0 0 0
+	frame	data/chars/misc/granade/ex2.gif
+	offset	5 64
+	frame	data/chars/misc/granade/ex3.gif
+	offset	30 86
+	frame	data/chars/misc/granade/ex4.gif
+	offset	35 105
+	frame	data/chars/misc/granade/ex5.gif
+	offset	40 122
+	frame	data/chars/misc/granade/ex6.gif
+	offset	45 120
+	frame	data/chars/misc/granade/ex7.gif
+	offset	20 120
+        burn	0 0 0 0 0 0 0 0 0
+	frame	data/chars/misc/granade/ex8.gif
+		
+anim	idle
+	loop	1
+	delay	2
+	offset	-40 14
+	frame	data/chars/misc/granade/g1.gif
+	frame	data/chars/misc/granade/g2.gif
+	frame	data/chars/misc/granade/g3.gif
+	frame	data/chars/misc/granade/g4.gif
+	frame	data/chars/misc/granade/g5.gif
+	frame	data/chars/misc/granade/g6.gif
+	frame	data/chars/misc/granade/g7.gif
+	frame	data/chars/misc/granade/g8.gif
+		
+#|edited by openBor Stats v 0.60
+		

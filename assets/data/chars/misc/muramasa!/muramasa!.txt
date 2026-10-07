@@ -1,0 +1,21 @@
+name	 muramasa!
+health   0
+type     item
+counter  4
+subtype  weapon
+weapnum  2
+#nolife   1
+typeshot 1
+icon	 data/chars/misc/muramasa!/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	28 5
+	bbox	4 3 50 5
+	frame	data/chars/misc/muramasa!/muramasa!1.gif
+	delay	5
+	frame	data/chars/misc/muramasa!/muramasa!2.gif
+		
+
+		

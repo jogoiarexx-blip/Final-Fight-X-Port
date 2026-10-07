@@ -1,0 +1,338 @@
+name	holly_wood__
+health	100
+speed	15
+type	enemy
+shadow	0
+noquake 1
+#dust    dust
+icon	data/chars/holly_wood/holly_wood__/icon.gif
+diesound data/sounds/die1.wav
+
+candamage  player npc obstacle
+hostile player npc
+
+palette data/chars/holly_wood/wkc1.gif
+
+load bottle
+bomb   bottle
+
+anim	attack1
+	range	120 210
+	loop	0
+	delay	5
+	offset	87 178
+	bbox	63 93 40 84
+        #hitfx	data/sounds/kni2.wav
+	tossframe	8 50
+	frame	data/chars/holly_wood/holly_wood__/l1.gif
+	offset	100 178
+	frame	data/chars/holly_wood/holly_wood__/l2.gif
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/l3.gif
+	frame	data/chars/holly_wood/holly_wood__/l4.gif
+	frame	data/chars/holly_wood/holly_wood__/l5.gif
+	frame	data/chars/holly_wood/holly_wood__/l6.gif
+	frame	data/chars/holly_wood/holly_wood__/l7.gif
+	frame	data/chars/holly_wood/holly_wood__/l8.gif
+sound	data/sounds/knife.wav
+	frame	data/chars/holly_wood/holly_wood__/l9.gif
+
+anim	fall
+        landframe 2  dust
+	loop	0
+	delay	60
+	offset	97 184
+	frame	data/chars/holly_wood/holly_wood__/fall1.gif
+	offset	87 178
+	delay	20
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/holly_wood/holly_wood__/fall2.gif
+		
+anim	fall2
+        landframe 2  dust
+	loop	0
+	delay	60
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	frame	data/chars/holly_wood/holly_wood__/fall2.gif
+		
+anim	fall3
+        landframe 2  dust
+        attack	59 115 48 59 5 1 0 0 0 0
+	loop	0
+	delay	60
+	offset	83 178
+	frame	data/chars/holly_wood/holly_wood__/pd02.gif
+	delay	20
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/fallcontrario.gif
+
+anim	fall15
+        landframe 3  dust
+        attack	67 92 46 80 5 1 1 0 0 0
+	jumpframe	0 3 2
+	loop	0
+	move	30
+	offset	60 220
+	delay	20
+	frame	data/chars/holly_wood/holly_wood__/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/holly_wood/holly_wood__/fall1.gif
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/fall2.gif
+
+anim	fall16
+	jumpframe	0 2 1
+        landframe 2  dust
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+        attack	70 113 41 70 5 1 1 0 0 0
+	frame	data/chars/holly_wood/holly_wood__/pd02.gif
+        attack	0 0 0 0
+	delay	3
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/fallcontrario.gif
+	
+anim	fall18
+        landframe 3  dust
+        flipframe 0
+        attack	67 92 46 80 5 1 1 0 0 0
+	jumpframe	0 3 2
+	loop	0
+	move	30
+	offset	60 220
+	delay	20
+	frame	data/chars/holly_wood/holly_wood__/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/holly_wood/holly_wood__/fall1.gif
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/fall2.gif
+
+anim	fall19
+        landframe 2  dust
+        flipframe	0
+	jumpframe	0 2 1
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+        attack	70 113 41 70 5 1 1 0 0 0
+	frame	data/chars/holly_wood/holly_wood__/pd02.gif
+        attack	0 0 0 0
+	delay	3
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/fallcontrario.gif
+
+anim	pain1
+	loop	0
+	delay	6
+	offset	87 178
+	bbox	63 93 40 84
+	frame	data/chars/holly_wood/holly_wood__/pain1.gif
+	offset	90 178
+	frame	data/chars/holly_wood/holly_wood__/pain1.gif
+	offset	88 178
+	delay	35
+	frame	data/chars/holly_wood/holly_wood__/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	87 178
+	bbox	63 93 40 84
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+	offset	90 178
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+	offset	88 178
+	delay	35
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	89 178
+	bbox	75 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/holly_wood/holly_wood__/pain1.gif
+	delay	15
+	offset	108 205
+	frame	data/chars/holly_wood/holly_wood__/paincontrario.gif
+	offset	105 210
+	frame	data/chars/holly_wood/holly_wood__/pd01.gif
+	delay	15
+	offset	78 182
+	frame	data/chars/holly_wood/holly_wood__/pd02.gif
+        attack	68 108 39 66 5 1 1 0 0 0
+	bbox	75 -190 1 1
+	offset	78 173
+	frame	data/chars/holly_wood/holly_wood__/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	6
+	offset	104 210
+	bbox	63 93 40 84
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+	
+anim	pain5
+	loop	0
+	delay	10
+	offset	45 190
+	bbox	75 -185 1 1
+	frame	data/chars/holly_wood/holly_wood__/pain_cody.gif
+
+anim	pain6
+	loop	0
+	delay	30
+	offset	40 225
+	frame	data/chars/holly_wood/holly_wood__/hslam.gif
+        attack	58 88 56 87 5 1 1 0 0 0
+	offset	0 180
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/holly_wood/holly_wood__/pd02.gif
+
+anim	pain7
+	loop	0
+	delay	10
+	offset	45 190
+	bbox	75 -185 1 1
+	frame	data/chars/holly_wood/holly_wood__/pain_guy.gif
+
+anim	pain8
+        flipframe 0
+	loop	0
+	delay	10
+	offset	117 190
+	bbox	75 -185 1 1
+	frame	data/chars/holly_wood/holly_wood__/pain_cody.gif
+
+anim	pain9
+        flipframe 0
+	loop	0
+	delay	10
+	offset	117 190
+	bbox	75 -185 1 1
+	frame	data/chars/holly_wood/holly_wood__/pain_guy.gif
+
+anim	pain10
+        flipframe	0
+	loop	0
+	delay	30
+	offset	112 225
+	frame	data/chars/holly_wood/holly_wood__/hslam.gif
+        attack	58 88 56 87 5 1 1 0 0 0
+	offset	72 180
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/holly_wood/holly_wood__/pd02.gif
+
+anim	spain
+	loop	0
+	delay	3
+	offset	87 178
+	bbox	60 98 55 80
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+	offset	90 178
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+	delay	15
+	offset	88 178
+	frame	data/chars/holly_wood/holly_wood__/pain2.gif
+
+anim	burn
+	loop	0
+	offset	97 184
+	delay	10
+        landframe 5  dust2
+	#sound	data/sounds/pain1.wav
+	frame	data/chars/misc/burn/burn1.gif
+        frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+        frame	data/chars/misc/burn/burn2.gif
+        offset	87 178
+        frame	data/chars/holly_wood/holly_wood__/fall2.gif
+
+anim	grabbed
+	loop	1
+	delay	6
+	offset	87 178
+	bbox	60 95 55 80
+	frame	data/chars/holly_wood/holly_wood__/idle1.gif
+	frame	data/chars/holly_wood/holly_wood__/idle2.gif
+	frame	data/chars/holly_wood/holly_wood__/idle3.gif
+	frame	data/chars/holly_wood/holly_wood__/idle4.gif
+		
+anim	grabbedwalk
+	loop	0
+	delay	50
+	offset	89 195
+	bbox	70 100 40 78
+	frame	data/chars/holly_wood/holly_wood__/pain1.gif
+		
+anim	idle
+	loop	1
+	offset	87 178
+	bbox	63 93 40 84
+	delay	10
+	frame	data/chars/holly_wood/holly_wood__/idle1.gif
+	frame	data/chars/holly_wood/holly_wood__/idle2.gif
+	frame	data/chars/holly_wood/holly_wood__/idle3.gif
+	frame	data/chars/holly_wood/holly_wood__/idle4.gif
+		
+anim	rise
+	loop	0
+	offset	87 178
+	delay	50
+	frame	data/chars/holly_wood/holly_wood__/rise.gif
+		
+anim	rise3
+	loop	0
+	offset	87 178
+	delay	50
+	flipframe	
+	frame	data/chars/holly_wood/holly_wood__/rise.gif
+		
+anim	rise16
+	loop	0
+	offset	87 178
+	delay	50
+	flipframe	
+	frame	data/chars/holly_wood/holly_wood__/rise.gif
+
+anim	rise19
+	loop	0
+	offset	87 178
+	delay	50
+	flipframe	
+	frame	data/chars/holly_wood/holly_wood__/rise.gif
+		
+anim	spawn
+	loop	0
+	delay	20
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/wk3.gif
+		
+anim	walk
+	loop	1
+	offset	87 178
+	bbox	63 93 40 84
+	delay	9
+	frame	data/chars/holly_wood/holly_wood__/wk1.gif
+	offset	87 179
+	frame	data/chars/holly_wood/holly_wood__/wk2.gif
+	offset	87 179
+	frame	data/chars/holly_wood/holly_wood__/wk3.gif
+	offset	87 178
+	frame	data/chars/holly_wood/holly_wood__/wk4.gif
+	offset	87 179
+	frame	data/chars/holly_wood/holly_wood__/wk3.gif
+	offset	87 179
+	frame	data/chars/holly_wood/holly_wood__/wk2.gif

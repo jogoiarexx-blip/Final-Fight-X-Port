@@ -1,0 +1,18 @@
+name	chicken
+health	100
+type	item
+shadow	0
+
+icon	 data/chars/misc/food/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	18 16
+	bbox	0 0 34 24
+	frame	data/chars/misc/food/chicken1.gif
+	delay	4
+	frame	data/chars/misc/food/chicken2.gif
+		
+#|edited by openBor Stats v 0.60
+		

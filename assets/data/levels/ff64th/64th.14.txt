@@ -1,0 +1,62 @@
+#64th.14
+
+music		data/music/otras/1.bor
+background	data/bgs/ff64th/64th.14/1b.gif
+panel	        data/bgs/ff64th/64th.14/1.gif
+#frontpanel     data/bgs/ff64th/64th.14/1f.gif
+direction       right
+order           a
+
+Wall  752  282  -158  0  40  41  158  1000
+
+spawn  napkin
+	coords  597  198
+	at  0
+
+
+spawn  dug
+coords  358  210
+at  50
+
+spawn  simons
+coords  -114  225
+flip  1
+at  50
+
+spawn  jake
+coords  -106  192
+flip  1
+at  50
+
+spawn  slash
+coords  388  237
+at  50
+
+spawn  axl
+coords  381  186
+at  50
+
+Wait
+at  50
+
+spawn  bred
+coords  -259  222
+flip  1
+at  528
+
+spawn  two.p
+coords  -220  215
+flip  1
+at  528
+
+spawn  Poison
+coords  -242  193
+flip  1
+at  528
+
+spawn  abigail
+coords  -218  239
+flip  1
+at  528
+
+

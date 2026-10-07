@@ -1,0 +1,21 @@
+name	shell
+health   1
+type	pshot
+shootnum  1
+remove   1
+speed	25
+
+candamage  player npc enemy
+
+anim	idle
+	loop	0
+	delay	2
+	offset	-31 76
+        hitflash	Flash2
+       #bbox	2 3 24 10
+	attack	3 3 18 11 50 1 0 0 0 0
+	hitflash	Flash2
+	frame	data/chars/misc/shell/shell.gif
+		
+#|edited by openBor Stats v 0.60
+		

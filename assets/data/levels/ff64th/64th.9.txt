@@ -1,0 +1,56 @@
+#64th.9
+
+music		data/music/otras/boss3.bor
+background	data/bgs/ff64th/64th.9/1b.gif
+panel	        data/bgs/ff64th/64th.9/1.gif
+frontpanel      data/bgs/ff64th/64th.9/1f.gif
+direction       both
+order           a
+
+spawn  freight
+coords  361  203
+flip  1
+item  gum
+at  0
+
+spawn  soft_drink_
+coords  487  243  
+at  0
+
+spawn  gum_
+coords  171  204  94
+at  0
+
+spawn  tire
+coords  485  202
+item  gum_
+at  0
+
+spawn  bred
+coords  284  205  
+at  0
+spawn  edi.e
+health  600
+boss    1
+coords  184  200  
+at  0
+
+spawn  j
+coords  423 207
+at  0
+
+spawn  Poison
+coords  478  238
+at  0
+
+spawn  two.p
+coords  -249  227
+flip  1
+at  0
+
+spawn  el_gado
+coords  -309  228
+flip  1
+item  Knife
+at  100
+

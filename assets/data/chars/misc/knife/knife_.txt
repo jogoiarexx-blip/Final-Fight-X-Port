@@ -1,0 +1,50 @@
+name	 knife_
+health   1
+type	pshot
+shootnum  1
+remove   1
+speed	15
+flash   flash3
+noatflash 1
+
+candamage  player npc enemy
+
+palette data/chars/misc/knife/knife/knife.gif
+
+anim	fall
+	delay	4
+	offset	14 4
+	bbox	0 0 0 0
+	jumpframe 0 2 -1 0 ##jumpframe 0 2 -2 0 ates de cambiar motor
+       #landframe	14
+	frame	data/chars/misc/knife/knife/fall1.gif
+	frame	data/chars/misc/knife/knife/fall2.gif
+	frame	data/chars/misc/knife/knife/fall3.gif
+	frame	data/chars/misc/knife/knife/fall4.gif
+	frame	data/chars/misc/knife/knife/fall5.gif
+	frame	data/chars/misc/knife/knife/fall6.gif
+	frame	data/chars/misc/knife/knife/fall7.gif
+	frame	data/chars/misc/knife/knife/fall8.gif
+	frame	data/chars/misc/knife/knife/fall9.gif
+	frame	data/chars/misc/knife/knife/fall10.gif
+	frame	data/chars/misc/knife/knife/fall11.gif
+	frame	data/chars/misc/knife/knife/fall12.gif
+	frame	data/chars/misc/knife/knife/fall13.gif
+	frame	data/chars/misc/knife/knife/fall14.gif
+	frame	data/chars/misc/knife/knife/fall15.gif
+	frame	data/chars/misc/knife/knife/fall16.gif
+	frame	data/chars/misc/knife/knife/fall17.gif
+	frame	data/chars/misc/knife/knife/fall18.gif
+
+	
+anim	idle
+	loop	0
+	offset	-60 -43
+	bbox	5 4 13 5
+	hitflash	Flash2
+	attack	5 4 13 5 25 1 0 0 0 0
+        hitfx	data/sounds/kni2.wav
+	frame	data/chars/misc/knife/knife/knife.gif
+		
+#|edited by openBor Stats v 0.60
+		

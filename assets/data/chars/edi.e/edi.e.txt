@@ -1,0 +1,467 @@
+name	edi.e
+health	200
+speed	10
+type	enemy
+shadow	0
+noquake 1
+grabforce 3
+
+icon	data/chars/edi.e/icon.gif
+diesound data/sounds/die1.wav
+
+candamage  player npc obstacle
+hostile player npc
+
+palette data/chars/edi.e/wk1.gif
+
+load shell
+
+
+anim	attack1
+	range	40 60
+	loop	0
+	delay	9
+	offset	89 176
+	bbox	70 81 40 95
+	frame	data/chars/edi.e/a101.gif
+	delay	18
+	attack2	115 94 62 30 8 0 0 0 0 0
+	frame	data/chars/edi.e/a102.gif
+	delay	8
+	attack2	0 0 0 0 0
+	frame	data/chars/edi.e/a103.gif
+		
+anim	attack2
+	range	40 60
+	loop	0
+	delay	9
+	offset	89 176
+	bbox	70 81 40 95
+	frame	data/chars/edi.e/a101.gif
+	delay	18
+	attack2	115 94 62 30 8 0 0 0 0 0
+	frame	data/chars/edi.e/a102.gif
+	delay	8
+	attack2	0 0 0 0 0
+	frame	data/chars/edi.e/a103.gif
+		
+anim	attack3
+	range	40 60
+	loop	0
+	delay	9
+	offset	89 176
+	bbox	70 81 40 95
+	frame	data/chars/edi.e/a101.gif
+	delay	18
+	attack2	115 94 62 30 8 1 0 0 0 0
+	frame	data/chars/edi.e/a102.gif
+	delay	8
+	attack2	0 0 0 0 0
+	frame	data/chars/edi.e/a103.gif
+		
+anim	attack4
+	range	130 300
+	shootframe	5
+	loop	0
+	delay	7
+	sound	data/sounds/pistola.wav
+	offset	89 176
+	custknife	shell
+	frame	data/chars/edi.e/gun2.gif
+	frame	data/chars/edi.e/gun0.gif
+	frame	data/chars/edi.e/gun1.gif
+	frame	data/chars/edi.e/gun1.gif
+	frame	data/chars/edi.e/gun0.gif
+	frame	data/chars/edi.e/gun2.gif
+		
+anim	burn
+	loop	0
+	offset	89 176
+	delay	10
+	landframe	5 dust2
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/edi.e/fall2.gif
+		
+anim	fall
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	89 176
+	frame	data/chars/edi.e/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	frame	data/chars/edi.e/fall2.gif
+		
+anim	fall15
+	landframe	3 dust
+	attack	73 129 41 50 5 1 1 0 0 0
+	jumpframe	0 3 2
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/edi.e/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/edi.e/fall1.gif
+	offset	89 176
+	frame	data/chars/edi.e/fall2.gif
+		
+anim	fall16
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	10 170
+	delay	30
+	attack	70 113 41 70 5 1 1 0 0 0
+	frame	data/chars/edi.e/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	89 176
+	frame	data/chars/edi.e/fallcontrario.gif
+		
+anim	fall18
+	landframe	3 dust
+	flipframe	0
+	attack	73 129 41 50 5 1 1 0 0 0
+	jumpframe	0 3 2
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/edi.e/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/edi.e/fall1.gif
+	offset	89 176
+	frame	data/chars/edi.e/fall2.gif
+		
+anim	fall19
+	flipframe	0
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	10 170
+	delay	30
+	attack	70 113 41 70 5 1 1 0 0 0
+	frame	data/chars/edi.e/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	89 176
+	frame	data/chars/edi.e/fallcontrario.gif
+		
+anim	fall3
+	landframe	2 dust
+	attack	67 131 48 51 5 1 0 0 0 0
+	loop	0
+	delay	50
+	offset	89 176
+	frame	data/chars/edi.e/pd02.gif
+	delay	5
+	frame	data/chars/edi.e/fallcontrario.gif
+		
+anim	fall4
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	105 200
+	frame	data/chars/edi.e/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	89 176
+	frame	data/chars/edi.e/fall2.gif
+		
+anim	follow1
+	loop	0
+	delay	1
+	offset	89 177
+	bbox	0 0 0 0
+	attackone	1
+	grabback	1
+	frame	data/chars/edi.e/grab1.gif
+	delay	20
+	frame	data/chars/edi.e/grab1.gif
+	delay	35
+	frame	data/chars/edi.e/grab2.gif
+	delay	20
+	attack	0 0 0 0
+	frame	data/chars/edi.e/grab3.gif
+	delay	20
+	attack6	0 -200 200 400 0 0 0 1 0 0
+	frame	data/chars/edi.e/grab4.gif
+	offset	89 176
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/edi.e/grab3.gif
+	delay	20
+	attack6	0 -200 200 400 0 0 0 1 0 0
+	frame	data/chars/edi.e/grab4.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/edi.e/grab3.gif
+	delay	20
+	attack	0 -200 200 400 35 1 0 1 0 0
+	frame	data/chars/edi.e/grab4.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk2.gif
+		
+anim	grab
+	loop	0
+	delay	4
+	offset	89 177
+	bbox	0 0 0 0
+        attackone	1
+	grabback	1
+	grabfinish	1
+	followanim	1
+	followcond	3
+	hitfx	data/sounds/silencio.wav
+	frame	data/chars/edi.e/grab1.gif
+	frame	data/chars/edi.e/grab1.gif
+	attack5	0 -200 200 400 0 0 1 1 0 0
+	frame	data/chars/edi.e/grab1.gif
+		
+anim	grabbed
+	loop	0
+	delay	50
+	offset	89 176
+	bbox	70 96 40 80
+	frame	data/chars/edi.e/wk3.gif
+		
+anim	grabbedwalk
+	loop	0
+	delay	50
+	offset	100 200
+	bbox	70 96 40 78
+	frame	data/chars/edi.e/painwalk.gif
+		
+anim	idle
+	loop	1
+	offset	89 176
+	bbox	70 87 40 89
+	delay	10
+	frame	data/chars/edi.e/wk4.gif
+		
+anim	pain
+	loop	0
+	delay	6
+	offset	89 176
+	bbox	70 98 40 78
+	frame	data/chars/edi.e/pain1.gif
+	offset	92 176
+	frame	data/chars/edi.e/pain1.gif
+	offset	90 176
+	delay	35
+	frame	data/chars/edi.e/pain1.gif
+		
+anim	pain10
+	flipframe	0
+	loop	0
+	delay	30
+	offset	97 245
+	frame	data/chars/edi.e/pd02.gif
+	attack	69 121 42 61 5 1 1 0 0 0
+	offset	57 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/edi.e/pd02.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	89 176
+	bbox	70 98 40 78
+	frame	data/chars/edi.e/pain2.gif
+	offset	92 176
+	frame	data/chars/edi.e/pain2.gif
+	offset	90 176
+	delay	35
+	frame	data/chars/edi.e/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	89 176
+	bbox	75 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/edi.e/pain1.gif
+	delay	15
+	offset	108 205
+	frame	data/chars/edi.e/paincontrario.gif
+	offset	105 210
+	frame	data/chars/edi.e/pd01.gif
+	delay	15
+	offset	78 182
+	frame	data/chars/edi.e/pd02.gif
+	attack	68 108 39 66 5 1 1 0 0 0
+	bbox	75 -190 1 1
+	offset	78 177
+	frame	data/chars/edi.e/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	6
+	offset	76 205
+	bbox	70 102 40 78
+	frame	data/chars/edi.e/pain4.gif
+		
+anim	pain5
+	loop	0
+	delay	10
+	offset	30 178
+	bbox	75 -190 1 1
+	frame	data/chars/edi.e/pain_cody.gif
+		
+anim	pain6
+	loop	0
+	delay	30
+	offset	25 245
+	frame	data/chars/edi.e/pd02.gif
+	attack	69 121 42 61 5 1 1 0 0 0
+	offset	-15 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/edi.e/pd02.gif
+		
+anim	pain7
+	loop	0
+	delay	10
+	offset	30 178
+	bbox	75 -190 1 1
+	frame	data/chars/edi.e/pain_guy.gif
+		
+anim	pain8
+	flipframe	0
+	loop	0
+	delay	10
+	offset	102 178
+	bbox	75 -190 1 1
+	frame	data/chars/edi.e/pain_cody.gif
+		
+anim	pain9
+	flipframe	0
+	loop	0
+	delay	10
+	offset	102 178
+	bbox	75 -190 1 1
+	frame	data/chars/edi.e/pain_guy.gif
+		
+anim	rise
+	loop	0
+	offset	89 176
+	delay	15
+	frame	data/chars/edi.e/rise0.gif
+	offset	89 167
+	frame	data/chars/edi.e/rise1.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+		
+anim	rise16
+	loop	0
+	offset	109 176
+	delay	15
+	flipframe	
+	delay	15
+	frame	data/chars/edi.e/rise0.gif
+	offset	89 167
+	frame	data/chars/edi.e/rise1.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+		
+anim	rise19
+	loop	0
+	offset	109 176
+	delay	15
+	flipframe	
+	delay	15
+	frame	data/chars/edi.e/rise0.gif
+	offset	89 167
+	frame	data/chars/edi.e/rise1.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+		
+anim	rise3
+	loop	0
+	offset	109 176
+	delay	15
+	flipframe	
+	delay	15
+	frame	data/chars/edi.e/rise0.gif
+	offset	89 167
+	frame	data/chars/edi.e/rise1.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+	frame	data/chars/edi.e/rise2.gif
+	frame	data/chars/edi.e/rise3.gif
+		
+anim	spain
+	loop	0
+	delay	3
+	offset	89 176
+	bbox	65 100 46 76
+	frame	data/chars/edi.e/pain2.gif
+	offset	84 176
+	frame	data/chars/edi.e/pain2.gif
+	offset	89 176
+	frame	data/chars/edi.e/pain2.gif
+	delay	15
+	offset	84 176
+	frame	data/chars/edi.e/pain2.gif
+		
+anim	spawn
+	loop	0
+	delay	20
+	offset	89 176
+	frame	data/chars/edi.e/idle1.gif
+	frame	data/chars/edi.e/idle2.gif
+	frame	data/chars/edi.e/idle3.gif
+	frame	data/chars/edi.e/idle4.gif
+		
+anim	walk
+	loop	1
+	offset	89 176
+	bbox	70 78 40 98
+	delay	8
+	frame	data/chars/edi.e/wk1.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk2.gif
+	offset	89 177
+	frame	data/chars/edi.e/idle3.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk3.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk4.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk3.gif
+	offset	89 177
+	frame	data/chars/edi.e/idle3.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk2.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk1.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk2.gif
+	offset	89 177
+	frame	data/chars/edi.e/idle3.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk3.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk4.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk3.gif
+	offset	89 177
+	frame	data/chars/edi.e/idle3.gif
+	offset	89 176
+	frame	data/chars/edi.e/wk2.gif
+		
+#|edited by openBor Stats v 0.66
+		

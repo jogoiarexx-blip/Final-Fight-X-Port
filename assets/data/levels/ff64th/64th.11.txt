@@ -1,0 +1,126 @@
+#64th.11
+
+music		data/music/otras/1.bor
+background	data/bgs/ff64th/64th.11/1b.gif
+panel	        data/bgs/ff64th/64th.11/1.gif
+#frontpanel     data/bgs/ff64th/6t4h.11/1f.gif
+direction       right
+order           a
+
+Wall  1126  259  0  0  29  30  110  1000
+
+spawn  freight
+coords  448  192  
+flip  1
+item  Pipe
+at  0
+
+spawn  freight
+coords  530  192  
+flip  1
+at  0
+
+spawn  drumcan
+coords  922  194
+item  steak
+at  0
+
+spawn  drumcan
+coords  979  194  
+item  diamond
+at  0
+
+spawn  tire
+coords  728  190
+item  gum
+at  0
+
+spawn  j
+coords  103 182
+at  0
+
+spawn  simons
+coords  133  186
+at  0
+
+spawn  Poison
+coords  -200  202
+flip  1
+at  0
+
+Wait
+at  180
+
+spawn  el_gado
+coords  910  230
+item  Knife
+at  180
+
+spawn  holly_wood
+coords  419  239
+item  Knife
+at  180
+
+spawn  el_gado
+coords  -222  236
+flip  1
+item  Knife
+at  180
+
+spawn  holly_wood
+coords  413  190
+item  Knife
+at  180
+
+Wait
+at  570
+
+spawn  slash
+coords  -348  214
+flip  1
+at  570
+
+spawn  Poison
+coords  520  183
+map  1
+alias  roxy
+at  570
+
+spawn  Poison
+coords  524  208
+at  570
+
+spawn  axl
+coords  -353  244
+flip  1
+at  570
+
+spawn  jake
+coords  -193  231
+flip  1
+at  570
+
+spawn  simons
+coords  -180  189
+flip  1
+at  570
+
+spawn  drumcan_
+flip 1
+coords  -193  240
+flip  1
+at  570
+
+Wait
+at  820
+
+spawn  damnd
+coords  -188  184
+flip  1
+at  820
+
+spawn  edi.e
+coords  -691  242
+flip  1
+at  820
+

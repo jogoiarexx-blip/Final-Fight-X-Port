@@ -1,0 +1,20 @@
+name	yen
+health	0
+type	item
+score	1000
+shadow	0
+
+
+icon	 data/chars/misc/point/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	15 6
+	bbox	0 0 34 13
+	frame	data/chars/misc/point/yen1.gif
+	delay	4
+	frame	data/chars/misc/point/yen2.gif
+		
+#|edited by openBor Stats v 0.60
+		

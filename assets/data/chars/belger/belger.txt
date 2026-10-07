@@ -1,0 +1,334 @@
+name	belger
+health	200
+speed	15
+type	enemy
+shadow	0
+noquake 1
+
+icon	data/chars/belger/icon.gif
+diesound data/sounds/die1.wav
+candamage  player npc obstacle
+hostile player npc
+
+palette data/chars/belger/wk1.gif
+
+load    arrow
+
+
+anim	attack1
+	range	10 250
+	loop	0
+	delay	8
+	offset	89 178
+	bbox	70 100 40 78
+	throwframewait	2
+	custknife	arrow
+	throwframe	2 110
+	frame	data/chars/belger/a1.gif
+	sound	data/sounds/arrow.wav
+	frame	data/chars/belger/a2.gif
+	delay	20
+	frame	data/chars/belger/a1.gif
+		
+anim	burn
+	loop	0
+	offset	89 178
+	delay	10
+	landframe	5 dust2
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/belger/fall2.gif
+		
+anim	fall
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	89 178
+	frame	data/chars/belger/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	frame	data/chars/belger/fall2.gif
+		
+anim	fall15
+	landframe	3 dust
+	attack	99 127 39 53 5 1 1 0 0 0
+	jumpframe	0 3 2
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/belger/slam.gif
+	delay	30
+	offset	60 178
+	frame	data/chars/belger/fall1.gif
+	offset	89 178
+	frame	data/chars/belger/fall2.gif
+		
+anim	fall16
+	landframe	2 dust
+	jumpframe	0 2 1
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+	attack	70 109 41 70 5 1 0 1 0 0
+	frame	data/chars/belger/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	89 178
+	frame	data/chars/belger/fallcontrario.gif
+		
+anim	fall18
+	landframe	3 dust
+	flipframe	0
+	attack	99 127 39 53 5 1 1 0 0 0
+	jumpframe	0 3 2
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/belger/slam.gif
+	delay	30
+	offset	60 178
+	frame	data/chars/belger/fall1.gif
+	offset	89 178
+	frame	data/chars/belger/fall2.gif
+		
+anim	fall19
+	landframe	2 dust
+	flipframe	0
+	jumpframe	0 2 1
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+	attack	70 109 41 70 5 1 1 0 0 0
+	frame	data/chars/belger/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	89 178
+	frame	data/chars/belger/fallcontrario.gif
+		
+anim	fall3
+	landframe	2 dust
+	attack	66 128 48 50 5 1 0 0 0 0
+	loop	0
+	delay	50
+	offset	89 178
+	frame	data/chars/belger/pd02.gif
+	delay	5
+	frame	data/chars/belger/fallcontrario.gif
+		
+anim	fall4
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	89 200
+	frame	data/chars/belger/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	offset	89 178
+	frame	data/chars/belger/fall2.gif
+		
+anim	grabbed
+	loop	0
+	delay	50
+	offset	89 178
+	bbox	70 100 40 78
+	frame	data/chars/belger/pain1.gif
+		
+anim	grabbedwalk
+	loop	0
+	delay	50
+	offset	86 195
+	bbox	70 100 40 78
+	frame	data/chars/belger/painwalk.gif
+		
+anim	idle
+	loop	1
+	offset	89 178
+	bbox	70 100 40 78
+	delay	10
+	frame	data/chars/belger/wk3.gif
+		
+anim	pain
+	loop	0
+	delay	6
+	offset	89 178
+	bbox	70 100 40 78
+	frame	data/chars/belger/pain1.gif
+	offset	92 178
+	frame	data/chars/belger/pain1.gif
+	offset	90 178
+	delay	35
+	frame	data/chars/belger/pain1.gif
+		
+anim	pain10
+	flipframe	0
+	loop	0
+	delay	30
+	offset	92 237
+	frame	data/chars/belger/pd02.gif
+	attack	73 124 43 56 5 1 1 0 0 0
+	offset	72 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/belger/pd02.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	89 178
+	bbox	70 100 40 78
+	frame	data/chars/belger/pain2.gif
+	offset	92 178
+	frame	data/chars/belger/pain2.gif
+	offset	90 178
+	delay	35
+	frame	data/chars/belger/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	89 178
+	bbox	75 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/belger/pain1.gif
+	delay	15
+	offset	108 205
+	frame	data/chars/belger/paincontrario.gif
+	offset	135 210
+	frame	data/chars/belger/pd01.gif
+	delay	15
+	offset	78 182
+	frame	data/chars/belger/pd02.gif
+	bbox	75 -190 1 1
+	attack	68 108 39 66 5 1 1 0 0 0
+	offset	78 173
+	frame	data/chars/belger/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	6
+	offset	89 200
+	bbox	70 100 40 78
+	frame	data/chars/belger/pain4.gif
+		
+anim	pain5
+	loop	0
+	delay	10
+	offset	50 178
+	bbox	75 -190 1 1
+	frame	data/chars/belger/pain_cody.gif
+		
+anim	pain6
+	loop	0
+	delay	30
+	offset	20 237
+	frame	data/chars/belger/pd02.gif
+	attack	73 124 43 56 5 1 1 0 0 0
+	offset	0 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/belger/pd02.gif
+		
+anim	pain7
+	loop	0
+	delay	10
+	offset	50 178
+	bbox	75 -190 1 1
+	frame	data/chars/belger/pain_guy.gif
+		
+anim	pain8
+	flipframe	0
+	loop	0
+	delay	10
+	offset	122 178
+	bbox	75 -190 1 1
+	frame	data/chars/belger/pain_cody.gif
+		
+anim	pain9
+	flipframe	0
+	loop	0
+	delay	10
+	offset	122 178
+	bbox	75 -190 1 1
+	frame	data/chars/belger/pain_guy.gif
+		
+anim	rise
+	loop	0
+	offset	89 178
+	delay	10
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+		
+anim	rise16
+	loop	0
+	offset	81 178
+	delay	10
+	flipframe	
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+		
+anim	rise19
+	loop	0
+	offset	81 178
+	delay	10
+	flipframe	
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+		
+anim	rise3
+	loop	0
+	offset	81 178
+	delay	10
+	flipframe	
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+	frame	data/chars/belger/rise1.gif
+	frame	data/chars/belger/rise2.gif
+		
+anim	spain
+	loop	0
+	delay	3
+	offset	89 178
+	bbox	65 102 46 76
+	frame	data/chars/belger/pain2.gif
+	offset	84 178
+	frame	data/chars/belger/pain2.gif
+	offset	89 178
+	frame	data/chars/belger/pain2.gif
+	delay	15
+	offset	84 178
+	frame	data/chars/belger/pain2.gif
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	89 178
+	frame	data/chars/belger/wk3.gif
+		
+anim	walk
+	loop	1
+	offset	89 178
+	bbox	70 100 40 78
+	delay	20
+	frame	data/chars/belger/wk1.gif
+	offset	89 180
+	frame	data/chars/belger/wk2.gif
+	offset	89 178
+	frame	data/chars/belger/wk1.gif
+	offset	89 176
+	delay	12
+	frame	data/chars/belger/wk3.gif
+		
+#|edited by openBor Stats v 0.60
+		

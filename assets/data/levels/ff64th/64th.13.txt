@@ -1,0 +1,81 @@
+#64th.13
+
+music		data/music/otras/2.bor
+background	data/bgs/ff64th/64th.13/1b.gif
+panel	        data/bgs/ff64th/64th.13/1.gif
+#frontpanel     data/bgs/ff64th/64th.13/1f.gif
+direction       right
+order           a
+
+######objetos con at 0
+
+spawn  dustbin
+coords  265  177  0
+flip  1
+at  0
+
+spawn  tel.booth
+item  muramasa!
+coords  512  186
+flip  1
+at  0
+
+spawn  dustbin
+coords  213  177
+flip  1
+at  0
+
+######
+
+spawn	j
+coords	345 182  
+at	94
+
+spawn	axl
+coords	378 242
+at	94
+
+Group	2 3
+at	94
+
+wait
+at 94
+
+spawn	two.p
+coords	453 211
+at	0
+
+spawn  andore
+coords  348  177
+at  266
+
+spawn  andore
+alias  u.andore
+map    4
+coords  451  180
+at  266
+
+spawn	j
+coords	405 191
+at	260
+
+spawn	dug
+coords	453 185
+at	280
+
+spawn	j
+coords	352 242
+at	455
+
+spawn	bred
+coords	354 190
+at	455
+
+spawn	j
+coords	350 217
+at	583
+
+spawn	dug
+coords	350 205
+at 610
+

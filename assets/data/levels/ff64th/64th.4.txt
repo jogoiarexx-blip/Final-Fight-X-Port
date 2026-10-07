@@ -1,0 +1,193 @@
+#64th.4
+
+music		data/music/otras/9.bor
+#background	data/bgs/ff64th/64th.4/1b.gif
+background	data/bgs/ff64th/64th.4/1c.gif
+panel	        data/bgs/ff64th/64th.4/1.gif
+#frontpanel     data/bgs/ff64th/64th.4/1f.gif
+direction       right
+order           a
+
+Wall  1415  195  0  0  150  150  72  1000
+
+####################
+spawn  barrel
+coords  1043  186  0
+at  0
+
+spawn  barrel
+coords 1270  200  0
+item  beer__
+at  0
+
+spawn  barrel
+coords  940  186  0
+item  hot_dog
+at  0
+
+spawn  barrel
+coords  842  186  1
+item  hammer
+at  0
+
+spawn  barrel
+coords  517  242  0
+item  pineapple
+at  0
+
+spawn  freight
+coords  1313  181  0
+flip  1
+at  0
+
+spawn  freight
+coords  214  185  0
+flip  1
+item  Pipe
+at  0
+
+spawn  freight
+coords  1240  181  0
+flip  1
+at  0
+
+####################
+
+spawn  j
+coords  1575 243
+at  10
+
+spawn	poison
+coords	351 190
+at	10
+
+spawn	poison
+coords	318 227
+at	40
+
+spawn	bill_bull
+flip 1
+coords	-144 220  
+at	90
+
+spawn	bred
+coords	424 205 33
+at	270
+
+wait
+at 270
+
+Group	4 5
+at	270
+
+blockade 270
+at	270
+
+spawn   wong_who
+health   15
+coords   380 207
+at   270
+
+spawn   g.oriber
+coords   385 242
+at   270
+
+spawn   bred
+coords   378 179
+at   270
+
+spawn	el_gado
+flip 1
+coords	-130 224
+item  Knife
+at	270
+
+spawn	slash
+coords	420 220
+at	270
+
+Group	3 4
+at	600
+
+blockade 600
+at	600
+
+spawn	poison
+coords  -45  225
+flip  1
+at  0
+
+spawn	bill_bull
+coords	-100 241  
+flip 1
+at	600
+
+Group	4 5
+at	1090
+
+wait
+at 760
+
+spawn	two.p
+coords	625 214
+at	760
+
+spawn	el_gado
+coords	807 238
+item  Knife
+at	760
+
+spawn	g.oriber
+coords	651 242
+at	760
+
+spawn	dug
+coords	875 238
+at	760
+
+blockade 760
+at	760
+
+blockade 1090
+at	1090
+
+spawn	andore
+map 1
+coords	449 201
+at	1140
+
+spawn	andore
+coords	451 230
+at	1140
+
+spawn	j
+flip 1
+coords	-326 242  0
+at	1200
+
+spawn	el_gado
+flip 1
+coords	-465 206  8
+item  Knife
+at	1200
+
+wait
+coords	380 215
+at 1200
+at	1200
+
+andore
+
+spawn	el_gado
+coords	-80 205
+item  Knife
+at	1200
+
+at	1200
+
+spawn	j
+coords	444 228
+at	1200
+
+blockade 1200
+at	1200

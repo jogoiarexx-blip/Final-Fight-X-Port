@@ -1,0 +1,34 @@
+#64th.7
+
+music		data/music/otras/boss1.bor
+background	data/bgs/ff64th/64th.7/1b.gif
+panel	        data/bgs/ff64th/64th.7/1.gif
+#frontpanel     data/bgs/ff64th/64th.7/1f.gif
+direction       both
+order           a
+
+Wall  339  227  -104  0  293  294  104  1000
+Wall  529  278  -272  0  266  265  272  1000
+
+spawn  whisky
+coords  192  183  87
+at  0
+
+spawn  whisky
+coords  475  242
+at  0
+
+spawn  damnd
+health  500
+boss    1
+coords  217  182  
+at  0
+
+spawn	j
+coords  463 247  
+at      0
+
+spawn  two.p
+coords  -45  226  
+flip  1
+at  0

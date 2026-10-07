@@ -1,0 +1,19 @@
+name	apple
+health	40
+type	item
+shadow	0
+
+
+icon	 data/chars/misc/food/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	8 11
+	bbox	0 0 17 16
+	frame	data/chars/misc/food/apple1.gif
+	delay	4
+	frame	data/chars/misc/food/apple2.gif
+		
+#|edited by openBor Stats v 0.60
+		

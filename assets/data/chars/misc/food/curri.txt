@@ -1,0 +1,18 @@
+name	curri
+health	70
+type	item
+shadow	0
+
+icon	 data/chars/misc/food/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	16 9
+	bbox	0 0 32 15
+	frame	data/chars/misc/food/curri1.gif
+	delay	4
+	frame	data/chars/misc/food/curri2.gif
+		
+#|edited by openBor Stats v 0.60
+		

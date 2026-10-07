@@ -1,0 +1,7 @@
+#	music		[path] [loop]		# bOR file to play
+#	animation	[path] [x] [y]		# gif animation to play
+#	silence					# stop music
+
+music	        data/music/gameover.bor 
+stop music     
+animation	data/scenes/howto/howto.gif

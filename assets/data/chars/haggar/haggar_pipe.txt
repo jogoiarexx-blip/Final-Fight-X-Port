@@ -1,0 +1,174 @@
+name	   haggar_pipe
+health	   100
+speed	   9
+type	   none
+shadow	   0
+noquake    1
+makeinv    1
+#dust    dust
+playshotno sp
+atchain     1 1 1 1 1
+antigrab 2
+grabfinish 1
+icon       data/chars/haggar/icon.gif
+diesound   data/sounds/pdie3.wav
+
+com s	freespecial
+
+anim	grabattack
+	loop	0
+	delay	25
+	offset	75 177
+	bbox	63 98 41 79
+	hitfx	data/sounds/beat3.wav
+	attack4	105 95 30 20 9 0 0 1 10 0
+	frame	data/chars/haggar/grab3.gif
+	attack4	0 0 0 0 0 0 0 0 0 0
+
+anim	grabattack2
+	loop	0
+	delay	25
+	offset	75 177
+	bbox	63 98 41 79
+	hitfx	data/sounds/beat3.wav
+	attack4	105 95 30 20 15 1 0 0 0 0
+	frame	data/chars/haggar/grab3.gif
+	attack4	0 0 0 0 0 0 0 0 0 0
+
+anim	freespecial
+	loop	0
+	delay	8
+	offset	75 177
+	energycost 5
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/haggar_giro.wav
+	frame	data/chars/haggar/sp01.gif
+	delay	8
+	frame	data/chars/haggar/sp02.gif
+	attack	86 87 68 78 23 1 0 0 0 0
+	frame	data/chars/haggar/sp03.gif
+	frame	data/chars/haggar/sp04.gif
+	attack	25 88 72 76 23 1 0 0 0 0
+	frame	data/chars/haggar/sp05.gif
+	frame	data/chars/haggar/sp02.gif
+	attack	86 87 68 78 23 1 0 0 0 0
+	frame	data/chars/haggar/sp03.gif
+	frame	data/chars/haggar/sp04.gif
+	attack	25 88 72 76 23 1 0 0 0 0
+	frame	data/chars/haggar/sp05.gif
+	attack	0 0 0 0 0 0
+
+anim	attack
+	loop	0
+	delay	7
+	offset	75 177
+	bbox	55 96 47 81
+	sound	data/sounds/knife.wav
+	frame	data/chars/haggar/haggar_pipe/a201.gif
+	frame	data/chars/haggar/haggar_pipe/a202.gif
+	offset	50 177
+	delay	26
+        hitfx	data/sounds/pipe.wav
+	attack	95 113 105 44 24 1 0 0 25 0
+	frame	data/chars/haggar/haggar_pipe/a203.gif
+		
+anim	get
+	loop	0
+	offset	75 177
+	delay	20
+	frame	data/chars/haggar/haggar_pipe/get.gif
+		
+anim	idle
+	loop	1
+	delay	13
+	offset	75 177
+	bbox	55 96 47 81
+	frame	data/chars/haggar/haggar_pipe/idle.gif
+	
+anim    jumpland
+	loop	0
+	delay	3
+	offset	75 177
+	bbox	63 99 41 79
+	frame	data/chars/haggar/haggar_pipe/ju0.gif
+	
+anim	jump
+	loop	0
+	delay	2
+	offset	75 177
+	bbox	63 99 41 79
+	frame	data/chars/haggar/haggar_pipe/ju0.gif
+	delay	20
+	frame	data/chars/haggar/haggar_pipe/ju1.gif
+	offset	82 167
+	delay	30
+	frame	data/chars/haggar/haggar_pipe/ju2.gif
+	offset	75 177
+	frame	data/chars/haggar/haggar_pipe/ju1.gif
+		
+anim	jumpattack
+	loop	0
+	delay	8
+	offset	75 138
+	bbox	63 99 41 79
+	sound	data/sounds/haggar_salto_patada.wav
+	frame	data/chars/haggar/haggar_pipe/ak1.gif
+	delay	35
+        hitfx	data/sounds/beat7.wav
+	attack	71 90 86 43 13 1 0 0 25
+	frame	data/chars/haggar/haggar_pipe/ak2.gif
+	delay	9
+	attack	0 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/haggar/haggar_pipe/ak1.gif
+	offset	75 177
+	frame	data/chars/haggar/haggar_pipe/ju1.gif
+		
+anim	jumpattack2
+	loop	0
+	delay	20
+	offset	83 137
+	bbox	63 99 41 79
+	attack	46 100 87 37 16 1 1 0 25 0
+	hitfx	data/sounds/beat1.wav
+	sound	data/sounds/haggar_plancha.wav
+	frame	data/chars/haggar/haggar_pipe/ap.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	75 177
+	bbox	55 96 47 81
+	frame	data/chars/haggar/haggar_pipe/wk1.gif
+	offset	75 177
+	frame	data/chars/haggar/haggar_pipe/wk2.gif
+	offset	75 176
+	frame	data/chars/haggar/haggar_pipe/wk3.gif
+	offset	75 175
+	frame	data/chars/haggar/haggar_pipe/wk4.gif
+	offset	75 175
+	frame	data/chars/haggar/haggar_pipe/wk5.gif
+	offset	75 176
+	frame	data/chars/haggar/haggar_pipe/wk6.gif
+	offset	75 177
+	frame	data/chars/haggar/haggar_pipe/wk7.gif
+	offset	75 177
+	frame	data/chars/haggar/haggar_pipe/wk8.gif
+	offset	75 176
+	frame	data/chars/haggar/haggar_pipe/wk9.gif
+	offset	75 176
+	frame	data/chars/haggar/haggar_pipe/wk10.gif
+	offset	75 175
+	frame	data/chars/haggar/haggar_pipe/wk11.gif
+	offset	75 176
+	frame	data/chars/haggar/haggar_pipe/wk12.gif
+
+anim	walkoff
+	loop	0
+	offset	75 177
+	bbox	55 96 47 81
+	delay	10
+        frame	data/chars/haggar/haggar_pipe/ju1.gif
+	frame	data/chars/haggar/haggar_pipe/ju1.gif
+		
+#|edited by openBor Stats v 0.60
+		

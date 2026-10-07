@@ -1,0 +1,20 @@
+name	 bottle_item
+health   0
+type     item
+candamage player npc enemy
+
+palette data/chars/misc/bottle/1.gif                                            
+
+anim	idle
+	loop	0
+	offset	15 26
+	delay	10
+	frame	data/chars/misc/bottle/b8.gif
+        offset	16 65
+	delay	5
+        frame	data/chars/misc/bottle/2.gif
+	offset	15 26
+	frame	data/chars/misc/bottle/botella_rota.gif
+		
+#|edited by openBor Stats v 0.60
+		

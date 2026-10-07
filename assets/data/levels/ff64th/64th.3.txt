@@ -1,0 +1,40 @@
+#64th.3
+
+music		data/music/otras/boss3.bor
+background	data/bgs/ff64th/64th.3/1b.gif
+panel	        data/bgs/ff64th/64th.3/1.gif
+#frontpanel     data/bgs/ff64th/64th.3/1f.gif
+blocked         2
+direction       right
+bgspeed         50
+order           a
+spawn  soldados1
+	coords  251  181  0
+	at  0
+
+spawn	j
+coords	352 191  4
+at	0
+
+spawn  bred
+coords  188  184
+at  0
+
+spawn  simons
+coords  480  244
+at  0
+
+spawn  two.p
+coords  361  240
+at  0
+
+spawn  Poison
+coords  411  188
+at  0
+
+spawn  abigail
+health  400
+boss    1
+coords  443  205
+at  0
+

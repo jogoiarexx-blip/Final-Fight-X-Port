@@ -1,0 +1,171 @@
+colourselect 1
+#nodropen 
+nolost 1 
+versusdamage 1
+nocost    1
+autoland  2
+maxfreespecials 19
+maxattacks 19
+maxattacktypes 19
+maxwalks  2
+maxidles  2
+spdirection 1 1 1 1
+lifescore 30000
+credscore 999999
+noaircancel 2
+#nocheats 1 
+
+# flash 
+load	Flash		 data/chars/misc/flash/flash.txt
+load	Flash2		 data/chars/misc/flash2/flash2.txt
+load	Flash3		 data/chars/misc/flash3/flash3.txt
+
+# polvo
+load	dust		 data/chars/misc/dust/dust.txt
+load	dust2		 data/chars/misc/dust2/dust2.txt
+
+# players
+load	guy	         data/chars/guy/guy.txt
+load	guy_npc	         data/chars/guy/guy_npc.txt
+load	guy_pipe	 data/chars/guy/guy_pipe.txt
+load	guy_muramasa!	 data/chars/guy/guy_muramasa!.txt
+load	guy_knife	 data/chars/guy/guy_knife.txt
+
+load	cody	         data/chars/cody/cody.txt
+load	cody_npc	 data/chars/cody/cody_npc.txt
+load	cody_pipe	 data/chars/cody/cody_pipe.txt
+load	cody_muramasa!	 data/chars/cody/cody_muramasa!.txt
+load	cody_knife	 data/chars/cody/cody_knife.txt
+
+load	haggar	         data/chars/haggar/haggar.txt
+load	haggar_npc	 data/chars/haggar/haggar_npc.txt
+load	haggar_pipe	 data/chars/haggar/haggar_pipe.txt
+load	haggar_muramasa! data/chars/haggar/haggar_muramasa!.txt
+load	haggar_knife     data/chars/haggar/haggar_knife.txt
+
+# armas
+know	pipe             data/chars/misc/pipe/pipe.txt
+know	muramasa!        data/chars/misc/muramasa!/muramasa!.txt
+know	knife            data/chars/misc/knife/knife.txt
+load	knife_           data/chars/misc/knife/knife_.txt      
+load	shell            data/chars/misc/shell/shell.txt        
+load    bottle           data/chars/misc/bottle/bottle.txt      
+know    bottle_item      data/chars/misc/bottle/bottle_item.txt 
+load    granade          data/chars/misc/granade/granade.txt
+load    arrow            data/chars/misc/arrow/arrow.txt
+
+# enemigos
+know    two.p            data/chars/two.p/two.p.txt
+know    j                data/chars/j/j.txt
+know    g.oriber         data/chars/g.oriber/g.oriber.txt
+know    bill_bull        data/chars/bill_bull/bill_bull.txt 
+know    wong_who         data/chars/wong_who/wong_who.txt
+know    axl              data/chars/axl/axl.txt 
+know    slash            data/chars/slash/slash.txt
+know    poison           data/chars/poison/poison.txt
+know    damnd            data/chars/damnd/damnd.txt
+know    bred             data/chars/bred/bred.txt
+know    dug              data/chars/dug/dug.txt
+know    simons           data/chars/simons/simons.txt
+know    jake             data/chars/jake/jake.txt
+know    andore           data/chars/andore/andore.txt
+know    abigail          data/chars/abigail/abigail.txt
+know    edi.e            data/chars/edi.e/edi.e.txt
+know    el_gado          data/chars/el_gado/el_gado.txt
+know    holly_wood       data/chars/holly_wood/holly_wood.txt
+load    holly_wood__     data/chars/holly_wood/holly_wood__.txt#lanza bottle
+load    sodom            data/chars/sodom/sodom.txt
+load	sodom_muramasa!  data/chars/sodom/sodom_muramasa!.txt
+#load	sodom_muramasa!__ data/chars/sodom/sodom_muramasa!__.txt
+load    rolento          data/chars/rolento/rolento.txt
+load    belger           data/chars/belger/belger.txt
+
+# obtaculos
+know	drumcan          data/chars/misc/drumcan/drumcan.txt
+know	dustbin          data/chars/misc/dustbin/dustbin.txt
+know	tire             data/chars/misc/tire/tire.txt
+know	barrel           data/chars/misc/barrel/barrel.txt
+know	freight          data/chars/misc/freight/freight.txt
+know	tel.booth        data/chars/misc/tel.booth/tel.booth.txt
+know	billboard        data/chars/misc/billboard/billboard.txt
+know	billboard_       data/chars/misc/billboard_/billboard_.txt
+know	drumcan_          data/chars/misc/drumcan_/drumcan_.txt
+
+# item food "comida"
+know	apple            data/chars/misc/food/apple.txt
+know	banana           data/chars/misc/food/banana.txt
+know	barbecue         data/chars/misc/food/barbecue.txt
+know	beer             data/chars/misc/food/beer.txt
+know	beer_            data/chars/misc/food/beer_.txt
+know	beer__           data/chars/misc/food/beer__.txt
+know	chicken          data/chars/misc/food/chicken.txt
+know	curri            data/chars/misc/food/curri.txt
+know	grapes           data/chars/misc/food/grapes.txt
+know	gum              data/chars/misc/food/gum.txt
+know	gum_             data/chars/misc/food/gum_.txt
+know	hamburger        data/chars/misc/food/hamburger.txt
+know	hot_dog          data/chars/misc/food/hot_dog.txt
+know	orange           data/chars/misc/food/orange.txt
+know	pineapple        data/chars/misc/food/pineapple.txt
+know	pizza            data/chars/misc/food/pizza.txt
+know	soft_drink       data/chars/misc/food/soft_drink.txt
+know	soft_drink_      data/chars/misc/food/soft_drink_.txt
+know	steak            data/chars/misc/food/steak.txt
+know	sushi            data/chars/misc/food/sushi.txt
+know	whisky           data/chars/misc/food/whisky.txt
+
+# item point "puntos"
+know	diamond          data/chars/misc/point/diamond.txt
+know	dollar           data/chars/misc/point/dollar.txt
+know	emerald          data/chars/misc/point/emerald.txt
+know	gold_bar         data/chars/misc/point/gold_bar.txt
+know	hammer           data/chars/misc/point/hammer.txt
+know	hat              data/chars/misc/point/hat.txt
+know	napkin           data/chars/misc/point/napkin.txt
+know	necklace         data/chars/misc/point/necklace.txt
+know	pearl            data/chars/misc/point/pearl.txt
+know	radio            data/chars/misc/point/radio.txt
+know	ruby             data/chars/misc/point/ruby.txt
+know	topaz            data/chars/misc/point/topaz.txt
+know	watch            data/chars/misc/point/watch.txt
+know	yen              data/chars/misc/point/yen.txt
+know	yen_             data/chars/misc/point/yen_.txt
+
+#frontpanel
+#know   1f_subway3       data/chars/misc/1f_subway3/1f_subway3.txt
+#know   1f_bay_area      data/chars/misc/1f_bay_area/1f_bay_area.txt
+#know	pared1_west_side data/chars/misc/pared_west_side/pared1_west_side.txt
+#know	pared2_west_side data/chars/misc/pared_west_side/pared2_west_side.txt
+#know	pared3_west_side data/chars/misc/pared_west_side/pared3_west_side.txt
+#know	señal            data/chars/misc/señal/señal.txt
+#know   1f_west_side2    data/chars/misc/1f_west_side2/1f_west_side2.txt
+#know   maya             data/chars/misc/maya/maya.txt
+#know   viga             data/chars/misc/viga/viga.txt
+
+#para escenario subway4 
+#know    ring_sodom       data/chars/misc/ring_sodom/ring_sodom.txt
+
+#para escenario west_side
+#know    luces_west_side     data/chars/misc/luces_west_side/luces_west_side.txt
+#know    multitud_west_side  data/chars/misc/multitud_west_side/multitud_west_side.txt
+#know    viejo               data/chars/misc/viejo/viejo.txt
+#know    mesa                data/chars/misc/mesa/mesa.txt
+#know    puerta_west_side    data/chars/misc/puerta_west_side/puerta_west_side.txt
+
+#para escenario west_side2 
+#know    ring_andore      data/chars/misc/ring_andore/ring_andore.txt
+#know    ring_luces       data/chars/misc/ring_luces/ring_luces.txt
+
+# otros
+#know    gente1           data/chars/misc/gente1/gente1.txt
+#know    gente2           data/chars/misc/gente2/gente2.txt
+#know    gente3           data/chars/misc/gente3/gente3.txt
+#know    gente4           data/chars/misc/gente4/gente4.txt
+#know    gota             data/chars/misc/gota/gota.txt
+know     tiempo           data/chars/misc/tiempo/tiempo.txt
+#know    perro            data/chars/misc/perro/perro.txt
+#know    pasa_manos       data/chars/misc/pasa_manos/pasa_manos.txt#para el metro
+
+#cameos
+know    soldados1        data/chars/misc/cameos/soldados1/soldados1.txt
+ 

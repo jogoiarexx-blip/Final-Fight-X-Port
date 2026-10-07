@@ -1,0 +1,120 @@
+#levels
+
+timeloc    192 20 180 320 1  
+timeicon    data/chars/misc/tiempo/tiempo.gif 190 5
+
+hiscorebg  1
+loadingbg  1 55 200 200 1000 1000
+loadingbg2 1 55 200 200 1000 1000
+maxplayers 3
+
+#-------menu 
+
+p1smenu 153 159 1000 1000 
+p2smenu 153 159 1000 1000 
+p3smenu 153 159 1000 1000
+
+#-------lifebars, icons, names, etc.
+
+lbarsize  62 3 0
+
+#player 1
+
+p1life      21   20
+#p1mp        21  24
+p1namej     23   12  5  1 5 9
+p1icon      5     9 
+p1lifen     72    4 
+p1lifex    -50 -100
+p1score     23   12  -10  -10  28  -100  
+e1life      21   36
+e1icon      5    25
+e1name      23   28
+
+#player 2
+
+p2life      114   20
+#p2mp        114   24
+p2namej     116   12  98 1 98 9
+p2icon      98     9
+p2lifen     165    4  
+p2lifex    -50  -100
+p2score     116   12  -10  -10  28  -100  
+e2life      114   36
+e2icon       98   25
+e2name      116   28
+
+
+#player 3
+
+p3life      241   20
+#p3mp        241   24
+p3namej     243   12  225 1 225 9  
+p3icon      225    9
+p3lifen     292    4  
+p3lifex    -50  -100
+p3score     243   12  -10  -10  28  -100 
+e3life      241   36
+e3icon      225   25
+e3name      243   28
+
+#-----------------------------------------
+
+set	final_fight_X #64th
+lives         5
+credits       6
+nosame	      1
+continuescore 2
+canSave       2
+
+z       180 240 160
+file	data/levels/ff64th/64th.1.txt
+z       180 237 160
+file	data/levels/ff64th/64th.2.txt
+z       185 237 160
+file	data/levels/ff64th/64th.3.txt
+next
+z       180 240 160
+file	data/levels/ff64th/64th.4.txt
+z       175 240 160
+file	data/levels/ff64th/64th.5.txt
+z       178 240 160
+file	data/levels/ff64th/64th.6.txt
+z       178 240 160
+file	data/levels/ff64th/64th.7.txt
+next
+z       170 250 160
+file	data/levels/ff64th/64th.8.txt
+z       195 240 160
+file	data/levels/ff64th/64th.9.txt
+next
+z       180 240 160
+file	data/levels/ff64th/64th.10.txt
+z       185 240 160
+file	data/levels/ff64th/64th.11.txt
+z       178 240 160
+file	data/levels/ff64th/64th.12.txt
+next
+z       180 240 160
+file	data/levels/ff64th/64th.13.txt
+z       180 240 160
+file	data/levels/ff64th/64th.14.txt
+z       180 240 160
+file	data/levels/ff64th/64th.15.txt
+z       180 240 160
+file	data/levels/ff64th/64th.16.txt
+z       180 240 160
+file	data/levels/ff64th/64th.17.txt
+z       180 240 160
+file	data/levels/ff64th/64th.18.txt
+z       165 240 160
+file	data/levels/ff64th/64th.19.txt
+z       170 240 160
+file	data/levels/ff64th/64th.20.txt
+z       178 335 160
+file	data/levels/ff64th/64th.21.txt
+
+scene	data/scenes/fin.txt
+scene	data/scenes/corte.txt
+scene	data/scenes/creditos.txt
+end

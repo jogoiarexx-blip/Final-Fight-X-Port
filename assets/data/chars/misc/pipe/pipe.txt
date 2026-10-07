@@ -1,0 +1,23 @@
+name	 Pipe
+health   0
+type     item
+counter  4
+subtype  weapon
+weapnum  1
+#nolife   1
+typeshot 1
+icon	 data/chars/misc/pipe/icon.gif
+
+
+
+anim	idle
+	loop	1
+	delay	80
+	offset	37 5
+	bbox	15 3 50 5
+	frame	data/chars/misc/pipe/pipe1.gif
+	delay	5
+	frame	data/chars/misc/pipe/pipe2.gif
+		
+#|edited by openBor Stats v 0.60
+		

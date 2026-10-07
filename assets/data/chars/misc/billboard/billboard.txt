@@ -1,0 +1,31 @@
+name	billboard
+health  1
+type    obstacle
+shadow	0
+nodieblink 2
+noatflash 1
+offscreenkill 9999999
+diesound  data/sounds/romper.wav
+
+
+
+anim	death
+	loop	0
+	delay	10
+	offset	29 74
+	sound	data/sounds/romper.wav
+	frame	data/chars/misc/billboard/billboard3.gif
+	delay	100
+	frame	data/chars/misc/billboard/billboard4.gif
+		
+anim	idle
+	loop	1
+	delay	15
+	offset	29 74
+	bbox	2 1 62 81
+	platform	29 99 -37 -37 41 41 28 1000
+	frame	data/chars/misc/billboard/billboard1.gif
+	frame	data/chars/misc/billboard/billboard2.gif
+		
+#|edited by openBor Stats v 0.60
+		

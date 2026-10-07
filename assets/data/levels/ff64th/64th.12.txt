@@ -1,0 +1,50 @@
+#64th.12
+
+music		data/music/ff/rolent1.bor
+background	data/bgs/ff64th/64th.12/1b.gif
+panel	        data/bgs/ff64th/64th.12/1.gif
+#frontpanel     data/bgs/ff64th/64th.12/1f.gif
+direction       right
+order           a
+
+spawn  soft_drink
+coords  473  191
+at  0
+
+spawn  beer
+coords  141  188
+at  0
+
+spawn  rolento
+health  600
+boss    1
+coords  475  206
+at  0
+
+spawn  axl
+coords  402  185
+at  0
+
+spawn  slash
+coords  411  232
+at  0
+
+spawn  el_gado
+coords  -200  226
+flip  1
+item  Knife
+at  0
+
+spawn  holly_wood
+coords  -192  211
+item  Knife
+flip  1
+at  0
+
+spawn  holly_wood__
+coords  740  217
+at  0
+
+spawn  Knife
+coords  234  208
+at  0

@@ -1,0 +1,19 @@
+name	gum
+health	10
+type	item
+shadow	0
+
+
+icon	 data/chars/misc/food/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	8 1
+	bbox	0 0 18 7
+	frame	data/chars/misc/food/gum1.gif
+	delay	4
+	frame	data/chars/misc/food/gum2.gif
+		
+#|edited by openBor Stats v 0.60
+		

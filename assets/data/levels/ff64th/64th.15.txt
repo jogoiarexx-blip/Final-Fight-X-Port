@@ -1,0 +1,93 @@
+#64th.15
+
+music		data/music/otras/3.bor
+background	data/bgs/ff64th/64th.15/1b.gif
+panel	        data/bgs/ff64th/64th.15/1.gif
+#frontpanel     data/bgs/ff64th/64th.15/1f.gif
+direction       left
+order           a
+
+Wall  1020  293  -153  0  40  41  153  1000
+
+spawn	j
+coords	-45 189
+flip  1
+at	100
+
+spawn	poison
+alias   roxy
+coords	-137 217
+flip    1
+map     1
+at	100
+
+spawn	two.p
+coords	-34 188
+flip    1
+at	300
+
+spawn	jake
+coords	-44 223
+flip    1
+at	300
+
+spawn	Tire
+coords	-106 195
+at	350
+
+spawn	Tire
+coords	-100 225
+item    sushi
+at	350
+
+wait
+at      500
+
+blockade 500
+at	500
+
+group   4 4
+at      500
+
+spawn	el_gado
+coords	428 200
+at	500
+
+spawn	simons
+coords	398 216
+at	500
+
+group   100 100
+at      600
+
+spawn	bred
+coords	-41 193
+at	700
+
+spawn	j
+coords	-51 229
+at	700
+
+spawn	poison
+coords	-46 196
+	flip  1
+at	900
+
+spawn	bill_bull
+coords	-60 207  0
+	flip  1
+at	900
+
+wait
+at      1000
+
+blockade 1000
+at	1000
+
+spawn	poison
+alias   roxy
+flip    1
+coords	-80 195
+	map  1
+at	1000
+

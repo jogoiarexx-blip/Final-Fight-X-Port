@@ -1,0 +1,31 @@
+Versión: 1.0.0
+
+*************************
+----------------------------------------
+PAK Informacion
+----------------------------------------
+Autor                   : JIAM
+Titulo                  : Final fight X
+Nombre del archivo      : Final fight X.pak
+Versión pak             : 1.0.0
+Fecha de lanzamiento    : 5/11/2013
+OpenBOR versión	        : OpenBOR v3.0 Build 3797 (versiones anteriores o posteriores pueden funcionar mal "errores")
+ 
+----------------------------------------
+Historia              
+----------------------------------------
+¡¿Ha buelto Belger?! Guy, Cody y Haggar vuelven a tener que enfrentarse con sus viejos enemigos la banda Mad Gear. Esta vez acabaran con todos para que la ciudad por fin quede libre de ellos... 
+ 
+----------------------------------------
+Compatibilidad
+----------------------------------------
+PC        : sí
+Dreamcast : no probado
+PSP       : no probado
+Otros     : no probado
+
+----------------------------------------
+Nota
+----------------------------------------
+
+Este mod es gratuito. No modificar el archivo gracias.

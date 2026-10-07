@@ -1,0 +1,4 @@
+
+video 0
+
+colourdepth 16bit

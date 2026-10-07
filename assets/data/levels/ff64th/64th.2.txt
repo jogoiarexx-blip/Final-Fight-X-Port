@@ -1,0 +1,75 @@
+#64th.2
+
+music		data/music/otras/5.bor
+background	data/bgs/ff64th/64th.2/1b.gif
+panel	        data/bgs/ff64th/64th.2/1.gif
+#frontpanel     data/bgs/ff64th/64th.2/1f.gif
+direction       right
+#direction       both
+order           a
+
+Wall  673  256  -119  0  170  171  119  1000
+
+######objetos con at 0
+
+spawn  tel.booth
+coords  531  188
+flip  1
+	item  Pipe
+at  0
+
+spawn  dustbin
+coords  766  263
+flip  1
+at  0
+
+spawn  tire
+coords  569  232
+flip  1
+item  apple
+at  0
+
+spawn  tire
+coords  506  232
+flip  1
+at  0
+
+#######################
+
+at	10
+spawn  slash
+coords  577  210
+at  10
+
+spawn  bred
+coords  454  197
+at  10
+
+spawn	j
+coords	378 182
+at	10
+
+spawn	two.p
+coords	427 183
+at	10
+
+spawn  jake
+coords  -191  208
+flip  1
+at  48
+
+spawn  simons
+coords  -487  199
+flip  1
+at  400
+
+spawn	dug
+coords	-432 186
+flip  1
+at 400
+
+spawn	axl
+coords	-462 225
+flip  1
+at 400
+

@@ -1,0 +1,28 @@
+name	tire
+health  1
+type    obstacle
+shadow	0
+noatflash 1
+offscreenkill 9999999
+diesound  data/sounds/klunk.wav
+
+icon	 data/chars/misc/tire/icon.gif
+
+anim	fall
+	loop	0
+	delay	10
+	offset	21 117
+	sound	data/sounds/klunk.wav
+	frame	data/chars/misc/tire/tire2.gif
+	frame	data/chars/misc/tire/tire3.gif
+	frame	data/chars/misc/tire/tire4.gif
+
+anim	idle
+	loop	1
+	delay	1000
+	offset	21 117
+	bbox	0 53 50 64
+	seta	0
+	platform	30 121 -31 -31 18 18 12 47
+	frame	data/chars/misc/tire/tire1.gif
+

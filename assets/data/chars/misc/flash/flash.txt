@@ -1,0 +1,28 @@
+name	flash
+type	none
+shadow	0
+toflip  1
+
+palette data/chars/misc/flash/1.gif
+
+anim	idle
+	loop	0
+	delay	3
+	offset	20 26
+	frame	data/chars/misc/flash/1.gif
+	frame	data/chars/misc/flash/2.gif
+	
+
+#modo sangre
+#palette data/chars/misc/flash2/s1.gif
+
+#anim	idle
+#	loop	0
+#	delay	5
+#	offset	15 10
+#	frame	data/chars/misc/flash2/s1.gif
+#	frame	data/chars/misc/flash2/s2.gif
+#	frame	data/chars/misc/flash2/s3.gif
+	
+#|edited by openBor Stats v 0.60
+		

@@ -1,0 +1,29 @@
+name	tel.booth
+health  1
+type    obstacle
+shadow	0
+nodieblink 2
+noatflash 1
+offscreenkill 9999999
+diesound  data/sounds/cristales_rotos.wav
+
+icon	 data/chars/misc/tel.booth/icon.gif
+
+anim	death
+	loop	0
+	delay	10
+	offset	45 123
+	sound	data/sounds/cristales_rotos.wav
+	frame	data/chars/misc/tel.booth/tel.booth2.gif
+	frame	data/chars/misc/tel.booth/tel.booth3.gif
+	delay	100
+	frame	data/chars/misc/tel.booth/tel.booth4.gif
+
+anim	idle
+	loop	1
+	delay	15
+	offset	45 123
+	bbox	2 1 77 120
+	platform	37 133 -39 -39 46 46 22 1000
+	frame	data/chars/misc/tel.booth/tel.booth1.gif
+

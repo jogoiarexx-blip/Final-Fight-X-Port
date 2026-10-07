@@ -1,0 +1,84 @@
+name	 bottle
+health   0
+type     enemy
+shootnum  1
+speed 10
+
+candamage player npc enemy
+
+palette data/chars/misc/bottle/1.gif
+
+        anim	attack1
+	loop	0
+	delay	7
+	offset	15 26
+        sound	data/sounds/molotov.wav
+	frame	data/chars/misc/bottle/botella_rota.gif
+	offset	16 65
+	burn	0 13 34 52 60 1 0 0 0 0
+	frame	data/chars/misc/bottle/1.gif
+	frame	data/chars/misc/bottle/2.gif
+	frame	data/chars/misc/bottle/3.gif
+	burn	0 13 34 52 60 1 0 0 0 0
+	frame	data/chars/misc/bottle/01.gif
+	frame	data/chars/misc/bottle/02.gif
+	frame	data/chars/misc/bottle/03.gif
+	frame	data/chars/misc/bottle/04.gif
+        delay	10
+	burn	35 13 34 52 60 1 0 0 0 0
+        offset	50 65
+	frame	data/chars/misc/bottle/x1.gif
+	frame	data/chars/misc/bottle/x2.gif
+	frame	data/chars/misc/bottle/x3.gif
+	burn    8  15  86  50  60  1  0  0  0  0
+	frame	data/chars/misc/bottle/x4.gif
+
+	frame	data/chars/misc/bottle/x5.gif
+	frame	data/chars/misc/bottle/x6.gif
+        frame	data/chars/misc/bottle/x5.gif
+        burn    0  0  0  0
+	frame	data/chars/misc/bottle/x6.gif
+
+        delay	5
+	frame	data/chars/misc/bottle/x5.gif
+	frame	data/chars/misc/bottle/x6.gif
+	frame	data/chars/misc/bottle/x5.gif
+	frame	data/chars/misc/bottle/x6.gif
+
+
+
+
+	#offset	16 65
+        #delay	3
+	#burn	0 13 34 52 60 1 0 0 0 0
+	#frame	data/chars/misc/bottle/1.gif
+	#frame	data/chars/misc/bottle/2.gif
+	#frame	data/chars/misc/bottle/3.gif
+	#burn	0 0 0 0 0 0 0 0 0
+	#frame	data/chars/misc/bottle/1.gif
+	#frame	data/chars/misc/bottle/2.gif
+	#frame	data/chars/misc/bottle/3.gif
+
+anim	idle
+	loop	0
+	offset	0 33
+	delay	8
+	frame	data/chars/misc/bottle/b1.gif
+	frame	data/chars/misc/bottle/b2.gif
+	frame	data/chars/misc/bottle/b3.gif
+	frame	data/chars/misc/bottle/b4.gif
+	frame	data/chars/misc/bottle/b5.gif
+	frame	data/chars/misc/bottle/b6.gif
+	frame	data/chars/misc/bottle/b7.gif
+	frame	data/chars/misc/bottle/b8.gif
+	frame	data/chars/misc/bottle/b1.gif
+	frame	data/chars/misc/bottle/b2.gif
+	frame	data/chars/misc/bottle/b3.gif
+	frame	data/chars/misc/bottle/b4.gif
+	frame	data/chars/misc/bottle/b5.gif
+	frame	data/chars/misc/bottle/b6.gif
+	frame	data/chars/misc/bottle/b7.gif
+	frame	data/chars/misc/bottle/b8.gif
+	offset	15 26
+	frame	data/chars/misc/bottle/botella_rota.gif
+

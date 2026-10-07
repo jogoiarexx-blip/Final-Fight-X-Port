@@ -1,0 +1,17 @@
+name	flash3
+type	none
+shadow	0
+toflip  1
+
+palette data/chars/misc/flash3/1.gif
+
+anim	idle
+	loop	0
+	delay	3
+	offset	17 17
+	frame	data/chars/misc/flash3/1.gif
+	frame	data/chars/misc/flash3/2.gif
+	frame	data/chars/misc/flash3/3.gif
+		
+#|edited by openBor Stats v 0.60
+		

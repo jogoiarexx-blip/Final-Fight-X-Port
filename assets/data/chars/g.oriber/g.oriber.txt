@@ -1,0 +1,434 @@
+name	g.oriber
+health	100
+speed	9
+type	enemy
+shadow	0
+noquake 1
+
+icon	data/chars/g.oriber/icon.gif
+diesound data/sounds/die1.wav
+
+candamage  player npc obstacle
+hostile player npc
+
+palette data/chars/g.oriber/wk1.gif
+
+remap   data/chars/g.oriber/wk1.gif   data/chars/g.oriber/alter.gif
+remap   data/chars/g.oriber/wk1.gif   data/chars/g.oriber/alter2.gif
+
+
+
+anim	attack1
+	range	0 60
+	offset	82 170
+	bbox	56 90 55 80
+	loop	0
+	delay	8
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/g.oriber/a101.gif
+	delay	18
+	attack2	95 100 39 43 12 0 0 0 0 0
+	frame	data/chars/g.oriber/a102.gif
+	attack	0 0 0 0 0
+	delay	8
+	frame	data/chars/g.oriber/a201.gif
+	delay	18
+	hitfx	data/sounds/beat7.wav
+	attack	99 85 57 66 17 1 0 0 15
+	frame	data/chars/g.oriber/a202.gif
+	delay	10
+	attack	0 0 0 0 0 0
+	frame	data/chars/g.oriber/a201.gif
+		
+anim	attack2
+	range	0 60
+	offset	82 170
+	bbox	56 90 55 80
+	loop	0
+	delay	8
+	frame	data/chars/g.oriber/a101.gif
+	delay	18
+	attack2	95 100 39 43 12 0 0 0 0 0
+	frame	data/chars/g.oriber/a102.gif
+		
+anim	attack3
+	range	0 60
+	offset	82 170
+	bbox	56 90 55 80
+	loop	0
+	delay	8
+	frame	data/chars/g.oriber/a201.gif
+	delay	18
+	hitfx	data/sounds/beat7.wav
+	attack2	99 85 57 66 17 1 0 0 15 0
+	frame	data/chars/g.oriber/a202.gif
+	delay	10
+	attack	0 0 0 0 0 0
+	frame	data/chars/g.oriber/a201.gif
+		
+anim	attack4
+	range	150 150
+	offset	82 170
+	bbox	56 90 55 80
+	loop	0
+	delay	8
+	sound	data/sounds/run.wav
+	frame	data/chars/g.oriber/a101.gif
+	move	12
+	attack	62 108 57 66 17 1 1 0 15 0
+	frame	data/chars/g.oriber/r1.gif
+	offset	82 169
+	move	12
+	attack	62 108 57 66 17 1 1 0 15 0
+	frame	data/chars/g.oriber/r2.gif
+	offset	82 170
+	attack	62 108 57 66 17 1 1 0 15 0
+	move	12
+	frame	data/chars/g.oriber/r3.gif
+	offset	82 169
+	attack	62 108 57 66 17 1 1 0 15 0
+	move	12
+	frame	data/chars/g.oriber/r4.gif
+	move	12
+	attack	62 108 57 66 17 1 1 0 15 0
+	frame	data/chars/g.oriber/r1.gif
+	offset	82 169
+	move	12
+	attack	62 108 57 66 17 1 1 0 15 0
+	frame	data/chars/g.oriber/r2.gif
+	offset	82 170
+	attack	62 108 57 66 17 1 1 0 15 0
+	move	12
+	frame	data/chars/g.oriber/r3.gif
+	offset	82 169
+	attack	62 108 57 66 17 1 1 0 15 0
+	move	12
+	frame	data/chars/g.oriber/r4.gif
+	move	12
+	attack	62 108 57 66 17 1 1 0 15 0
+	frame	data/chars/g.oriber/r1.gif
+	offset	82 169
+	move	12
+	attack	62 108 57 66 17 1 1 0 15 0
+	frame	data/chars/g.oriber/r2.gif
+	offset	82 170
+	attack	62 108 57 66 17 1 1 0 15 0
+	move	12
+	frame	data/chars/g.oriber/r3.gif
+	offset	82 169
+	attack	62 108 57 66 17 1 1 0 15 0
+	move	12
+	frame	data/chars/g.oriber/r4.gif
+		
+anim	burn
+	loop	0
+	offset	82 170
+	delay	10
+	landframe	5 dust2
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	offset	82 165
+	frame	data/chars/g.oriber/fall2.gif
+		
+anim	fall
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	82 170
+	frame	data/chars/g.oriber/fall1.gif
+	offset	82 165
+	delay	20
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/g.oriber/fall2.gif
+		
+anim	fall15
+	landframe	3 dust
+	attack	66 121 32 55 5 1 1 0 0 0
+	jumpframe	0 3 2
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/g.oriber/slam.gif
+	delay	30
+	offset	60 178
+	frame	data/chars/g.oriber/fall1.gif
+	offset	82 165
+	frame	data/chars/g.oriber/fall2.gif
+		
+anim	fall16
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	10 170
+	delay	30
+	attack	70 106 41 70 5 1 1 0 0 0
+	frame	data/chars/g.oriber/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	82 165
+	frame	data/chars/g.oriber/fallcontrario.gif
+		
+anim	fall18
+	flipframe	0
+	attack	66 121 32 55 5 1 1 0 0 0
+	jumpframe	0 3 2
+	landframe	3 dust
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/g.oriber/slam.gif
+	delay	30
+	offset	60 178
+	frame	data/chars/g.oriber/fall1.gif
+	offset	82 165
+	frame	data/chars/g.oriber/fall2.gif
+		
+anim	fall19
+	landframe	2 dust
+	flipframe	0
+	jumpframe	0 2 1
+	loop	0
+	move	40
+	offset	10 170
+	delay	30
+	attack	70 106 41 70 5 1 1 0 0 0
+	frame	data/chars/g.oriber/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	82 165
+	frame	data/chars/g.oriber/fallcontrario.gif
+		
+anim	fall3
+	landframe	2 dust
+	attack	65 120 39 50 5 1 0 0 0 0
+	loop	0
+	delay	50
+	offset	82 170
+	frame	data/chars/g.oriber/pd02.gif
+	offset	82 165
+	delay	5
+	frame	data/chars/g.oriber/fallcontrario.gif
+		
+anim	fall4
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	82 200
+	frame	data/chars/g.oriber/fall1.gif
+	offset	82 165
+	delay	20
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/g.oriber/fall2.gif
+		
+anim	grabbed
+	loop	0
+	delay	50
+	offset	82 170
+	bbox	56 90 55 80
+	frame	data/chars/g.oriber/wk4.gif
+		
+anim	grabbedwalk
+	loop	0
+	delay	50
+	offset	87 196
+	bbox	56 90 55 80
+	frame	data/chars/g.oriber/painwalk.gif
+		
+anim	idle
+	loop	1
+	delay	10
+	offset	82 170
+	bbox	56 90 55 80
+	frame	data/chars/g.oriber/wk1.gif
+		
+anim	pain1
+	loop	0
+	delay	6
+	offset	82 170
+	bbox	56 90 55 80
+	frame	data/chars/g.oriber/pain1.gif
+	offset	85 170
+	frame	data/chars/g.oriber/pain1.gif
+	offset	83 170
+	delay	35
+	frame	data/chars/g.oriber/pain1.gif
+		
+anim	pain10
+	flipframe	0
+	loop	0
+	delay	30
+	offset	138 222
+	frame	data/chars/g.oriber/hslam.gif
+	attack	65 122 41 51 5 1 1 0 0 0
+	offset	57 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/g.oriber/pd02.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	82 170
+	bbox	56 90 55 80
+	frame	data/chars/g.oriber/pain2.gif
+	offset	85 170
+	frame	data/chars/g.oriber/pain2.gif
+	offset	83 170
+	delay	35
+	frame	data/chars/g.oriber/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	89 178
+	bbox	75 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/g.oriber/pain1.gif
+	delay	15
+	offset	108 205
+	frame	data/chars/g.oriber/paincontrario.gif
+	offset	105 210
+	frame	data/chars/g.oriber/pd01.gif
+	delay	15
+	offset	78 189
+	frame	data/chars/g.oriber/pd02.gif
+	attack	68 108 39 66 5 1 1 0 0 0
+	bbox	75 -190 1 1
+	offset	78 173
+	frame	data/chars/g.oriber/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	6
+	offset	82 200
+	bbox	56 90 55 80
+	frame	data/chars/g.oriber/pain2.gif
+		
+anim	pain5
+	loop	0
+	delay	10
+	offset	50 178
+	bbox	75 -190 1 1
+	frame	data/chars/g.oriber/pain_cody.gif
+		
+anim	pain6
+	loop	0
+	delay	30
+	offset	66 222
+	frame	data/chars/g.oriber/hslam.gif
+	attack	65 122 41 51 5 1 1 0 0 0
+	offset	-15 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/g.oriber/pd02.gif
+		
+anim	pain7
+	loop	0
+	delay	10
+	offset	40 178
+	bbox	75 -190 1 1
+	frame	data/chars/g.oriber/pain_guy.gif
+		
+anim	pain8
+	flipframe	0
+	loop	0
+	delay	10
+	offset	122 178
+	bbox	75 -190 1 1
+	frame	data/chars/g.oriber/pain_cody.gif
+		
+anim	pain9
+	flipframe	0
+	loop	0
+	delay	10
+	offset	112 178
+	bbox	75 -190 1 1
+	frame	data/chars/g.oriber/pain_guy.gif
+		
+anim	rise
+	loop	0
+	offset	82 165
+	delay	15
+	frame	data/chars/g.oriber/fall2.gif
+	delay	12
+	frame	data/chars/g.oriber/fall3.gif
+	offset	82 170
+	delay	40
+	frame	data/chars/g.oriber/rise.gif
+		
+anim	rise16
+	loop	0
+	offset	104 165
+	delay	15
+	flipframe	
+	frame	data/chars/g.oriber/fall2.gif
+	delay	12
+	frame	data/chars/g.oriber/fall3.gif
+	offset	82 170
+	delay	40
+	frame	data/chars/g.oriber/rise.gif
+		
+anim	rise19
+	loop	0
+	offset	104 165
+	delay	15
+	flipframe	
+	frame	data/chars/g.oriber/fall2.gif
+	delay	12
+	frame	data/chars/g.oriber/fall3.gif
+	offset	82 170
+	delay	40
+	frame	data/chars/g.oriber/rise.gif
+		
+anim	rise3
+	loop	0
+	offset	104 165
+	delay	15
+	flipframe	
+	frame	data/chars/g.oriber/fall2.gif
+	delay	12
+	frame	data/chars/g.oriber/fall3.gif
+	offset	82 170
+	delay	40
+	frame	data/chars/g.oriber/rise.gif
+		
+anim	spain
+	loop	0
+	delay	3
+	offset	82 170
+	bbox	56 90 55 80
+	frame	data/chars/g.oriber/pain2.gif
+	offset	85 170
+	frame	data/chars/g.oriber/pain2.gif
+	offset	83 170
+	frame	data/chars/g.oriber/pain2.gif
+	delay	15
+	offset	82 170
+	frame	data/chars/g.oriber/pain2.gif
+		
+anim	spawn
+	loop	0
+	delay	200
+	offset	82 170
+	frame	data/chars/g.oriber/spawn.gif
+		
+anim	walk
+	loop	1
+	offset	82 170
+	bbox	56 90 55 80
+	delay	15
+	frame	data/chars/g.oriber/wk1.gif
+	offset	82 169
+	frame	data/chars/g.oriber/wk2.gif
+	offset	82 170
+	frame	data/chars/g.oriber/wk3.gif
+	offset	82 169
+	frame	data/chars/g.oriber/wk4.gif
+		
+#|edited by openBor Stats v 0.60
+		

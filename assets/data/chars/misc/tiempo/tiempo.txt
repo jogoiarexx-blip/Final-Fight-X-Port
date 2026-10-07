@@ -1,0 +1,14 @@
+name	tiempo
+type	icon
+shadow	0
+
+palette data/chars/misc/tiempo/tiempo.gif
+
+anim	idle
+	loop	1
+	delay	600
+	offset	17 17
+	frame	data/chars/misc/tiempo/tiempo.gif
+		
+#|edited by openBor Stats v 0.60
+		

@@ -1,0 +1,427 @@
+name	simons
+health	100
+speed	10
+type	enemy
+shadow	0
+noquake 1
+
+icon	data/chars/simons/icon.gif
+diesound data/sounds/die1.wav
+
+candamage  player npc obstacle
+hostile player npc
+
+palette data/chars/simons/wk1.gif
+
+
+
+anim	attack1
+	range	0 60
+	loop	0
+	delay	9
+	offset	89 174
+	bbox	70 96 40 78
+	frame	data/chars/simons/a101.gif
+	delay	18
+	attack	99 94 49 30 8 0 0 0 0 0
+	frame	data/chars/simons/a102.gif
+	delay	8
+	attack	0 0 0 0 0
+	frame	data/chars/simons/a101.gif
+		
+anim	attack2
+	range	0 60
+	loop	0
+	delay	20
+	offset	89 174
+	bbox	70 96 40 78
+	frame	data/chars/simons/a201.gif
+	delay	25
+	attack	99 121 38 16 8 1 0 0 0 0
+	frame	data/chars/simons/a202.gif
+	delay	20
+	attack	0 0 0 0 0
+	frame	data/chars/simons/a201.gif
+		
+anim	attack3
+	range	0 60
+	loop	0
+	delay	20
+	offset	89 174
+	bbox	70 96 40 78
+	frame	data/chars/simons/a301.gif
+	delay	25
+	hitfx	data/sounds/beat7.wav
+	attack	99 97 43 51 8 1 0 0 0 0
+	frame	data/chars/simons/a302.gif
+		
+anim	attack4
+	range	0 60
+	loop	0
+	delay	2
+	offset	89 174
+	bbox	70 96 40 78
+	jumpframe	1 4
+	frame	data/chars/simons/ju1.gif
+	delay	15
+	frame	data/chars/simons/ju2.gif
+	hitfx	data/sounds/beat7.wav
+	attack	90 142 52 31 8 1 0 0 0 0
+	frame	data/chars/simons/ju3.gif
+		
+anim	attack5
+	range	0 60
+	loop	0
+	delay	9
+	offset	89 174
+	bbox	70 96 40 78
+	frame	data/chars/simons/a101.gif
+	delay	18
+	attack	99 94 49 30 8 1 0 0 0 0
+	frame	data/chars/simons/a102.gif
+	delay	8
+	attack	0 0 0 0 0
+	frame	data/chars/simons/a101.gif
+		
+anim	burn
+	loop	0
+	offset	89 174
+	delay	10
+	landframe	5 dust2
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/simons/fall2.gif
+		
+anim	fall
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	89 174
+	frame	data/chars/simons/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	frame	data/chars/simons/fall2.gif
+		
+anim	fall15
+	attack	69 128 46 50 5 1 1 0 0 0
+	jumpframe	0 3 2
+	landframe	3 dust
+	loop	0
+	move	30
+	offset	55 210
+	delay	20
+	frame	data/chars/simons/slam.gif
+	delay	30
+	offset	55 174
+	frame	data/chars/simons/fall1.gif
+	offset	89 174
+	frame	data/chars/simons/fall2.gif
+		
+anim	fall16
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+	attack	70 108 41 70 5 1 1 0 0 0
+	frame	data/chars/simons/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	89 174
+	frame	data/chars/simons/fallcontrario.gif
+		
+anim	fall18
+	flipframe	0
+	attack	69 128 46 50 5 1 1 0 0 0
+	jumpframe	0 3 2
+	landframe	3 dust
+	loop	0
+	move	30
+	offset	55 210
+	delay	20
+	frame	data/chars/simons/slam.gif
+	delay	30
+	offset	55 174
+	frame	data/chars/simons/fall1.gif
+	offset	89 174
+	frame	data/chars/simons/fall2.gif
+		
+anim	fall19
+	flipframe	0
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+	attack	70 108 41 70 5 1 1 0 0 0
+	frame	data/chars/simons/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	89 174
+	frame	data/chars/simons/fallcontrario.gif
+		
+anim	fall3
+	landframe	2 dust
+	attack	69 129 48 46 5 1 0 0 0 0
+	loop	0
+	delay	50
+	offset	89 174
+	frame	data/chars/simons/pd02.gif
+	delay	5
+	frame	data/chars/simons/fallcontrario.gif
+		
+anim	fall4
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	89 200
+	frame	data/chars/simons/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	89 174
+	frame	data/chars/simons/fall2.gif
+		
+anim	grabbed
+	loop	0
+	delay	50
+	offset	89 174
+	bbox	70 96 40 78
+	frame	data/chars/simons/wk6.gif
+		
+anim	grabbedwalk
+	loop	0
+	delay	50
+	offset	95 195
+	bbox	70 96 40 78
+	frame	data/chars/simons/painwalk.gif
+		
+anim	idle
+	loop	1
+	offset	89 174
+	bbox	70 96 40 78
+	delay	10
+	frame	data/chars/simons/wk3.gif
+		
+anim	pain
+	loop	0
+	delay	6
+	offset	89 174
+	bbox	70 96 40 78
+	frame	data/chars/simons/pain1.gif
+	offset	92 174
+	frame	data/chars/simons/pain1.gif
+	offset	90 174
+	delay	35
+	frame	data/chars/simons/pain1.gif
+		
+anim	pain10
+	flipframe	0
+	loop	0
+	delay	30
+	offset	112 220
+	frame	data/chars/simons/hslam.gif
+	attack	69 129 43 49 5 1 1 0 0 0
+	offset	72 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/simons/pd02.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	89 174
+	bbox	70 96 40 78
+	frame	data/chars/simons/pain2.gif
+	offset	92 174
+	frame	data/chars/simons/pain2.gif
+	offset	90 174
+	delay	35
+	frame	data/chars/simons/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	89 174
+	bbox	75 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/simons/pain1.gif
+	delay	15
+	offset	108 205
+	frame	data/chars/simons/paincontrario.gif
+	offset	105 210
+	frame	data/chars/simons/pd01.gif
+	delay	15
+	offset	78 182
+	frame	data/chars/simons/pd02.gif
+	attack	68 108 39 66 5 1 1 0 0 0
+	bbox	75 -190 1 1
+	offset	78 173
+	frame	data/chars/simons/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	6
+	offset	67 180
+	bbox	70 97 40 78
+	frame	data/chars/simons/pain1.gif
+		
+anim	pain5
+	loop	0
+	delay	10
+	offset	50 176
+	bbox	75 -190 1 1
+	frame	data/chars/simons/pain_cody.gif
+		
+anim	pain6
+	loop	0
+	delay	30
+	offset	40 220
+	frame	data/chars/simons/hslam.gif
+	attack	69 129 43 49 5 1 1 0 0 0
+	offset	0 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/simons/pd02.gif
+		
+anim	pain7
+	loop	0
+	delay	10
+	offset	50 176
+	bbox	75 -190 1 1
+	frame	data/chars/simons/pain_guy.gif
+		
+anim	pain8
+	flipframe	0
+	loop	0
+	delay	10
+	offset	122 176
+	bbox	75 -190 1 1
+	frame	data/chars/simons/pain_cody.gif
+		
+anim	pain9
+	flipframe	0
+	loop	0
+	delay	10
+	offset	122 176
+	bbox	75 -190 1 1
+	frame	data/chars/simons/pain_guy.gif
+		
+anim	rise
+	loop	0
+	offset	89 174
+	delay	8
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/pain4.gif
+		
+anim	rise16
+	loop	0
+	offset	89 174
+	delay	8
+	flipframe	
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/pain4.gif
+		
+anim	rise19
+	loop	0
+	offset	89 174
+	delay	8
+	flipframe	
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/pain4.gif
+		
+anim	rise3
+	loop	0
+	offset	89 174
+	delay	8
+	flipframe	
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise2.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/rise3.gif
+	frame	data/chars/simons/rise1.gif
+	frame	data/chars/simons/pain4.gif
+		
+anim	spain
+	loop	0
+	delay	3
+	offset	89 174
+	bbox	65 98 46 76
+	frame	data/chars/simons/pain2.gif
+	offset	84 174
+	frame	data/chars/simons/pain2.gif
+	offset	89 174
+	frame	data/chars/simons/pain2.gif
+	delay	15
+	offset	84 174
+	frame	data/chars/simons/pain2.gif
+		
+anim	spawn
+	loop	0
+	delay	200
+	offset	89 174
+	frame	data/chars/simons/spawn.gif
+		
+anim	walk
+	loop	1
+	offset	89 174
+	bbox	70 96 40 78
+	delay	8
+	frame	data/chars/simons/wk1.gif
+	offset	89 175
+	frame	data/chars/simons/wk2.gif
+	offset	89 175
+	frame	data/chars/simons/wk3.gif
+	offset	89 174
+	frame	data/chars/simons/wk4.gif
+	offset	89 175
+	frame	data/chars/simons/wk5.gif
+	offset	89 175
+	frame	data/chars/simons/wk6.gif
+		
+anim	walk2
+	loop	1
+	offset	89 174
+	bbox	70 96 40 78
+	delay	8
+	frame	data/chars/simons/wka1.gif
+	offset	89 175
+	frame	data/chars/simons/wka2.gif
+	offset	89 175
+	frame	data/chars/simons/wka3.gif
+	offset	89 175
+	frame	data/chars/simons/wka2.gif
+		
+#|edited by openBor Stats v 0.60
+		

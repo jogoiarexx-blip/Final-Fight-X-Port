@@ -1,0 +1,23 @@
+name	 Knife
+health   0
+type     item
+counter  999
+shootnum  1
+subtype  weapon
+weapnum  3
+#nolife   1
+icon	 data/chars/misc/knife/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	14 4
+	bbox	5 2 17 4
+	frame	data/chars/misc/knife/knife1.gif
+	delay	5
+	frame	data/chars/misc/knife/knife2.gif
+		
+#|edited by openBor Stats v 0.60
+		
+anim	respawn
+anim	spawn

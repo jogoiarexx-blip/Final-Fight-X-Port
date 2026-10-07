@@ -1,0 +1,12 @@
+#	music		[path] [loop]		# bor file to play
+#	animation	[path] [x] [y]		# gif animation to 
+	silence					# stop music
+
+#music	        data/music/.bor
+
+animation	data/scenes/logo/jiam.gif
+animation	data/scenes/logo/v100.gif
+
+music	        data/music/ff/rolent1.bor
+animation	data/scenes/introducion/1.gif
+animation	data/scenes/introducion/2.gif

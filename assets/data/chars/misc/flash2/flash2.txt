@@ -1,0 +1,20 @@
+name	flash2
+type	none
+shadow	0
+toflip  1
+palette data/chars/misc/flash2/s1.gif
+
+anim	idle
+	loop	0
+	delay	3
+	offset	17 12
+	frame	data/chars/misc/flash2/s1.gif
+	frame	data/chars/misc/flash2/s2.gif
+	frame	data/chars/misc/flash2/s3.gif
+	frame	data/chars/misc/flash2/s4.gif
+	frame	data/chars/misc/flash2/s5.gif
+	frame	data/chars/misc/flash2/s6.gif
+	frame	data/chars/misc/flash2/s7.gif
+		
+#|edited by openBor Stats v 0.60
+		

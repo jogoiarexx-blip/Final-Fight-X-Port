@@ -1,0 +1,29 @@
+name	drumcan
+health  1
+type    obstacle
+shadow	0
+noatflash 1
+offscreenkill 9999999
+diesound  data/sounds/klunk.wav
+
+icon	 data/chars/misc/drumcan/icon.gif
+
+anim	fall
+	loop	0
+	delay	10
+	offset	32 101
+	sound	data/sounds/klunk.wav
+	frame	data/chars/misc/drumcan/drumcan2.gif
+	frame	data/chars/misc/drumcan/drumcan3.gif
+		
+anim	idle
+	loop	1
+	delay	1000
+	offset	32 95
+	bbox	4 32 50 64
+	seta    0
+	platform	34 98 -31 -31 18 18 12 59
+	frame	data/chars/misc/drumcan/drumcan1.gif
+		
+#|edited by openBor Stats v 0.60
+		

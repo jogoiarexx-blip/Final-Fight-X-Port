@@ -1,0 +1,132 @@
+#64th.19
+
+music		data/music/otras/4.bor
+background	data/bgs/ff64th/64th.19/1b.gif
+panel	        data/bgs/ff64th/64th.19/1.gif
+#frontpanel     data/bgs/ff64th/64th.19/1f.gif
+direction       right
+order           a
+
+Wall  -91  281  0  0  217  76  141  1000
+Wall  70  180  0  0  280  239  41  1000
+
+spawn  barrel
+coords  381  170
+item  diamond
+at  0
+
+spawn  barrel
+coords  442  170
+item  pearl
+at  0
+
+spawn  drumcan
+coords  736  238
+item  Pipe
+at  0
+
+spawn  drumcan
+coords  734  177
+at  0
+
+spawn  freight
+coords  981  175  0
+item  chicken
+flip  1
+at  0
+
+spawn	poison
+alias   roxy
+map     1
+coords	490 219
+at	100
+
+spawn	andore
+map     5
+coords	410 181
+at	100
+
+spawn  el_gado
+item  Knife 
+coords  399  212
+at  100
+
+Wait
+at  140
+
+spawn   slash
+coords  383  239
+at  140
+
+spawn   axl
+coords  383  192
+at  140
+
+spawn	two.p
+coords	-45 208
+flip    1
+at	300
+
+spawn	jake
+coords	-45 241
+flip    1
+at	300
+
+wait
+at       500
+
+blockade 500
+at	 500
+
+spawn	dug
+coords	412 233
+at	500
+
+spawn	holly_wood
+item    Knife 
+coords	399 243
+at	500
+
+spawn	simons
+coords	409 187
+at	500
+
+group   100 100
+at      600
+
+spawn	bred
+coords	-41 193
+at	700
+
+spawn	j
+coords	-47 235
+at	700
+
+spawn	bill_bull
+coords	-87 209  0
+	flip  1
+at	900
+
+spawn	wong_who
+coords	-61 196  15
+	flip  1
+at	900
+
+wait
+at      1000
+
+blockade 1000
+at	1000
+
+spawn	g.oriber
+flip    1
+coords	-157 242
+at	1000
+
+spawn	poison
+coords	350 240
+at	1000
+
+spawn	holly_wood__
+coords	368 213
+at	1000

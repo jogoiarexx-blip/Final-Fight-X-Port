@@ -1,0 +1,16 @@
+name	soldados1
+type	none
+offscreenkill 9999999
+shadow	0
+
+anim	idle
+	loop	1
+        delay	20
+	offset	25 91
+	frame	data/chars/misc/cameos/soldados1/1.gif
+        frame	data/chars/misc/cameos/soldados1/2.gif
+	frame	data/chars/misc/cameos/soldados1/3.gif
+	frame	data/chars/misc/cameos/soldados1/2.gif
+		
+#|edited by openBor Stats v 0.60
+		

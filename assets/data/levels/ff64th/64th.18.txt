@@ -1,0 +1,38 @@
+#64th.18
+
+music		data/music/ff/andore1.bor
+background	data/bgs/ff64th/64th.18/1b.gif
+panel	        data/bgs/ff64th/64th.18/1.gif
+#frontpanel     data/bgs/ff64th/64th.18/1f.gif
+blocked         1
+direction	up
+order           a
+
+spawn  andore
+coords  65 182
+at  0
+
+spawn  andore
+alias  andore_jr.
+map    1
+coords  140 182
+at  0
+
+spawn  andore
+alias  f.andore
+map    2
+coords  210 182
+at  0
+
+
+spawn  abigail
+coords  260 206
+at  0
+
+spawn  damnd
+coords  260 230
+at  0
+spawn  ruby
+	coords  239  188
+	at  0
+

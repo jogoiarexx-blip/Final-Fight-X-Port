@@ -1,0 +1,26 @@
+name	freight
+health  1
+type    obstacle
+shadow	0
+nodieblink 2
+noatflash 1
+offscreenkill 9999999
+diesound  data/sounds/romper.wav
+
+anim	death
+	loop	0
+	delay	10
+	offset	39 85
+	sound	data/sounds/romper.wav
+	frame	data/chars/misc/freight/freight2.gif
+	delay	100
+	frame	data/chars/misc/freight/freight3.gif
+
+anim	idle
+	loop	1
+	delay	15
+	offset	39 85
+	bbox	2 2 79 86
+	platform	29 97 -33 -33 60 60 18 1000
+	frame	data/chars/misc/freight/freight1.gif
+

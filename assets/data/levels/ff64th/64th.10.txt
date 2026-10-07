@@ -1,0 +1,96 @@
+#64th.10
+
+music		data/music/ff/basemt.bor
+background	data/bgs/ff64th/64th.10/1b.gif
+panel	        data/bgs/ff64th/64th.10/1.gif
+#frontpanel     data/bgs/ff64th/64th.10/1f.gif
+direction       right
+order           a
+
+Wall  1036  275  -147  0  47  47  147  1000
+
+spawn  drumcan
+coords  902  239  0
+item  gold_bar
+at  0
+
+spawn  drumcan
+coords  148  188
+item  yen_
+at  0
+
+spawn  drumcan
+coords  719  189
+item  napkin
+at  0
+
+#spawn  drumcan
+#coords  721  239
+#item  apple
+#at  0
+
+spawn  bill_bull
+coords  374  183
+at  0
+
+spawn  wong_who
+coords  409  198
+at  0
+
+spawn  g.oriber
+coords  425  236
+at  0
+
+Wait
+at  80
+
+spawn  j
+coords  -218  218
+flip  1
+at  80
+
+spawn  two.p
+coords  -216  193
+flip  1
+at  80
+
+Wait
+at  480
+
+spawn   drumcan_
+item   beer
+coords  374  242
+at  480
+
+spawn  slash
+coords  374  242
+at  480
+
+spawn  dug
+coords  355  184
+at  480
+
+spawn  andore
+coords  373  206
+at  480
+
+spawn  bill_bull
+coords  -338  213
+flip  1
+at  834
+
+spawn  axl
+coords  -276  212
+flip  1
+at  870
+
+spawn  jake
+coords  -261  186
+flip  1
+at  874
+
+spawn  simons
+coords  -272  242
+flip  1
+at  874
+

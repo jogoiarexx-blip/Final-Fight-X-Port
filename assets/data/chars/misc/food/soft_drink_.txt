@@ -1,0 +1,18 @@
+name	soft_drink_
+health	20
+type	item
+shadow	0
+
+icon	 data/chars/misc/food/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	7 12
+	bbox	0 0 18 18
+	frame	data/chars/misc/food/soft_drink_1.gif
+	delay	4
+	frame	data/chars/misc/food/soft_drink_2.gif
+		
+#|edited by openBor Stats v 0.60
+		

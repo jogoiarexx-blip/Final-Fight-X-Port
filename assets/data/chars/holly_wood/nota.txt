@@ -1,0 +1,17 @@
+
+holly_wood   knife 
+
+holly_wood__ rojo  rojo arma bottle
+
+spawn holly_wood__
+item  bottle_item
+health  2
+coords  206 198 #???
+at      0       #???
+
+
+
+
+
+
+

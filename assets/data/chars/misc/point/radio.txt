@@ -1,0 +1,20 @@
+name	radio
+health	0
+type	item
+score	500
+shadow	0
+
+
+icon	 data/chars/misc/point/icon.gif
+
+anim	idle
+	loop	1
+	delay	80
+	offset	14 11
+	bbox	0 0 31 17
+	frame	data/chars/misc/point/radio1.gif
+	delay	4
+	frame	data/chars/misc/point/radio2.gif
+		
+#|edited by openBor Stats v 0.60
+		

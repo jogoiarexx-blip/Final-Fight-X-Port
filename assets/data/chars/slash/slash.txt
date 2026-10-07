@@ -1,0 +1,391 @@
+name	slash
+health	100
+speed	9
+type	enemy
+shadow	0
+noquake 1
+blockodds 1
+thold     80
+bflash  flash3
+icon	data/chars/slash/icon.gif
+diesound data/sounds/die1.wav
+candamage  player npc obstacle
+hostile player npc
+
+palette data/chars/slash/wk1.gif
+
+
+anim	attack1
+	range	0 60
+	loop	0
+	delay	6
+	offset	88 176
+	bbox	66 89 45 88
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/slash/a101.gif
+	frame	data/chars/slash/a102.gif
+	attack2	109 100 48 35 15 0 0 0 18
+	delay	7
+	frame	data/chars/slash/a103.gif
+	attack	0 0 0 0 0
+	frame	data/chars/slash/a104.gif
+		
+anim	attack2
+	range	0 60
+	loop	0
+	delay	8
+	offset	88 176
+	bbox	66 89 45 88
+	hitfx	data/sounds/beat7.wav
+	frame	data/chars/slash/a101.gif
+	frame	data/chars/slash/a201.gif
+	attack2	94 107 65 30 18 0
+	delay	18
+	frame	data/chars/slash/a202.gif
+	attack	0 0 0 0 0 0
+	delay	8
+	frame	data/chars/slash/a202.gif
+		
+anim	attack3
+	range	0 60
+	loop	0
+	delay	8
+	offset	88 176
+	bbox	66 89 45 88
+	hitfx	data/sounds/beat7.wav
+	frame	data/chars/slash/a101.gif
+	frame	data/chars/slash/a201.gif
+	attack2	94 107 65 30 18 1
+	delay	18
+	frame	data/chars/slash/a202.gif
+	attack	0 0 0 0 0 0
+	delay	8
+	frame	data/chars/slash/a202.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	88 176
+	bbox	66 89 45 88
+	move	-7
+	frame	data/chars/slash/block.gif
+	bbox	0 0 0 0
+	frame	data/chars/slash/block.gif
+	frame	data/chars/slash/block.gif
+	frame	data/chars/slash/block.gif
+	frame	data/chars/slash/block.gif
+	move	0
+	delay	25
+	frame	data/chars/slash/block.gif
+		
+anim	burn
+	loop	0
+	offset	88 176
+	delay	10
+	landframe	5 dust2
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/misc/burn/burn1.gif
+	frame	data/chars/misc/burn/burn2.gif
+	frame	data/chars/slash/fall2.gif
+		
+anim	fall
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	88 176
+	frame	data/chars/slash/fall1.gif
+	delay	20
+	attack	0 0 0 0 0 0
+	frame	data/chars/slash/fall2.gif
+		
+anim	fall15
+	attack	69 124 46 48 5 1 1 0 0 0
+	jumpframe	0 3 2
+	landframe	3 dust
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/slash/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/slash/fall1.gif
+	offset	88 176
+	frame	data/chars/slash/fall2.gif
+		
+anim	fall16
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+	attack	74 102 41 70 5 1 1 0 0 0
+	frame	data/chars/slash/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	88 176
+	frame	data/chars/slash/fallcontrario.gif
+		
+anim	fall18
+	flipframe	0
+	attack	69 124 46 48 5 1 1 0 0 0
+	jumpframe	0 3 2
+	landframe	3 dust
+	loop	0
+	move	30
+	offset	60 215
+	delay	20
+	frame	data/chars/slash/slam.gif
+	delay	30
+	offset	60 176
+	frame	data/chars/slash/fall1.gif
+	offset	88 176
+	frame	data/chars/slash/fall2.gif
+		
+anim	fall19
+	flipframe	0
+	jumpframe	0 2 1
+	landframe	2 dust
+	loop	0
+	move	40
+	offset	20 170
+	delay	30
+	attack	74 102 41 70 5 1 1 0 0 0
+	frame	data/chars/slash/pd02.gif
+	attack	0 0 0 0
+	delay	3
+	offset	88 176
+	frame	data/chars/slash/fallcontrario.gif
+		
+anim	fall3
+	landframe	2 dust
+	attack	71 124 48 48 5 1 0 0 0 0
+	loop	0
+	delay	60
+	offset	88 172
+	frame	data/chars/slash/pd02.gif
+	offset	88 176
+	delay	20
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/slash/fallcontrario.gif
+		
+anim	fall4
+	landframe	2 dust
+	loop	0
+	delay	60
+	offset	88 176
+	frame	data/chars/slash/fall1.gif
+	delay	20
+	offset	88 176
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/slash/fall2.gif
+		
+anim	grabbed
+	loop	0
+	delay	50
+	offset	88 176
+	bbox	66 89 45 88
+	frame	data/chars/slash/wk3.gif
+		
+anim	grabbedwalk
+	loop	0
+	delay	50
+	offset	88 200
+	bbox	66 89 45 88
+	frame	data/chars/slash/painwalk.gif
+		
+anim	idle
+	loop	1
+	offset	88 176
+	bbox	66 89 45 88
+	delay	10
+	frame	data/chars/slash/wk1.gif
+		
+anim	pain1
+	loop	0
+	delay	6
+	offset	88 176
+	bbox	66 89 45 88
+	frame	data/chars/slash/pain1.gif
+	offset	91 176
+	frame	data/chars/slash/pain1.gif
+	offset	88 176
+	delay	35
+	frame	data/chars/slash/pain1.gif
+		
+anim	pain10
+	flipframe	0
+	loop	0
+	delay	30
+	offset	122 220
+	frame	data/chars/slash/hslam.gif
+	attack	74 120 40 54 5 1 1 0 0 0
+	offset	72 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/slash/pd02.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	88 176
+	bbox	66 89 45 88
+	frame	data/chars/slash/pain2.gif
+	offset	91 176
+	frame	data/chars/slash/pain2.gif
+	offset	88 176
+	delay	35
+	frame	data/chars/slash/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	86 176
+	bbox	75 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/slash/pain1.gif
+	delay	15
+	offset	106 205
+	frame	data/chars/slash/paincontrario.gif
+	offset	103 210
+	frame	data/chars/slash/pd01.gif
+	delay	15
+	offset	76 173
+	frame	data/chars/slash/pd02.gif
+	attack	68 108 39 66 5 1 1 0 0 0
+	bbox	75 -190 1 1
+	offset	76 172
+	frame	data/chars/slash/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	6
+	offset	88 200
+	bbox	66 89 45 88
+	frame	data/chars/slash/pain4.gif
+		
+anim	pain5
+	loop	0
+	delay	10
+	offset	50 178
+	bbox	75 -190 1 1
+	frame	data/chars/slash/pain_cody.gif
+		
+anim	pain6
+	loop	0
+	delay	30
+	offset	50 220
+	frame	data/chars/slash/hslam.gif
+	attack	74 120 40 54 5 1 1 0 0 0
+	offset	0 170
+	bbox	75 -190 1 1
+	sound	data/sounds/fall.wav
+	frame	data/chars/slash/pd02.gif
+		
+anim	pain7
+	loop	0
+	delay	10
+	offset	50 178
+	bbox	75 -190 1 1
+	frame	data/chars/slash/pain_guy.gif
+		
+anim	pain8
+	flipframe	0
+	loop	0
+	delay	10
+	offset	122 178
+	bbox	75 -190 1 1
+	frame	data/chars/slash/pain_cody.gif
+		
+anim	pain9
+	flipframe	0
+	loop	0
+	delay	10
+	offset	122 178
+	bbox	75 -190 1 1
+	frame	data/chars/slash/pain_guy.gif
+		
+anim	rise
+	loop	0
+	offset	88 176
+	delay	30
+	frame	data/chars/slash/rise.gif
+		
+anim	rise16
+	loop	0
+	offset	88 176
+	delay	30
+	flipframe	
+	frame	data/chars/slash/rise.gif
+		
+anim	rise19
+	loop	0
+	offset	88 176
+	delay	30
+	flipframe	
+	frame	data/chars/slash/rise.gif
+		
+anim	rise3
+	loop	0
+	offset	88 176
+	delay	30
+	flipframe	
+	frame	data/chars/slash/rise.gif
+		
+anim	riseattack
+	range	0 60
+	loop	0
+	delay	8
+	offset	88 176
+	bbox	66 89 45 88
+	hitfx	data/sounds/beat7.wav
+	frame	data/chars/slash/a101.gif
+	frame	data/chars/slash/a201.gif
+	attack	94 107 65 30 18 1
+	delay	18
+	frame	data/chars/slash/a202.gif
+	attack	0 0 0 0 0 0
+	delay	8
+	frame	data/chars/slash/a202.gif
+		
+anim	spain
+	loop	0
+	delay	3
+	offset	88 176
+	bbox	66 89 45 88
+	frame	data/chars/slash/pain2.gif
+	offset	88 176
+	frame	data/chars/slash/pain2.gif
+	offset	91 176
+	frame	data/chars/slash/pain2.gif
+	delay	15
+	offset	88 176
+	frame	data/chars/slash/pain2.gif
+		
+anim	spawn
+	loop	0
+	delay	200
+	offset	88 176
+	frame	data/chars/slash/spawn1.gif
+		
+anim	walk
+	loop	1
+	offset	88 176
+	bbox	66 89 45 88
+	delay	10
+	frame	data/chars/slash/wk1.gif
+	offset	88 177
+	frame	data/chars/slash/wk2.gif
+	offset	88 177
+	frame	data/chars/slash/wk3.gif
+	offset	88 176
+	frame	data/chars/slash/wk4.gif
+	offset	88 177
+	frame	data/chars/slash/wk5.gif
+	offset	88 177
+	frame	data/chars/slash/wk6.gif
+		
+#|edited by openBor Stats v 0.60
+		

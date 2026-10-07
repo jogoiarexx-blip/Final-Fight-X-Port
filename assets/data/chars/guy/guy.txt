@@ -1,0 +1,462 @@
+name	   guy
+health	   124
+speed	   11
+type	   player
+shadow	   0
+noquake    1
+makeinv    0
+
+playshotno sp
+atchain    1 1 2 3 0 
+antigrab 2
+grabfinish 1
+grabback	1
+weapons    guy_pipe guy_muramasa! guy_knife guy   
+icon	   data/chars/guy/icon.gif
+candamage  enemy obstacle npc player
+
+diesound   data/sounds/guy_muerte.wav
+
+com s	freespecial
+
+palette data/chars/guy/wk1.gif
+
+
+anim	attack1
+	loop	0
+	delay	4
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/a101.gif
+	delay	5
+	attack	101 95 51 18 8 0 0 0 12 0
+	frame	data/chars/guy/a102.gif
+	attack	0 0 0 0 0 0 0 0 0
+	frame	data/chars/guy/a101.gif
+		
+anim	attack2
+	loop	0
+	delay	7
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/a201.gif
+	delay	18
+	attack2	106 109 52 18 6 0 0 0 15
+	frame	data/chars/guy/a202.gif
+	delay	6
+	attack2	0 0 0 0 0
+	frame	data/chars/guy/a301.gif
+	delay	18
+	attack	101 96 51 18 7 0 0 0 15
+	frame	data/chars/guy/a302.gif
+	delay	7
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/guy/a301.gif
+		
+anim	attack3
+	loop	0
+	delay	7
+	offset	82 177
+	bbox	63 98 41 79
+	sound	data/sounds/guy_patada.wav
+	frame	data/chars/guy/a401.gif
+	offset	81 177
+	frame	data/chars/guy/a402.gif
+	offset	80 179
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/guy/a403.gif
+	attack	92 90 55 37 18 1 1 0 18 0
+	offset	79 180
+	frame	data/chars/guy/a404.gif
+	attack	0 0 0 0 0 0 0 0 0 0 0
+	offset	80 177
+	frame	data/chars/guy/a405.gif
+	offset	81 177
+	frame	data/chars/guy/a406.gif
+		
+anim	burn
+	loop	0
+	offset	82 177
+	delay	10
+	landframe	5 dust2
+	frame	data/chars/guy/burn1.gif
+	frame	data/chars/guy/burn2.gif
+	frame	data/chars/guy/burn1.gif
+	frame	data/chars/guy/burn2.gif
+	frame	data/chars/guy/fall2.gif
+		
+anim	fall
+	landframe	2 dust
+	loop	0
+	offset	82 177
+	delay	60
+	frame	data/chars/guy/fall1.gif
+	delay	20
+	frame	data/chars/guy/fall2.gif
+		
+anim	fall3
+	landframe	2 dust
+	loop	0
+	offset	90 177
+	delay	60
+	frame	data/chars/guy/pd02.gif
+	delay	5
+	frame	data/chars/guy/fallcontrario.gif
+		
+anim	fall4
+	landframe	2 dust
+	loop	0
+	offset	82 230
+	delay	99
+	attack	49 129 45 6 20 1 1 0 25 0
+	frame	data/chars/guy/fall1.gif
+	delay	20
+	offset	82 177
+	frame	data/chars/guy/fall2.gif
+		
+anim	forwardjump
+	loop	0
+	delay	2
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/ju0.gif
+	delay	20
+	frame	data/chars/guy/ju1.gif
+	delay	12
+	offset	82 155
+	frame	data/chars/guy/ju2.gif
+	frame	data/chars/guy/ju3.gif
+	frame	data/chars/guy/ju4.gif
+	offset	82 177
+	frame	data/chars/guy/ju1.gif
+		
+anim	freespecial
+	loop	0
+	delay	6
+	offset	82 177
+	jumpframe	1 3
+	energycost	5
+	sound	data/sounds/guy_patada_giro.wav
+	frame	data/chars/guy/sp01.gif
+	frame	data/chars/guy/sp02.gif
+	frame	data/chars/guy/sp03.gif
+	hitfx	data/sounds/beat7.wav
+	attack	90 105 56 72 20 1 1 0 25 0
+	frame	data/chars/guy/sp04.gif
+	frame	data/chars/guy/sp05.gif
+	hitfx	data/sounds/beat7.wav
+	attack	33 105 56 72 20 1 0 0 0 0
+	frame	data/chars/guy/sp06.gif
+	frame	data/chars/guy/sp07.gif
+	frame	data/chars/guy/sp08.gif
+	hitfx	data/sounds/beat7.wav
+	attack	90 105 56 72 20 1 0 0 0 0
+	frame	data/chars/guy/sp09.gif
+	delay	10
+	frame	data/chars/guy/sp10.gif
+	frame	data/chars/guy/a406.gif
+		
+anim	get
+	loop	0
+	offset	82 177
+	delay	20
+	frame	data/chars/guy/get.gif
+		
+anim	grab
+	loop	0
+	delay	1
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/grab.gif
+		
+anim	grabattack
+	loop	0
+	delay	25
+	offset	82 177
+	bbox	63 98 41 79
+	hitflash	Flash
+	hitfx	data/sounds/beat3.wav
+	shock	92 114 28 39 8 0 0 0 10 0
+	frame	data/chars/guy/hold.gif
+	delay	3
+	shock	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/guy/grab.gif
+		
+anim	grabattack2
+	loop	0
+	delay	25
+	offset	82 177
+	bbox	63 98 41 79
+	hitflash	Flash
+	hitfx	data/sounds/beat3.wav
+	attack	92 114 28 39 13 1 0 0 10 0
+	frame	data/chars/guy/hold.gif
+	attack	0 0 0 0 0 0 0 0 0 0 0
+		
+anim	grabbackward
+	flipframe	0
+	offset	119 176
+	loop	0
+	bbox	0 0 0 0
+	delay	20
+	hitfx	data/sounds/silencio.wav
+	attack7	0 -200 200 400 0 0 1 1 0 0
+	frame	data/chars/guy/th1.gif
+	attack7	0 0 0 0 0 0 0 0 0 0
+	delay	1
+	frame	data/chars/guy/th1.gif
+	sound	data/sounds/guy_lanzamiento.wav
+	delay	15
+	damageonlanding	0 1
+	attack15	0 -200 200 400 20 1 1 1 0 0
+	frame	data/chars/guy/th2.gif
+	attack7	0 0 0 0 0 0 0 	0 0 0
+	frame	data/chars/guy/th2.gif
+		
+anim	grabforward
+	offset	119 176
+	loop	0
+	bbox	0 0 0 0
+	delay	20
+	hitfx	data/sounds/silencio.wav
+	attack9	0 -200 200 400 0 0 1 1 0 0
+	frame	data/chars/guy/th1.gif
+	attack9	0 0 0 0 0 0 0 0 0 0
+	delay	1
+	frame	data/chars/guy/th1.gif
+	sound	data/sounds/guy_lanzamiento.wav
+	delay	15
+	damageonlanding	0 1
+	attack18	0 -200 200 400 20 1 1 1 0 0
+	frame	data/chars/guy/th2.gif
+	attack9	0 0 0 0 0 0 0 	0 0 0
+	frame	data/chars/guy/th2.gif
+		
+anim	idle
+	loop	1
+	delay	13
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/idle.gif
+		
+anim	jump
+	loop	0
+	delay	2
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/ju0.gif
+	delay	20
+	frame	data/chars/guy/ju1.gif
+		
+anim	jumpattack
+	loop	0
+	delay	2
+	offset	79 163
+	bbox	63 84 41 79
+	sound	data/sounds/guy_patada_salto.wav
+	frame	data/chars/guy/ju0.gif
+	delay	8
+	frame	data/chars/guy/avk1.gif
+	delay	35
+	hitfx	data/sounds/beat7.wav
+	attack	92 77 36 95 10 1 0 0 25
+	frame	data/chars/guy/avk2.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	82 177
+	frame	data/chars/guy/ju1.gif
+		
+anim	jumpattack2
+	loop	0
+	delay	20
+	offset	82 177
+	bbox	63 98 41 79
+	attack	82 95 28 85 6 0 0 0 10 0
+	frame	data/chars/guy/ap.gif
+		
+anim	jumpforward
+	loop	0
+	delay	8
+	offset	82 155
+	bbox	63 76 41 79
+	sound	data/sounds/guy_patada_salto.wav
+	frame	data/chars/guy/ju5.gif
+	delay	35
+	hitfx	data/sounds/beat7.wav
+	attack	84 105 76 31 10 1 0 0 25
+	frame	data/chars/guy/ak1.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	frame	data/chars/guy/ju5.gif
+	offset	82 177
+	frame	data/chars/guy/ju1.gif
+		
+anim	jumpland
+	loop	0
+	delay	3
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/ju0.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/pain.gif
+	offset	87 177
+	frame	data/chars/guy/pain.gif
+	offset	82 177
+	delay	30
+	frame	data/chars/guy/pain.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/pain2.gif
+	offset	87 177
+	frame	data/chars/guy/pain2.gif
+	offset	82 177
+	delay	30
+	frame	data/chars/guy/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	75 177
+	bbox	74 -190 1 1
+	jumpframe	0 4 0 0
+	frame	data/chars/guy/pain.gif
+	delay	15
+	offset	100 205
+	frame	data/chars/guy/paincontrario.gif
+	offset	90 210
+	frame	data/chars/guy/pd01.gif
+	delay	15
+	offset	78 175
+	frame	data/chars/guy/pd02.gif
+	bbox	74 -190 1 1
+	offset	78 158
+	frame	data/chars/guy/pd02.gif
+		
+anim	pain4
+	loop	0
+	delay	5
+	offset	110 205
+	bbox	76 -170 1 1
+	frame	data/chars/guy/pain4.gif
+	frame	data/chars/guy/pain4.gif
+	delay	30
+	frame	data/chars/guy/pain4_2.gif
+		
+anim	pain5
+	loop	0
+	delay	5
+	offset	82 177
+	bbox	78 -170 1 1
+	frame	data/chars/guy/pain.gif
+	offset	87 177
+	frame	data/chars/guy/pain.gif
+	offset	82 177
+	delay	30
+	frame	data/chars/guy/pain.gif
+		
+anim	pain6
+	loop	0
+	delay	20
+	offset	82 177
+	bbox	78 -170 1 1
+	frame	data/chars/guy/pain2.gif
+	delay	20
+	frame	data/chars/guy/pain.gif
+		
+anim	rise
+	loop	0
+	offset	82 177
+	delay	20
+	frame	data/chars/guy/fall2.gif
+	delay	12
+	frame	data/chars/guy/rise.gif
+	frame	data/chars/guy/fall2.gif
+	frame	data/chars/guy/rise.gif
+	frame	data/chars/guy/get.gif
+		
+anim	rise3
+	loop	0
+	offset	82 177
+	delay	20
+	flipframe	
+	frame	data/chars/guy/fall2.gif
+	delay	12
+	frame	data/chars/guy/rise.gif
+	frame	data/chars/guy/fall2.gif
+	frame	data/chars/guy/rise.gif
+	frame	data/chars/guy/get.gif
+		
+anim	select
+	loop	0
+	delay	6
+	offset	180 177
+	jumpframe	1 3
+	sound	data/sounds/guy_patada_giro.wav
+	frame	data/chars/guy/sp01.gif
+	frame	data/chars/guy/sp02.gif
+	frame	data/chars/guy/sp03.gif
+	frame	data/chars/guy/sp04.gif
+	frame	data/chars/guy/sp05.gif
+	frame	data/chars/guy/sp06.gif
+	frame	data/chars/guy/sp07.gif
+	frame	data/chars/guy/sp08.gif
+	frame	data/chars/guy/sp09.gif
+	delay	10
+	frame	data/chars/guy/sp10.gif
+	frame	data/chars/guy/a406.gif
+	frame	data/chars/guy/idle.gif
+		
+anim	waiting
+	loop	0
+	delay	15
+	offset	180 177
+	frame	data/chars/guy/idle.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/wk1.gif
+	offset	82 176
+	frame	data/chars/guy/wk2.gif
+	offset	82 175
+	frame	data/chars/guy/wk3.gif
+	offset	82 175
+	frame	data/chars/guy/wk4.gif
+	offset	82 175
+	frame	data/chars/guy/wk5.gif
+	offset	82 176
+	frame	data/chars/guy/wk6.gif
+	offset	82 177
+	frame	data/chars/guy/wk7.gif
+	offset	82 176
+	frame	data/chars/guy/wk8.gif
+	offset	82 175
+	frame	data/chars/guy/wk9.gif
+	offset	82 175
+	frame	data/chars/guy/wk10.gif
+	offset	82 176
+	frame	data/chars/guy/wk11.gif
+	offset	82 176
+	frame	data/chars/guy/wk12.gif
+		
+anim	walkoff
+	loop	0
+	offset	82 177
+	bbox	63 98 41 79
+	delay	10
+	frame	data/chars/guy/ju1.gif
+	frame	data/chars/guy/ju1.gif
+		
+#|edited by openBor Stats v 0.66
+		

@@ -1,0 +1,104 @@
+#64th.21
+
+music		data/music/ff/madg.bor
+background	data/bgs/ff64th/64th.21/1b.gif
+panel	        data/bgs/ff64th/64th.21/1.gif
+#frontpanel     data/bgs/ff64th/64th.21/1f.gif
+direction       left
+order           a
+
+Wall  859  368  -228  0  29  30  228  1000
+Wall  668  195  -49  0  40  40  49  1000
+spawn  barrel
+	coords  42  175  0
+	item  barbecue
+	at  0
+spawn  barrel
+	coords  -33  289
+	at  0
+spawn  barrel
+	coords  -174  289
+	at  0
+spawn  barrel
+	coords  226  289
+	at  0
+spawn  barrel
+	coords  95  289  0
+	at  0
+spawn  barrel
+	coords  110  175  0
+	at  0
+spawn  barrel
+	coords  -153  175  0
+	at  0
+spawn  barrel
+	coords  -216  175  0
+	at  0
+spawn  barrel
+	coords  -24  175  1
+	at  0
+spawn  freight
+	coords  -349  331  0
+	flip  1
+	at  0
+spawn  two.p
+	coords  -160  247  0
+	flip  1
+	at  0
+
+spawn  j
+coords  -162 203  0
+flip  1
+at  0
+spawn  belger
+health  700
+boss    1
+	coords  -371  232  0
+	flip  1
+	at  0
+spawn  barrel
+	coords  -85  175  0
+	at  0
+spawn  barrel
+	coords  171  175  0
+	at  0
+spawn  drumcan
+	coords  256  333  0
+	item  topaz
+	at  0
+spawn  drumcan
+	coords  126  333  0
+	at  0
+spawn  drumcan
+	coords  5  333  0
+	at  0
+spawn  drumcan
+	coords  -128  333  0
+	at  0
+spawn  drumcan
+	coords  -251  333  0
+	at  0
+spawn  simons
+	coords  46  293
+	flip  1
+	at  0
+spawn  bred
+	coords  201  337
+	flip  1
+	at  0
+spawn  dug
+	coords  71  338
+	flip  1
+	at  0
+spawn  axl
+	coords  77  183
+	at  0
+spawn  slash
+	coords  -270  182
+	flip  1
+	at  0
+spawn  jake
+	coords  -89  288
+	flip  1
+	at  0
+

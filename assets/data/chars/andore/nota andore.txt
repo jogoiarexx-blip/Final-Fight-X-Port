@@ -1,0 +1,11 @@
+color del personaje y nombre:
+
+rosa=andore
+
+rojo=andore jr.
+
+amarillo=f.andore
+
+azul=g.andore
+
+gris=u.andore

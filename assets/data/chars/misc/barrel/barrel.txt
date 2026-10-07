@@ -1,0 +1,27 @@
+name	barrel
+health  1
+type    obstacle
+shadow	0
+noatflash 1
+offscreenkill 9999999
+diesound  data/sounds/romper.wav
+
+icon	 data/chars/misc/barrel/icon.gif
+
+anim	fall
+	loop	0
+	delay	10
+	offset	30 66
+	sound	data/sounds/romper.wav
+	frame	data/chars/misc/barrel/barrel2.gif
+	frame	data/chars/misc/barrel/barrel3.gif
+
+anim	idle
+	loop	1
+	delay	1000
+	offset	30 66
+	bbox	1 0 57 70
+	seta	0
+	platform	35 73 -37 -37 28 28 12 62
+	frame	data/chars/misc/barrel/barrel1.gif
+

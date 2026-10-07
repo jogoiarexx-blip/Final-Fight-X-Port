@@ -1,0 +1,12 @@
+Final Fight X Port - Asset Publication Status
+
+Source: Ports-para-pc / Scene Remaster 50 Final Audit
+Manifest images: 1519
+Required base+HD image files: 3038
+Missing required images: 0
+Empty required images: 0
+Browser OGG tracks: 41
+WAV/SFX files: 62
+Original BOR tracks left: 0
+
+Result: COMPLETE

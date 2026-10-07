@@ -1,0 +1,106 @@
+#64th.16
+
+music		data/music/otras/5.bor
+background	data/bgs/ff64th/64th.16/1b.gif
+panel	        data/bgs/ff64th/64th.16/1.gif
+#frontpanel     data/bgs/ff64th/64th.16/1f.gif
+direction       right
+order           a
+
+Wall  999  272  -124  0  40  39  124  1000
+
+spawn  yen_
+coords  385  220
+at  0
+
+spawn  whisky
+coords  790  244
+flip  1
+at  0
+
+spawn  el_gado
+coords  -227  231
+flip  1
+at  140
+
+spawn	poison
+alias   roxy
+coords	-138 217  
+flip    1
+at	100
+
+spawn	j
+coords	-59 194
+flip    1
+at	100
+
+Wait
+at  140
+
+spawn   slash
+coords  383  239  
+at  140
+
+spawn   axl
+coords  383  192  
+at  140
+
+spawn	two.p
+coords	-47 186
+flip    1
+at	300
+
+spawn	jake
+coords	-44 232
+flip    1
+at	300
+
+wait
+at       500
+
+blockade 500
+at	 500
+
+group   4 4
+at      500
+
+spawn	dug
+coords	392 243
+at	500
+
+spawn	simons
+coords	398 216
+at	500
+
+group   100 100
+at      600
+
+spawn	bred
+coords	-41 193
+at	700
+
+spawn	j
+coords	-51 229
+at	700
+
+spawn	wong_who
+coords	-46 196
+	flip  1
+at	900
+
+spawn	g.oriber
+coords	-60 207  0
+	flip  1
+at	900
+
+wait
+at      1000
+
+blockade 1000
+at	1000
+
+spawn	slash
+flip    1
+coords	-152 229
+at	1000
+

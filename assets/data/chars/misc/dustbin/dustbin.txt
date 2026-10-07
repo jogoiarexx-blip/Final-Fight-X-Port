@@ -1,0 +1,27 @@
+name	dustbin
+health  1
+type    obstacle
+shadow	0
+noatflash 1
+offscreenkill 9999999
+diesound  data/sounds/klunk.wav
+
+icon	 data/chars/misc/dustbin/icon.gif
+
+anim	fall
+	loop	0
+	delay	10
+	offset	22 49
+	sound	data/sounds/klunk.wav
+	frame	data/chars/misc/dustbin/dustbin2.gif
+	frame	data/chars/misc/dustbin/dustbin2.gif
+
+anim	idle
+	loop	1
+	delay	1000
+	offset	22 49
+	bbox	0 -15 46 64
+	seta	0
+	platform	30 56 -32 -32 18 18 12 45
+	frame	data/chars/misc/dustbin/dustbin1.gif
+

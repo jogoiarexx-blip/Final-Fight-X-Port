@@ -1,0 +1,198 @@
+name	    guy_knife
+type	    none
+shadow	    0
+noquake     1
+makeinv     1
+playshotno  sp
+atchain     1 1 1 1 1
+antigrab 2
+grabback	1
+icon	    data/chars/guy/icon.gif
+diesound    data/sounds/guy_muerte.wav
+
+palette     data/chars/guy/wk1.gif
+
+com s	freespecial
+com a2	freespecial2
+
+load knife_
+
+anim	attack
+	loop	0
+	delay	7
+	offset	82 177
+	bbox	58 97 41 79
+	custknife	knife_
+	throwframe	2 101
+	frame	data/chars/guy/guy_knife/a1.gif
+	sound	data/sounds/knife.wav
+	frame	data/chars/guy/guy_knife/a2.gif
+	delay	26
+	frame	data/chars/guy/guy_knife/a3.gif
+		
+anim	freespecial2
+	loop	0
+	delay	7
+	offset	82 177
+	bbox	58 97 41 79
+	custknife	knife_
+	throwframe	2 101
+	frame	data/chars/guy/guy_knife/a1.gif
+	sound	data/sounds/knife.wav
+	frame	data/chars/guy/guy_knife/a2.gif
+	delay	26
+	frame	data/chars/guy/guy_knife/a3.gif
+	
+anim	get
+	loop	0
+	offset	82 177
+	delay	20
+	frame	data/chars/guy/guy_knife/get.gif
+		
+anim	idle
+	loop	1
+	delay	13
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/guy_knife/idle.gif
+
+anim    jumpland
+	loop	0
+	delay	3
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/guy_knife/ju0.gif
+
+anim    jump
+	loop	0
+	delay	2
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/guy_knife/ju0.gif
+	delay	20
+	frame	data/chars/guy/guy_knife/ju1.gif
+
+anim    forwardjump
+	loop	0
+	delay	2
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/guy_knife/ju0.gif
+	delay	20
+	frame	data/chars/guy/guy_knife/ju1.gif
+	delay	12
+	offset	82 155
+	frame	data/chars/guy/guy_knife/ju2.gif
+	frame	data/chars/guy/guy_knife/ju3.gif
+	frame	data/chars/guy/guy_knife/ju4.gif
+	offset	82 177
+	frame	data/chars/guy/guy_knife/ju1.gif
+		
+anim	jumpattack
+	loop	0
+	delay	2
+	offset	79 163
+	bbox	63 84 41 79
+	sound	data/sounds/guy_patada_salto.wav
+	frame	data/chars/guy/guy_knife/ju0.gif
+	delay	8
+	frame	data/chars/guy/guy_knife/avk1.gif
+	delay	35
+        hitfx	data/sounds/beat7.wav
+	attack	92 77 36 95 10 1 0 0 25
+	frame	data/chars/guy/guy_knife/avk2.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	82 177
+	frame	data/chars/guy/guy_knife/ju1.gif
+		
+anim	jumpattack2
+	loop	0
+	delay	20
+	offset	82 177
+	bbox	63 98 41 79
+	attack	82 95 28 85 6 0 0 0 10 0
+	frame	data/chars/guy/guy_knife/ap.gif
+		
+anim	jumpforward
+	loop	0
+	delay	8
+	offset	82 155
+	bbox	63 76 41 79
+	sound	data/sounds/guy_patada_salto.wav
+	frame	data/chars/guy/guy_knife/ju5.gif
+	delay	35
+        hitfx	data/sounds/beat7.wav
+	attack	84 105 76 31 10 1 0 0 25
+	frame	data/chars/guy/guy_knife/ak1.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	frame	data/chars/guy/guy_knife/ju5.gif
+	offset	82 177
+	frame	data/chars/guy/guy_knife/ju1.gif
+		
+anim	freespecial
+	loop	0
+	delay	6
+	offset	82 177
+	jumpframe	1 3
+        energycost 5
+	sound	data/sounds/guy_patada_giro.wav
+	frame	data/chars/guy/sp01.gif
+	frame	data/chars/guy/sp02.gif
+	frame	data/chars/guy/sp03.gif
+        hitfx	data/sounds/beat7.wav
+	attack	90 105 56 72 20 1 1 0 25 0
+	frame	data/chars/guy/sp04.gif
+	frame	data/chars/guy/sp05.gif
+        hitfx	data/sounds/beat7.wav
+	attack	33 105 56 72 20 1 0 0 0 0
+	frame	data/chars/guy/sp06.gif
+	frame	data/chars/guy/sp07.gif
+	frame	data/chars/guy/sp08.gif
+        hitfx	data/sounds/beat7.wav
+	attack	90 105 56 72 20 1 0 0 0 0
+	frame	data/chars/guy/sp09.gif
+	delay	10
+	frame	data/chars/guy/sp10.gif
+	frame	data/chars/guy/guy_knife/ju0.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	82 177
+	bbox	63 98 41 79
+	frame	data/chars/guy/guy_knife/wk1.gif
+	offset	82 176
+	frame	data/chars/guy/guy_knife/wk2.gif
+	offset	82 175
+	frame	data/chars/guy/guy_knife/wk3.gif
+	offset	82 175
+	frame	data/chars/guy/guy_knife/wk4.gif
+	offset	82 175
+	frame	data/chars/guy/guy_knife/wk5.gif
+	offset	82 176
+	frame	data/chars/guy/guy_knife/wk6.gif
+	offset	82 177
+	frame	data/chars/guy/guy_knife/wk7.gif
+	offset	82 176
+	frame	data/chars/guy/guy_knife/wk8.gif
+	offset	82 175
+	frame	data/chars/guy/guy_knife/wk9.gif
+	offset	82 175
+	frame	data/chars/guy/guy_knife/wk10.gif
+	offset	82 176
+	frame	data/chars/guy/guy_knife/wk11.gif
+	offset	82 176
+	frame	data/chars/guy/guy_knife/wk12.gif
+
+anim	walkoff
+	loop	0
+	offset	82 177
+	bbox	63 98 41 79
+	delay	10
+	frame	data/chars/guy/guy_knife/ju1.gif
+	frame	data/chars/guy/guy_knife/ju1.gif
+		
+#|edited by openBor Stats v 0.60
+		
