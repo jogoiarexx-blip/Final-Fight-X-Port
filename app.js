@@ -39,6 +39,8 @@
   const renderMetrics={framesBegun:0,framesPresented:0,framesHeld:0,pendingDraws:0,lastFramePending:0,maxFramePending:0,lastPresentAt:0,prefetchBatches:0};
   let framePendingDraws=0;
   let framePaths=new Set(),lastPresentedPaths=[];
+  const engineModeNames=['Scene','StageComplete','Title','Options','Graphics','Controls','Pause','Select','Loading','Playing','Continue','GameOver','Finished'];
+  let engineDebug={mode:-1,modeName:'Unknown',stage:-1,camera:0,progress:0,actors:0,enemies:0,playerX:-1,playerHp:-1,nextSpawn:0,spawnCount:0};
   const runtimeErrors=[];
   const failedAssets=new Set();
   const requiredConfigFiles=['levels.txt','models.txt','menu.txt','levels/ff64th/64th.1.txt'];
@@ -251,6 +253,11 @@
 
   window.FFXWeb = {
     input,audio,ensureImage,assetMeta:{},configFileCount:0,presentFrame,renderMetrics,
+    updateEngineDebug(state){
+      if(!state)return;
+      engineDebug={...engineDebug,...state};
+      engineDebug.modeName=engineModeNames[engineDebug.mode]||'Unknown';
+    },
     debugState(){
       let ready=0,pending=0,failed=0;
       for(const rec of imageCache.values()){if(rec.ready)ready++;else if(rec.failed)failed++;else pending++;}
@@ -260,6 +267,7 @@
         booted,logicalW,logicalH,internalScale,
         images:{total:imageCache.size,ready,pending,failed,prefetched:prefetchedPaths.size,prefetchQueued:prefetchQueue.length,prefetchActive},
         input:{latched:Array.from(keyLatchUntil).filter(t=>t>performance.now()).length,latchMs:KEY_LATCH_MS},
+        engine:{...engineDebug},
         failedAssets:[...failedAssets],
         runtimeErrors:[...runtimeErrors],
         saveMounted,
