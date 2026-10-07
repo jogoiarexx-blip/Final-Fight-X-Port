@@ -2,6 +2,9 @@
   'use strict';
   const canvas = document.getElementById('game-canvas');
   const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true });
+  const frameCanvas = document.createElement('canvas');
+  const frameCtx = frameCanvas.getContext('2d', { alpha: false, desynchronized: true });
+  let frameComplete = true;
   const shell = document.getElementById('game-shell');
   const boot = document.getElementById('boot');
   const bootStatus = document.getElementById('boot-status');
@@ -53,8 +56,22 @@
   function resizeCanvas(w=logicalW,h=logicalH){
     logicalW=w;logicalH=h;
     const pw=Math.round(w*internalScale),ph=Math.round(h*internalScale);
-    if(canvas.width!==pw||canvas.height!==ph){canvas.width=pw;canvas.height=ph;}
+    if(frameCanvas.width!==pw||frameCanvas.height!==ph){frameCanvas.width=pw;frameCanvas.height=ph;}
     shell.style.aspectRatio=`${w}/${h}`;
+  }
+
+  function presentFrame(){
+    if(!frameComplete)return false;
+    const pw=frameCanvas.width,ph=frameCanvas.height;
+    if(canvas.width!==pw||canvas.height!==ph){canvas.width=pw;canvas.height=ph;}
+    ctx.save();
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.globalAlpha=1;
+    ctx.globalCompositeOperation='copy';
+    ctx.imageSmoothingEnabled=false;
+    ctx.drawImage(frameCanvas,0,0);
+    ctx.restore();
+    return true;
   }
 
   function ensureImage(path){
@@ -64,7 +81,7 @@
     const img=new Image();
     rec={img,ready:false,failed:false,promise:null};
     rec.promise=new Promise(resolve=>{
-      img.onload=()=>{rec.ready=true;resolve(rec)};
+      img.onload=async()=>{try{if(img.decode)await img.decode();}catch{}rec.ready=true;resolve(rec)};
       img.onerror=()=>{
         if(path.startsWith('assets/data_hd/')&&path.endsWith('.png')&&!rec.fallbackTried){
           rec.fallbackTried=true;rec.failed=false;
@@ -94,10 +111,10 @@
   async function makeRemap(srcPath,basePath,altPath){
     const key=`${srcPath}|${basePath}|${altPath}`;
     const existing=remapCache.get(key);if(existing)return existing.promise;
-    const rec={ready:false,canvas:null,promise:null};
+    const rec={ready:false,failed:false,canvas:null,promise:null};
     rec.promise=(async()=>{
       const src=ensureImage(srcPath);const [base,alt]=await Promise.all([loadAct(basePath),loadAct(altPath)]);await src?.promise;
-      if(!src?.ready||!base||!alt)return null;
+      if(!src?.ready||!base||!alt){rec.failed=true;return null;}
       const sw=src.img.naturalWidth,sh=src.img.naturalHeight;
       const off=document.createElement('canvas');off.width=sw;off.height=sh;
       const oc=off.getContext('2d',{willReadFrequently:true});oc.imageSmoothingEnabled=false;oc.drawImage(src.img,0,0);
@@ -105,7 +122,7 @@
       const id=oc.getImageData(0,0,sw,sh),d=id.data;
       for(let i=0;i<d.length;i+=4){if(d[i+3]===0)continue;const v=map.get((d[i]<<16)|(d[i+1]<<8)|d[i+2]);if(v){d[i]=v[0];d[i+1]=v[1];d[i+2]=v[2];}}
       oc.putImageData(id,0,0);rec.canvas=off;rec.ready=true;return off;
-    })();
+    })().catch(err=>{rec.failed=true;console.warn('Palette remap failed',srcPath,err);return null;});
     remapCache.set(key,rec);return rec.promise;
   }
 
@@ -156,20 +173,49 @@
   };
 
   window.FFXWeb = {
-    input,audio,ensureImage,assetMeta:{},configFileCount:0,
+    input,audio,ensureImage,assetMeta:{},configFileCount:0,presentFrame,
     beginFrame(w,h,post,upscale,filter,strength,integerScale){
-      resizeCanvas(w,h);ctx.setTransform(internalScale,0,0,internalScale,0,0);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.imageSmoothingEnabled=upscale!==0;
+      resizeCanvas(w,h);
+      frameComplete=true;
+      frameCtx.setTransform(internalScale,0,0,internalScale,0,0);
+      frameCtx.globalAlpha=1;
+      frameCtx.globalCompositeOperation='source-over';
+      frameCtx.imageSmoothingEnabled=upscale!==0;
       canvas.style.imageRendering=upscale===0?'pixelated':'auto';
       const s=Math.max(0,Math.min(1,strength/100));canvas.style.filter=filter===3?`contrast(${1+.10*s}) saturate(${1+.08*s})`:filter===2?`contrast(${1+.16*s}) saturate(${1+.05*s})`:'none';
       scanlines.style.opacity=(filter===1||filter===2||filter===3)?String(.14+.18*s):'0';
     },
-    endFrame(){ctx.globalAlpha=1;},
-    clear(r,g,b,a){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle=rgba(r,g,b,a);ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore();},
-    fillRect(x,y,w,h,r,g,b,a,opacity){ctx.save();ctx.globalAlpha=Math.max(0,Math.min(1,opacity));ctx.fillStyle=rgba(r,g,b,a);ctx.fillRect(x,y,w,h);ctx.restore();},
-    drawImage(path,x,y,w,h,flip,opacity){const rec=ensureImage(path);if(!rec?.ready)return;ctx.save();ctx.globalAlpha=Math.max(0,Math.min(1,opacity));if(flip){ctx.translate(x+w,y);ctx.scale(-1,1);ctx.drawImage(rec.img,0,0,w,h);}else ctx.drawImage(rec.img,x,y,w,h);ctx.restore();},
-    drawCover(path,opacity){const rec=ensureImage(path);if(!rec?.ready)return;const iw=rec.img.naturalWidth||1,ih=rec.img.naturalHeight||1,s=Math.max(logicalW/iw,logicalH/ih),w=iw*s,h=ih*s;this.drawImage(path,(logicalW-w)/2,(logicalH-h)/2,w,h,false,opacity);},
-    drawRemapped(src,base,alt,x,y,w,h,flip,opacity){const key=`${src}|${base}|${alt}`;const rec=remapCache.get(key);if(!rec){makeRemap(src,base,alt);return;}if(!rec.ready||!rec.canvas)return;const off=rec.canvas;ctx.save();ctx.globalAlpha=opacity;if(flip){ctx.translate(x+w,y);ctx.scale(-1,1);ctx.drawImage(off,0,0,w,h);}else ctx.drawImage(off,x,y,w,h);ctx.restore();},
-    text(s,x,y,size,r,g,b,a,center,centerX,width){ctx.save();ctx.globalAlpha=a;ctx.fillStyle=rgba(r,g,b,1);ctx.font=`600 ${Math.max(4,size)}px "Arial Narrow","Roboto Condensed",Arial,sans-serif`;ctx.textBaseline='top';ctx.textAlign=center?'center':'left';let tx=x;if(center)tx=width>0?centerX:logicalW/2;ctx.fillText(s,tx,y,width>0?width:undefined);ctx.restore();},
+    endFrame(){frameCtx.globalAlpha=1;presentFrame();},
+    clear(r,g,b,a){frameCtx.save();frameCtx.setTransform(1,0,0,1,0,0);frameCtx.fillStyle=rgba(r,g,b,a);frameCtx.fillRect(0,0,frameCanvas.width,frameCanvas.height);frameCtx.restore();},
+    fillRect(x,y,w,h,r,g,b,a,opacity){frameCtx.save();frameCtx.globalAlpha=Math.max(0,Math.min(1,opacity));frameCtx.fillStyle=rgba(r,g,b,a);frameCtx.fillRect(x,y,w,h);frameCtx.restore();},
+    drawImage(path,x,y,w,h,flip,opacity){
+      const rec=ensureImage(path);
+      if(!rec?.ready){if(rec&&!rec.failed)frameComplete=false;return;}
+      frameCtx.save();
+      frameCtx.globalAlpha=Math.max(0,Math.min(1,opacity));
+      if(flip){frameCtx.translate(x+w,y);frameCtx.scale(-1,1);frameCtx.drawImage(rec.img,0,0,w,h);}
+      else frameCtx.drawImage(rec.img,x,y,w,h);
+      frameCtx.restore();
+    },
+    drawCover(path,opacity){
+      const rec=ensureImage(path);
+      if(!rec?.ready){if(rec&&!rec.failed)frameComplete=false;return;}
+      const iw=rec.img.naturalWidth||1,ih=rec.img.naturalHeight||1,s=Math.max(logicalW/iw,logicalH/ih),w=iw*s,h=ih*s;
+      this.drawImage(path,(logicalW-w)/2,(logicalH-h)/2,w,h,false,opacity);
+    },
+    drawRemapped(src,base,alt,x,y,w,h,flip,opacity){
+      const key=`${src}|${base}|${alt}`;const rec=remapCache.get(key);
+      if(!rec){makeRemap(src,base,alt);frameComplete=false;return;}
+      if(!rec.ready||!rec.canvas){
+        if(rec.failed){this.drawImage(src,x,y,w,h,flip,opacity);return;}
+        frameComplete=false;return;
+      }
+      const off=rec.canvas;frameCtx.save();frameCtx.globalAlpha=opacity;
+      if(flip){frameCtx.translate(x+w,y);frameCtx.scale(-1,1);frameCtx.drawImage(off,0,0,w,h);}
+      else frameCtx.drawImage(off,x,y,w,h);
+      frameCtx.restore();
+    },
+    text(s,x,y,size,r,g,b,a,center,centerX,width){frameCtx.save();frameCtx.globalAlpha=a;frameCtx.fillStyle=rgba(r,g,b,1);frameCtx.font=`600 ${Math.max(4,size)}px "Arial Narrow","Roboto Condensed",Arial,sans-serif`;frameCtx.textBaseline='top';frameCtx.textAlign=center?'center':'left';let tx=x;if(center)tx=width>0?centerX:logicalW/2;frameCtx.fillText(s,tx,y,width>0?width:undefined);frameCtx.restore();},
     configure(wide,hd){resizeCanvas(wide?426:320,240);},
     onNativeResize(){},
     async setFullscreen(enabled){
