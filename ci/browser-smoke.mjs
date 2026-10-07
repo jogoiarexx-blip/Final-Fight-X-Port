@@ -28,26 +28,29 @@ try{
   if(boot.failedAssets?.length) throw new Error('Failed assets at boot: '+boot.failedAssets.join(', '));
   if(!boot.saveMounted) throw new Error('/save filesystem is not mounted');
 
-  const waitForPresentedPath=async(fragment,timeout=10000)=>{
-    await page.waitForFunction(
-      f=>globalThis.FFXWeb?.debugState?.().lastPresentedPaths?.some(p=>p.includes(f)),
-      fragment,{timeout}
-    );
+  const waitForFrame=async(predicateName,timeout=10000)=>{
+    await page.waitForFunction(name=>{
+      const paths=globalThis.FFXWeb?.debugState?.().lastPresentedPaths||[];
+      if(name==='title')return paths.some(p=>p.includes('/bgs/title'));
+      if(name==='select')return paths.some(p=>p.includes('/chars/')&&p.includes('/icon'))&&paths.some(p=>p.includes('/chars/')&&p.includes('/idle'));
+      if(name==='stage1')return paths.some(p=>p.includes('/bgs/ff64th/64th.1/'));
+      return false;
+    },predicateName,{timeout});
     return page.evaluate(()=>FFXWeb.debugState());
   };
 
   // Navigate by what was ACTUALLY presented, not by fixed sleeps.
   // ESC exits intro scenes -> Title. ENTER on Title -> Select. ENTER on Select -> Stage 1.
   await page.keyboard.press('Escape');
-  await waitForPresentedPath('/bgs/title',10000);
+  await waitForFrame('title',10000);
   await snap('02-title');
 
   await page.keyboard.press('Enter');
-  await waitForPresentedPath('/bgs/select',10000);
+  await waitForFrame('select',10000);
   await snap('03-select');
 
   await page.keyboard.press('Enter');
-  await waitForPresentedPath('/bgs/ff64th/64th.1/',15000);
+  await waitForFrame('stage1',15000);
   const stage=await snap('04-stage1');
   const reachedStage1=stage.lastPresentedPaths?.some(p=>p.includes('/bgs/ff64th/64th.1/'));
   if(!reachedStage1) throw new Error('Stage 1 background was not presented after Title -> Select flow');
