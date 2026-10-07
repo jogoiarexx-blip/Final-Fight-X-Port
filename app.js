@@ -28,6 +28,8 @@
   const keyQueue = [];
   let logicalW = 320, logicalH = 240, internalScale = 4;
   let muted = localStorage.getItem('ffx-web-muted')==='1', booted = false, pendingFullscreen = null;
+  const renderMetrics={framesBegun:0,framesPresented:0,framesHeld:0,pendingDraws:0,lastFramePending:0,maxFramePending:0,lastPresentAt:0};
+  let framePendingDraws=0;
   const runtimeErrors=[];
   const failedAssets=new Set();
   const requiredConfigFiles=['levels.txt','models.txt','menu.txt','levels/ff64th/64th.1.txt'];
@@ -173,10 +175,27 @@
   };
 
   window.FFXWeb = {
-    input,audio,ensureImage,assetMeta:{},configFileCount:0,presentFrame,
+    input,audio,ensureImage,assetMeta:{},configFileCount:0,presentFrame,renderMetrics,
+    debugState(){
+      let ready=0,pending=0,failed=0;
+      for(const rec of imageCache.values()){if(rec.ready)ready++;else if(rec.failed)failed++;else pending++;}
+      let saveMounted=false;
+      try{saveMounted=!!(window.FS&&FS.analyzePath('/save').exists);}catch{}
+      return {
+        booted,logicalW,logicalH,internalScale,
+        images:{total:imageCache.size,ready,pending,failed},
+        failedAssets:[...failedAssets],
+        runtimeErrors:[...runtimeErrors],
+        saveMounted,
+        render:{...renderMetrics},
+        href:location.href
+      };
+    },
     beginFrame(w,h,post,upscale,filter,strength,integerScale){
       resizeCanvas(w,h);
       frameComplete=true;
+      framePendingDraws=0;
+      renderMetrics.framesBegun++;
       frameCtx.setTransform(internalScale,0,0,internalScale,0,0);
       frameCtx.globalAlpha=1;
       frameCtx.globalCompositeOperation='source-over';
@@ -185,12 +204,18 @@
       const s=Math.max(0,Math.min(1,strength/100));canvas.style.filter=filter===3?`contrast(${1+.10*s}) saturate(${1+.08*s})`:filter===2?`contrast(${1+.16*s}) saturate(${1+.05*s})`:'none';
       scanlines.style.opacity=(filter===1||filter===2||filter===3)?String(.14+.18*s):'0';
     },
-    endFrame(){frameCtx.globalAlpha=1;presentFrame();},
+    endFrame(){
+      frameCtx.globalAlpha=1;
+      renderMetrics.lastFramePending=framePendingDraws;
+      renderMetrics.maxFramePending=Math.max(renderMetrics.maxFramePending,framePendingDraws);
+      if(presentFrame()){renderMetrics.framesPresented++;renderMetrics.lastPresentAt=performance.now();}
+      else renderMetrics.framesHeld++;
+    },
     clear(r,g,b,a){frameCtx.save();frameCtx.setTransform(1,0,0,1,0,0);frameCtx.fillStyle=rgba(r,g,b,a);frameCtx.fillRect(0,0,frameCanvas.width,frameCanvas.height);frameCtx.restore();},
     fillRect(x,y,w,h,r,g,b,a,opacity){frameCtx.save();frameCtx.globalAlpha=Math.max(0,Math.min(1,opacity));frameCtx.fillStyle=rgba(r,g,b,a);frameCtx.fillRect(x,y,w,h);frameCtx.restore();},
     drawImage(path,x,y,w,h,flip,opacity){
       const rec=ensureImage(path);
-      if(!rec?.ready){if(rec&&!rec.failed)frameComplete=false;return;}
+      if(!rec?.ready){if(rec&&!rec.failed){frameComplete=false;framePendingDraws++;renderMetrics.pendingDraws++;}return;}
       frameCtx.save();
       frameCtx.globalAlpha=Math.max(0,Math.min(1,opacity));
       if(flip){frameCtx.translate(x+w,y);frameCtx.scale(-1,1);frameCtx.drawImage(rec.img,0,0,w,h);}
@@ -199,16 +224,16 @@
     },
     drawCover(path,opacity){
       const rec=ensureImage(path);
-      if(!rec?.ready){if(rec&&!rec.failed)frameComplete=false;return;}
+      if(!rec?.ready){if(rec&&!rec.failed){frameComplete=false;framePendingDraws++;renderMetrics.pendingDraws++;}return;}
       const iw=rec.img.naturalWidth||1,ih=rec.img.naturalHeight||1,s=Math.max(logicalW/iw,logicalH/ih),w=iw*s,h=ih*s;
       this.drawImage(path,(logicalW-w)/2,(logicalH-h)/2,w,h,false,opacity);
     },
     drawRemapped(src,base,alt,x,y,w,h,flip,opacity){
       const key=`${src}|${base}|${alt}`;const rec=remapCache.get(key);
-      if(!rec){makeRemap(src,base,alt);frameComplete=false;return;}
+      if(!rec){makeRemap(src,base,alt);frameComplete=false;framePendingDraws++;renderMetrics.pendingDraws++;return;}
       if(!rec.ready||!rec.canvas){
         if(rec.failed){this.drawImage(src,x,y,w,h,flip,opacity);return;}
-        frameComplete=false;return;
+        frameComplete=false;framePendingDraws++;renderMetrics.pendingDraws++;return;
       }
       const off=rec.canvas;frameCtx.save();frameCtx.globalAlpha=opacity;
       if(flip){frameCtx.translate(x+w,y);frameCtx.scale(-1,1);frameCtx.drawImage(off,0,0,w,h);}
